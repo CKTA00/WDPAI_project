@@ -1,0 +1,110 @@
+﻿body{
+    /* proper window displaing */
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+
+    /* content positioning */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    /* default text color */
+    color: #3B9913;
+
+    /* background color */ 
+    /* 
+        TODO:
+        replace with img of linear-gradient(0deg, #BBFF9D, #85D861);
+    */
+    background-color: #BBFF9D;
+    
+}
+
+.login-div, .logo{
+    
+
+    /* content positioning */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+form{
+    /* content positioning */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1em
+}
+
+h1{
+    font-size: 3em;
+    /* default color */
+}
+
+.register-link{
+    font-size: 0.625em; /* 10 px */
+}
+
+
+/* https://getcssscan.com/css-buttons-examples */
+.button-22 {
+  align-items: center;
+  appearance: button;
+  background-color: #85D861;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+  box-sizing: border-box;
+  /*color: #fff;*/
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: "RM Neue",sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  padding: 10px 21px;
+  text-align: center;
+  text-transform: none;
+  transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-22:active {
+  background-color: #85D861;
+}
+
+.button-22:hover {
+  background-color: #B6F898;
+}
+
+
+/* MOMBILE VERSION */
+/* 
+    TODO:
+    move this section to another file
+*/
+@media screen and (max-device-width: 414px),
+screen and (max-width: 411px)
+{
+    body {
+        flex-direction: column;
+    }
+
+    .logo{
+        height: 20vh;
+    }
+
+    .login-form{
+        height: 80vh;
+    }
+}
