@@ -1,6 +1,6 @@
 ﻿<?php
 
-echo "Hello world!";
+require_once "Routing.php";
 
-$variable_name = " siema";
-echo $variable_name;
+$path = trim($_SERVER['REQUEST_URI'],'/');
+Router::run($path);
