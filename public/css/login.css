@@ -8,23 +8,20 @@
     /* content positioning */
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
 
     /* default text color */
     color: #3B9913;
 
-    /* background color */ 
-    /* 
-        TODO:
-        replace with img of linear-gradient(0deg, #BBFF9D, #85D861);
-    */
-    background-color: #BBFF9D;
+    /* color */
+    background: transparent linear-gradient(180deg, #BBFF9D 0%, #79DC4D 100%) 0% 0% no-repeat padding-box;
+    opacity: 1;
     
 }
 
 .login-div, .logo{
-    
+   
 
     /* content positioning */
     display: flex;
@@ -33,58 +30,130 @@
     align-items: stretch;
 }
 
+.login-div{
+    /* appearance */
+    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 5px 10px 10px #00000029;
+    border-radius: 3.4em;
+    opacity: 1;
+
+    padding: 2em;
+}
+
 form{
+
     /* content positioning */
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: flex-start;
-    gap: 1em
+    gap: 0.75em
 }
 
 h1{
-    font-size: 3em;
+    /* appearance */
+    color: var(--unnamed-color-3b9913);
+    text-align: left;
+    font: normal normal normal 2.8em/0.5em Gill Sans Nova;
+    letter-spacing: 0px;
+    color: #3B9913;
+    opacity: 1;
     /* default color */
 }
 
+.standard-text{
+    /* appearance */
+    color: var(--unnamed-color-3b9913);
+    text-align: left;
+    font: normal normal normal 1.75em/1em Gill Sans Nova;
+    letter-spacing: 0px;
+    color: #3B9913;
+    opacity: 1;
+}
+
+.standard-input, .button-22{
+    border-radius: 0.5em;
+
+    padding: 0em 0.5em 0em 0.5em;
+}
+
+.standard-input{/**/
+    /* size */    
+    height: 1.75em;
+
+    /* appearance (div) */
+    background: var(--input-bg) 0% 0% no-repeat padding-box;
+    border: 1px solid var(--border);
+    background: #EBFEE0 0% 0% no-repeat padding-box;
+    border: 1px solid #04B30C;
+    opacity: 1;
+
+    /* appearance (text) */
+    color: var(--unnamed-color-3b9913);
+    text-align: left;
+    font: normal normal normal 1.75em Gill Sans Nova;
+    letter-spacing: 0px;
+    color: #3B9913;
+    opacity: 1;
+}
+
 .register-link{
-    font-size: 0.625em; /* 10 px */
+    /*font-size: 0.625em; /* 10 px */
+    color: var(--unnamed-color-3b9913);
+    text-align: left;
+    font: normal normal 300 1em/1.25em Gill Sans Nova;
+    letter-spacing: 0px;
+    color: #3B9913;
+    opacity: 0.4;
 }
 
 
-/* https://getcssscan.com/css-buttons-examples */
+/* original from https://getcssscan.com/css-buttons-examples */
 .button-22 {
-  align-items: center;
-  appearance: button;
-  background-color: #85D861;
-  border-radius: 8px;
-  border-style: none;
-  box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
-  box-sizing: border-box;
-  /*color: #fff;*/
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  flex-shrink: 0;
-  font-family: "RM Neue",sans-serif;
-  font-size: 100%;
-  line-height: 1.15;
-  margin: 0;
-  padding: 10px 21px;
-  text-align: center;
-  text-transform: none;
-  transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+    /* modifications */   
+    height: 2.5em;
+    font: normal normal normal 1.75em Gill Sans Nova;
+    letter-spacing: 0px;
+    color: var(--unnamed-color-3b9913);
+    color: #3B9913;
+    background: transparent linear-gradient(180deg, #B6F898 0%, #85D861 100%) 0% 0% no-repeat padding-box;
+    
+    /* original */
+    /*align-items: center;*/
+    appearance: button;
+    /*background-color: #85D861;*/
+    /*border-radius: 8px;*/
+    border-style: none;
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    box-sizing: border-box;
+    /*color: #fff;*/
+    cursor: pointer;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*flex-shrink: 0;*/
+    /*font-family: "RM Neue",sans-serif;
+    font-size: 100%;*/
+    line-height: 1.15;
+    margin: 0;
+    /*padding: 10px 21px;*/
+    text-align: center;
+    text-transform: none;
+    transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
 }
 
 .button-22:active {
-  background-color: #85D861;
+   /* background-color: #85D861;*/
+   
+   background: transparent linear-gradient(180deg, #85D861 0%, #B6F898 100%) 0% 0% no-repeat padding-box;
 }
 
 .button-22:hover {
-  background-color: #B6F898;
+   /* background-color: #B6F898;*/
+   background: transparent linear-gradient(180deg, #c3f8aa 0%, #97d47c 100%) 0% 0% no-repeat padding-box;
 }
 
 
