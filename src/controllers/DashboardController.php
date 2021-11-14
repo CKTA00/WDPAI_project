@@ -11,8 +11,8 @@ class DashboardController extends AppController
 
     public function dashboard()
     {
-        $data= ["pizza","burgir"];
-        $this->render('dashboard', ['recipes'=>$data]);
+        $data= ["zaginoł kot","korepetycje z matematyki dla dzieci z klas 4-8"];
+        $this->render('dashboard', ['titles'=>$data]);
     }
    
 }

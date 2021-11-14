@@ -4,19 +4,23 @@ require_once 'src/controllers/DashboardController.php';
 
 class Router
 {
-    public static function run(?string $url){
+    public static $routes;
 
-        $controller = new DashboardController();
-        if($url === "login")
+    public static function get($url, $controller)
+    {
+        self::$routes[$url] = $controller;
+    }
+
+    public static function run(?string $url)
+    {
+        $action = explode("/",$url)[0]; // extraction of key and function name from url
+        if(!array_key_exists($action, self::$routes))
         {
-            //echo "LOGIN";
-            $controller->login();
-            // TODO open page
+            die("404 PAGE NOT FOUND");
         }
-        if($url === "dashboard")
-        {
-            $controller->dashboard();
-            // TODO open page
-        }
+
+        $controller = self::$routes[$action]; // using $action as a key
+        $obj = new $controller; // creating controller object from its name
+        $obj->$action(); // using $action as a function name in controller object
     }
 }
