@@ -11,18 +11,14 @@
     justify-content: space-evenly;
     align-items: center;
 
-    /* default text color */
-    color: #3B9913;
-
-    /* color */
+    /* appearance */
     background: transparent linear-gradient(180deg, #BBFF9D 0%, #79DC4D 100%) 0% 0% no-repeat padding-box;
     opacity: 1;
+    color: #3B9913; /* default text color */
     
 }
 
 .login-div, .logo{
-   
-
     /* content positioning */
     display: flex;
     flex-direction: column;
@@ -31,18 +27,18 @@
 }
 
 .login-div{
+    /* content positioning */
+    padding: 2em;
+
     /* appearance */
     background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 5px 10px 10px #00000029;
     border-radius: 3.4em;
     opacity: 1;
-
-    padding: 2em;
 }
 
 form{
-
     /* content positioning */
     display: flex;
     flex-direction: column;
@@ -59,7 +55,6 @@ h1{
     letter-spacing: 0px;
     color: #3B9913;
     opacity: 1;
-    /* default color */
 }
 
 .standard-text{
@@ -73,9 +68,11 @@ h1{
 }
 
 .standard-input, .button-22{
-    border-radius: 0.5em;
-
+    /* content positioning */
     padding: 0em 0.5em 0em 0.5em;
+    
+    /* appearance */
+    border-radius: 0.5em;
 }
 
 .standard-input{/**/
@@ -99,7 +96,7 @@ h1{
 }
 
 .register-link{
-    /*font-size: 0.625em; /* 10 px */
+    /* appearance */
     color: var(--unnamed-color-3b9913);
     text-align: left;
     font: normal normal 300 1em/1.25em Gill Sans Nova;
@@ -147,7 +144,6 @@ h1{
 
 .button-22:active {
    /* background-color: #85D861;*/
-   
    background: transparent linear-gradient(180deg, #85D861 0%, #B6F898 100%) 0% 0% no-repeat padding-box;
 }
 
