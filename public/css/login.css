@@ -1,14 +1,19 @@
-﻿body{
+﻿body
+{
+    padding: 0;
+    margin: 0;
+}
+
+.container
+{
     /* proper window displaing */
     height: 100vh;
     width: 100vw;
-    padding: 0;
-    margin: 0;
 
     /* content positioning */
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 
     /* appearance */
@@ -20,22 +25,16 @@
 
 .login-div, .logo{
     /* content positioning */
+    width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
+    justify-content: center;
+    align-items: center;
 }
 
 .login-div{
     /* content positioning */
-    padding: 2em;
-
-    /* appearance */
-    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    box-shadow: 5px 10px 10px #00000029;
-    border-radius: 3.4em;
-    opacity: 1;
+    width: 50%;
 }
 
 form{
@@ -44,7 +43,15 @@ form{
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
-    gap: 0.75em
+    gap: 0.75em;
+    padding: 2em;
+
+    /* appearance */
+    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 5px 10px 10px #00000029;
+    border-radius: 3.4em;
+    opacity: 1;
 }
 
 h1{
@@ -115,7 +122,9 @@ h1{
     color: var(--unnamed-color-3b9913);
     color: #3B9913;
     background: transparent linear-gradient(180deg, #B6F898 0%, #85D861 100%) 0% 0% no-repeat padding-box;
-    
+    margin: 0;
+    margin-top: 0.5em;
+
     /* original */
     /*align-items: center;*/
     appearance: button;
@@ -132,7 +141,7 @@ h1{
     /*font-family: "RM Neue",sans-serif;
     font-size: 100%;*/
     line-height: 1.15;
-    margin: 0;
+    /*margin: 0;*/
     /*padding: 10px 21px;*/
     text-align: center;
     text-transform: none;
