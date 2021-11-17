@@ -12,5 +12,6 @@ if(empty($path))
 Router::get('index','DashboardController'); 
 Router::get('login','DashboardController');
 Router::get('dashboard','DashboardController');
+Router::get('users','DashboardController');
 
 Router::run($path); // or rerout in run()?

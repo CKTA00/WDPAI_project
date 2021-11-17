@@ -15,7 +15,7 @@ class AppController {
                 
         if(file_exists($templatePath)){
 
-            extract($variables); // translates dictionary to varaibles (keys becomes names of the variables)
+            extract($variables); // translates dictionary to variables (keys becomes names of the variables)
             ob_start();
             include $templatePath;
             $output = ob_get_clean();
