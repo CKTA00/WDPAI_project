@@ -19,7 +19,7 @@
     /* appearance */
     background: transparent linear-gradient(180deg, #BBFF9D 0%, #79DC4D 100%) 0% 0% no-repeat padding-box;
     opacity: 1;
-    color: #3B9913; /* default text color */
+    color: var(--default-text); /* default text color */
     
 }
 
@@ -47,8 +47,8 @@ form{
     padding: 2em;
 
     /* appearance */
-    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
+    background: var(--form-background) 0% 0% no-repeat padding-box;
+    /* background: #FFFFFF 0% 0% no-repeat padding-box; */
     box-shadow: 5px 10px 10px #00000029;
     border-radius: 3.4em;
     opacity: 1;
@@ -56,21 +56,21 @@ form{
 
 h1{
     /* appearance */
-    color: var(--unnamed-color-3b9913);
+    color: var(--defalut-text);
     text-align: left;
     font: normal normal normal 2.8em/0.5em Gill Sans Nova;
     letter-spacing: 0px;
-    color: #3B9913;
+    /*color: #3B9913;*/
     opacity: 1;
 }
 
 .standard-text{
     /* appearance */
-    color: var(--unnamed-color-3b9913);
+    color: var(--defalut-text);
     text-align: left;
     font: normal normal normal 1.75em/1em Gill Sans Nova;
     letter-spacing: 0px;
-    color: #3B9913;
+    /*color: #3B9913;*/
     opacity: 1;
 }
 
@@ -89,26 +89,26 @@ h1{
     /* appearance (div) */
     background: var(--input-bg) 0% 0% no-repeat padding-box;
     border: 1px solid var(--border);
-    background: #EBFEE0 0% 0% no-repeat padding-box;
-    border: 1px solid #04B30C;
+    /*background: #EBFEE0 0% 0% no-repeat padding-box;*/
+    /*border: 1px solid #04B30C;*/
     opacity: 1;
 
     /* appearance (text) */
-    color: var(--unnamed-color-3b9913);
+    color: var(--defalut-text);
     text-align: left;
     font: normal normal normal 1.75em Gill Sans Nova;
     letter-spacing: 0px;
-    color: #3B9913;
+    /*color: #3B9913;*/
     opacity: 1;
 }
 
 .register-link{
     /* appearance */
-    color: var(--unnamed-color-3b9913);
+    color: var(--defalut-text);
     text-align: left;
     font: normal normal 300 1em/1.25em Gill Sans Nova;
     letter-spacing: 0px;
-    color: #3B9913;
+    /*color: #3B9913;*/
     opacity: 0.4;
 }
 
@@ -119,8 +119,8 @@ h1{
     height: 2.5em;
     font: normal normal normal 1.75em Gill Sans Nova;
     letter-spacing: 0px;
-    color: var(--unnamed-color-3b9913);
-    color: #3B9913;
+    color: var(--button-text);
+    /*color: #3B9913;*/
     background: transparent linear-gradient(180deg, #B6F898 0%, #85D861 100%) 0% 0% no-repeat padding-box;
     margin: 0;
     margin-top: 0.5em;
