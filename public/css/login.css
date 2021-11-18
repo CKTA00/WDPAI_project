@@ -161,24 +161,3 @@ h1{
    background: transparent linear-gradient(180deg, #c3f8aa 0%, #97d47c 100%) 0% 0% no-repeat padding-box;
 }
 
-
-/* MOMBILE VERSION */
-/* 
-    TODO:
-    move this section to another file
-*/
-@media screen and (max-device-width: 414px),
-screen and (max-width: 411px)
-{
-    body {
-        flex-direction: column;
-    }
-
-    .logo{
-        height: 20vh;
-    }
-
-    .login-form{
-        height: 80vh;
-    }
-}
