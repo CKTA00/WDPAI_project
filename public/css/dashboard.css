@@ -1,0 +1,52 @@
+﻿body
+{
+    padding: 0;
+    margin: 0;
+}
+
+.base-container{
+    height: 100wh;
+
+    /* content positioning */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+nav{
+    /* appearance */
+    width: 5vw;
+    height: 100vh;
+    background: var(--basic) 0% 0% no-repeat padding-box;
+
+    /* content positioning */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+button{
+    width: 5vw;
+    height: 5vw;
+    border: 0;
+    background-color: rgba(0,0,0,0);
+    border-radius: 0 1vw 1vw 0;
+}
+
+#active-tab{
+    background-color: var(--input-bg);
+    color: var(--basic);
+}
+
+i{
+    color: var(--button-icon);
+    font-size: 3vw;
+}
+
+
+main{
+    width: 95vw;
+}
+
