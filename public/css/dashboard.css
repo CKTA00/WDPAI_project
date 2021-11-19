@@ -4,7 +4,8 @@
     margin: 0;
 }
 
-.base-container{
+.base-container
+{
     height: 100wh;
 
     /* content positioning */
@@ -14,7 +15,8 @@
     align-items: center;
 }
 
-nav{
+nav
+{
     /* appearance */
     width: 5em;
     height: 100vh;
@@ -27,12 +29,15 @@ nav{
     align-items: center;
 }
 
-.main-buttons{
+.main-buttons
+{
     display: flex;
     flex-direction: column;
 }
 
-button{
+button
+{
+    /* appearance */
     width: 5rem;
     height: 5rem;
     border: 0;
@@ -40,16 +45,17 @@ button{
     border-radius: 0 1vw 1vw 0;
 }
 
-#active-tab{
+#active-tab
+{
     background-color: var(--input-bg);
     color: var(--basic);
 }
 
-i{
+nav i
+{
     color: var(--button-icon);
     font-size: 3rem;
 }
-
 
 main
 {
@@ -72,6 +78,3 @@ aside
     justify-content: flex-start;
     align-items: stretch;
 }
-
-
-
