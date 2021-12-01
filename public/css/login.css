@@ -21,6 +21,7 @@
     opacity: 1;
     color: #3B9913; /* default text color */
     
+    font-size: 16px;
 }
 
 .login-div, .logo{
@@ -30,11 +31,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.login-div{
-    /* content positioning */
-    width: 50%;
 }
 
 form{
