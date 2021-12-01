@@ -13,11 +13,14 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+
+    color: var(--default-text); /* default text color */
 }
 
 nav
 {
     /* appearance */
+    height: 100wh;
     width: 5em;
     height: 100vh;
     background: var(--basic) 0% 0% no-repeat padding-box;
@@ -63,6 +66,7 @@ main
     height: 100vh;
     flex-grow: 5;
     background: var(--input-bg);
+    box-sizing: border-box;
 }
 
 aside
@@ -71,10 +75,53 @@ aside
     height: 100vh;
     flex-grow: 1;
     background: var(--basic) 0% 0% no-repeat padding-box;
+    box-sizing: border-box;
 
     /* content positioning */
+    padding: 1em;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
+    
+}
+
+.user-profile
+{
+    /* appearance */
+    height: 3em;
+    
+    /* content positioning */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+}
+
+.user-profile>img
+{
+    /* appearance */
+    border-radius: 50%;
+    height: 3em;
+    width: 3em;
+    object-fit: cover;
+}
+
+.user-profile>h2
+{
+    color: var(--default-text);
+    text-align: left;
+    font: normal normal bold 1.5em Gill Sans Nova;
+    letter-spacing: 0px;
+    opacity: 1;
+}
+
+h3
+{
+    color: var(--default-text);
+    text-align: left;
+    font: normal normal normal 1em Gill Sans Nova;
+    letter-spacing: 0px;
+    opacity: 1;
 }
