@@ -83,6 +83,8 @@ aside
     justify-content: flex-start;
     align-items: stretch;
     gap: 0.5em;
+    overflow: auto;
+
 }
 
 .user-profile
@@ -147,6 +149,7 @@ aside>h3
 {
     width: 6.5em;
     height: 3.3em;
+    border-radius: 0.5em;
 }
 
 .annoucement div /* title */
@@ -157,6 +160,7 @@ aside>h3
     justify-content: flex-start;
     align-items: center;
     gap: 0.5em;
+
 }
 
 .annoucement i{
@@ -189,3 +193,10 @@ aside>h3
     opacity: 1;
 }
 
+.active-ann{
+    background: var(--input-bg) 0% 0% no-repeat padding-box;
+    /*border-radius: 0;
+    margin: 0;*/ /*makes sense only for left-sided scrollbar which is not well supported */
+    margin: 0 1em 0 0;
+    opacity: 1;
+}
