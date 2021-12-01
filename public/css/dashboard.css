@@ -82,7 +82,7 @@ aside
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    
+    gap: 0.5em;
 }
 
 .user-profile
@@ -124,7 +124,7 @@ aside>h3
     text-align: left;
     font: normal normal normal 1.2em Gill Sans Nova;
     letter-spacing: 0px;
-    margin: 0.4em 1em;
+    margin: 0em 1em;
     opacity: 1;
 }
 
@@ -134,33 +134,54 @@ aside>h3
     border-radius: 0px 2em 2em 0px;
     opacity: 1;
     margin: 0 1em 0 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0.5em;
+    padding: 0.5em;
 }
 
-.annoucement>img
+.annoucement img
 {
     width: 6.5em;
     height: 3.3em;
 }
 
-.annoucement>i{
+.annoucement div /* title */
+{
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.annoucement i{
+    margin: 0;
     width: 0.5em;
     height: 0.5em;
 }
 
-.annoucement > h4
+.annoucement h4
 {
+    margin: 0;
     color: var(--default-text);
     text-align: left;
     font: normal normal normal 1.2em Gill Sans Nova;
     letter-spacing: 0px;
 }
 
-.annoucement>h4:first-of-type /* title */
+.annoucement>div>h4 /* title */
 {
+    margin: 0;
     color: var(--button-text);
 }
 
-.annoucement>p{
+.annoucement p{
+    margin: 0;
     color: var(--button-text);
     text-align: left;
     font: italic normal normal 1em Gill Sans Nova;
