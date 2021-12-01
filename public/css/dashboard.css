@@ -78,7 +78,6 @@ aside
     box-sizing: border-box;
 
     /* content positioning */
-    padding: 1em;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -90,6 +89,8 @@ aside
 {
     /* appearance */
     height: 3em;
+    margin: 1em;
+    margin-bottom: 0;
     
     /* content positioning */
     display: flex;
@@ -117,11 +118,53 @@ aside
     opacity: 1;
 }
 
-h3
+aside>h3
 {
     color: var(--default-text);
     text-align: left;
-    font: normal normal normal 1em Gill Sans Nova;
+    font: normal normal normal 1.2em Gill Sans Nova;
+    letter-spacing: 0px;
+    margin: 0.4em 1em;
+    opacity: 1;
+}
+
+.annoucement
+{
+    background: var(--alt-input-bg) 0% 0% no-repeat padding-box;
+    border-radius: 0px 2em 2em 0px;
+    opacity: 1;
+    margin: 0 1em 0 0;
+}
+
+.annoucement>img
+{
+    width: 6.5em;
+    height: 3.3em;
+}
+
+.annoucement>i{
+    width: 0.5em;
+    height: 0.5em;
+}
+
+.annoucement > h4
+{
+    color: var(--default-text);
+    text-align: left;
+    font: normal normal normal 1.2em Gill Sans Nova;
+    letter-spacing: 0px;
+}
+
+.annoucement>h4:first-of-type /* title */
+{
+    color: var(--button-text);
+}
+
+.annoucement>p{
+    color: var(--button-text);
+    text-align: left;
+    font: italic normal normal 1em Gill Sans Nova;
     letter-spacing: 0px;
     opacity: 1;
 }
+
