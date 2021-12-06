@@ -73,7 +73,7 @@ aside
 {
     /* appearance */
     height: 100vh;
-    flex-grow: 1;
+    width: 25vw;
     background: var(--basic) 0% 0% no-repeat padding-box;
     box-sizing: border-box;
 
@@ -198,5 +198,64 @@ aside>h3
     /*border-radius: 0;
     margin: 0;*/ /*makes sense only for left-sided scrollbar which is not well supported */
     margin: 0 1em 0 0;
+    opacity: 1;
+}
+
+main{
+    /* appearance */
+    background: var(--input-bg) 0% 0% no-repeat padding-box;
+    opacity: 1;
+    width: 10vw;
+    padding: 1em;
+
+    /* content positioning */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.property{
+    /* content positioning */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.2em;
+
+}
+
+.property div{
+    background: var(--form-background) 0% 0% no-repeat padding-box;
+    border-radius: 1em;
+    opacity: 1;
+
+    /* flex-grow: 1; */
+
+    padding: 1em;
+    margin: 1em;
+}
+
+.property button{
+    background: var(--basic) 0% 0% no-repeat padding-box;
+    border-radius: 0.5em;
+    opacity: 1;
+
+    /* flex-grow: 100; */
+
+    color: var(--form-background);
+    font-size: 2em;
+
+    height: 2em;
+    width: 2em;
+    min-width: 2em;
+    flex-basis: 3em;
+}
+
+.property h1{
+    color: var(--button-text);
+    text-align: left;
+    font: normal normal normal 3em/0em Gill Sans Nova;
+    letter-spacing: 0px;
     opacity: 1;
 }
