@@ -4,6 +4,11 @@
     margin: 0;
 }
 
+p, h1, h2, h3, h4, h5, h6{
+
+    margin: 0em;
+}
+
 .base-container
 {
     height: 100wh;
@@ -188,7 +193,7 @@ aside>h3
     margin: 0;
     color: var(--button-text);
     text-align: left;
-    font: italic normal normal 1em Gill Sans Nova;
+    font: italic normal normal 1em/0 Gill Sans Nova;
     letter-spacing: 0px;
     opacity: 1;
 }
@@ -221,8 +226,6 @@ main{
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    gap: 0.2em;
-
 }
 
 .property div{
@@ -233,7 +236,7 @@ main{
     /* flex-grow: 1; */
 
     padding: 1em;
-    margin: 1em;
+    margin: 0.3em 1em;
 }
 
 .property button{
@@ -244,18 +247,31 @@ main{
     /* flex-grow: 100; */
 
     color: var(--form-background);
-    font-size: 2em;
+    font-size: 1.5rem;
 
-    height: 2em;
-    width: 2em;
-    min-width: 2em;
-    flex-basis: 3em;
+    height: 3rem;
+    width: 3rem;
+    min-width: 3rem;
+    /* flex-basis: 3em; */
 }
 
-.property h1{
+.property h1 {
     color: var(--button-text);
     text-align: left;
-    font: normal normal normal 3em/0em Gill Sans Nova;
+    font: normal normal normal 2em/1em Gill Sans Nova;
     letter-spacing: 0px;
     opacity: 1;
 }
+
+.property h3
+{
+    color: var(--button-text);
+    text-align: left;
+    font: normal normal normal 1.5em/0em Gill Sans Nova;
+    margin: 0.5em 0 0.75em 0;
+    letter-spacing: 0px;
+    opacity: 1;
+}
+
+
+
