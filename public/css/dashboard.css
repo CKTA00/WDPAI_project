@@ -155,6 +155,7 @@ aside>h3
     width: 6.5em;
     height: 3.3em;
     border-radius: 0.5em;
+    object-fit: cover;
 }
 
 .annoucement div /* title */
@@ -228,7 +229,7 @@ main{
     align-items: center;
 }
 
-.property div{
+.property>div{
     background: var(--form-background) 0% 0% no-repeat padding-box;
     border-radius: 1em;
     opacity: 1;
@@ -272,6 +273,42 @@ main{
     letter-spacing: 0px;
     opacity: 1;
 }
+
+.property>div>div
+{
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 0.5em;
+}
+
+.property>div>div>img{
+    width: 16.75em;
+    height: 12.5em;
+
+    border-radius: 1em;
+
+    object-fit: cover;
+}
+
+.property>div>div>button{
+    width: 16.75rem; /*for some reason em is different for buttons (much bigger)*/
+    height: 12.5rem;
+
+    border-radius: 1rem;
+
+    background: var(--basic) 0% 0% no-repeat padding-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing:unset;
+}
+
+.property>div>div>button>i{
+    color: var(--button-icon);
+    font-size: 4.5rem;
+}  
 
 
 
