@@ -1,78 +1,4 @@
-﻿body
-{
-    padding: 0;
-    margin: 0;
-}
-
-p, h1, h2, h3, h4, h5, h6{
-
-    margin: 0em;
-}
-
-.base-container
-{
-    height: 100wh;
-
-    /* content positioning */
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-
-    color: var(--default-text); /* default text color */
-}
-
-nav
-{
-    /* appearance */
-    height: 100wh;
-    width: 5em;
-    height: 100vh;
-    background: var(--basic) 0% 0% no-repeat padding-box;
-
-    /* content positioning */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.main-buttons
-{
-    display: flex;
-    flex-direction: column;
-}
-
-button
-{
-    /* appearance */
-    width: 5rem;
-    height: 5rem;
-    border: 0;
-    background-color: rgba(0,0,0,0);
-    border-radius: 0 1vw 1vw 0;
-}
-
-#active-tab
-{
-    background-color: var(--input-bg);
-    color: var(--basic);
-}
-
-nav i
-{
-    color: var(--button-icon);
-    font-size: 3rem;
-}
-
-main
-{
-    /* appearance */
-    height: 100vh;
-    flex-grow: 5;
-    background: var(--input-bg);
-    box-sizing: border-box;
-}
+﻿
 
 aside
 {
@@ -223,20 +149,6 @@ aside>h3
     opacity: 1;
 }
 
-main{
-    /* appearance */
-    background: var(--input-bg) 0% 0% no-repeat padding-box;
-    opacity: 1;
-    width: 10vw;
-    padding: 1em;
-
-    /* content positioning */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    overflow: auto;
-}
 
 .property{
     /* content positioning */
@@ -273,8 +185,11 @@ main{
     width: 3rem;
     min-width: 3rem;
     /* flex-basis: 3em; */
+}
 
-
+.property>button>p{
+    display: none;
+    color: var(--button-icon);
 }
 
 .property h1 {
@@ -297,7 +212,7 @@ main{
     display: inline;
 }
 
-.property p
+.property>div>p
 {
     color: var(--button-text);
     text-align: left;
@@ -341,7 +256,7 @@ main{
     box-sizing: border-box;
 }
 
-.property>div>div>button i{
+.property>div>div>button>i{
     color: var(--button-icon);
     font-size: 4.5rem;
 } 
@@ -356,6 +271,3 @@ main{
     opacity: 1;
     padding: 0.5em;
 }
-
-
-

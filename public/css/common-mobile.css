@@ -1,0 +1,59 @@
+﻿@media screen and (max-width: 635px)
+{
+    .base-container{
+        flex-direction: column;
+    }
+
+    main
+    {
+        width: 100vw;
+
+        /* appearance */
+        flex-grow: 5;
+        box-sizing: border-box;
+        background: var(--input-bg) 0% 0% no-repeat padding-box;
+        opacity: 1;
+        padding: 0.5em 1em 0.5em 0;
+
+        /* content positioning */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        overflow: auto;
+    }
+
+    nav
+    {
+        /* appearance */
+        height: 25vw;
+        width: 100vw;
+
+        /* content positioning */
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .main-buttons
+    {
+        display: flex;
+        flex-direction: row;
+    }
+
+    nav button
+    {
+        /* appearance */
+        width: 25vw;
+        height: 25vw;
+        border: 0;
+        background-color: rgba(0,0,0,0);
+        border-radius: 0 0 6vw 6vw;
+    }
+    
+    nav i
+    {
+        font-size: 14vw;
+    }
+}
