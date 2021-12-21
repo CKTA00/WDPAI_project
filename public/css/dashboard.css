@@ -4,6 +4,11 @@
     margin: 0;
 }
 
+p, h1, h2, h3, h4, h5, h6{
+
+    margin: 0em;
+}
+
 .base-container
 {
     height: 100wh;
@@ -73,7 +78,7 @@ aside
 {
     /* appearance */
     height: 100vh;
-    flex-grow: 1;
+    width: 25vw;
     background: var(--basic) 0% 0% no-repeat padding-box;
     box-sizing: border-box;
 
@@ -155,9 +160,10 @@ aside>h3
     width: 6.5em;
     height: 3.3em;
     border-radius: 0.5em;
+    object-fit: cover;
 }
 
-.annoucement div /* title */
+.annoucement div /* title of annoucement */
 {
     margin: 0;
     display: flex;
@@ -199,7 +205,7 @@ aside>h3
     margin: 0;
     color: var(--button-text);
     text-align: left;
-    font: italic normal normal 1em Gill Sans Nova;
+    font: italic normal normal 1em/0 Gill Sans Nova;
     letter-spacing: 0px;
     opacity: 1;
 
@@ -216,3 +222,123 @@ aside>h3
     margin: 0 1em 0 0;
     opacity: 1;
 }
+
+main{
+    /* appearance */
+    background: var(--input-bg) 0% 0% no-repeat padding-box;
+    opacity: 1;
+    width: 10vw;
+    padding: 1em;
+
+    /* content positioning */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: auto;
+}
+
+.property{
+    /* content positioning */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start safe;
+    align-items: center;
+}
+
+.property>div{
+    background: var(--form-background) 0% 0% no-repeat padding-box;
+    border-radius: 1em;
+    opacity: 1;
+
+    /* flex-grow: 1; */
+
+    padding: 1em;
+    margin: 0.3em 1em;
+}
+
+.property>button{
+    background: var(--basic) 0% 0% no-repeat padding-box;
+    border-radius: 0.5em;
+    opacity: 1;
+
+    /* flex-grow: 100; */
+
+    color: var(--form-background);
+    font-size: 1.5rem;
+
+    height: 3rem;
+    width: 3rem;
+    min-width: 3rem;
+    /* flex-basis: 3em; */
+
+
+}
+
+.property h1 {
+    color: var(--button-text);
+    text-align: left;
+    font: normal normal normal 2.5em/1em Gill Sans Nova;
+    letter-spacing: 0px;
+    opacity: 1;
+}
+
+.property h3
+{
+    color: var(--button-text);
+    text-align: left;
+    font: normal normal normal 1.5em/0em Gill Sans Nova;
+    margin: 0.5em 0 0.75em 0;
+    letter-spacing: 0px;
+    opacity: 1;
+}
+
+.property>div>div
+{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 0.5em;
+}
+
+.property>div>div>img{
+    width: 16.75em;
+    height: 12.5em;
+
+    border-radius: 1em;
+
+    object-fit: cover;
+}
+
+.property>div>div>button{
+    width: 16.75rem; /*for some reason em is different for buttons (much bigger)*/
+    height: 12.5rem;
+
+    border-radius: 1rem;
+
+    background: var(--basic) 0% 0% no-repeat padding-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing:unset;
+}
+
+.property>div>div>button>i{
+    color: var(--button-icon);
+    font-size: 4.5rem;
+} 
+
+.property select{
+    width: 22.5em;
+    height: 3em;
+
+    background: var(--alt-input-bg) 0% 0% no-repeat padding-box;
+    border: 1px solid var(--button-text);
+    border-radius: 1em;
+    opacity: 1;
+    padding: 0.5em;
+}
+
+
+
