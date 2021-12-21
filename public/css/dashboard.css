@@ -205,7 +205,7 @@ aside>h3
     margin: 0;
     color: var(--button-text);
     text-align: left;
-    font: italic normal normal 1em/0 Gill Sans Nova;
+    font: italic normal normal 1em/1em Gill Sans Nova;
     letter-spacing: 0px;
     opacity: 1;
 
