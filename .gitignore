@@ -3,3 +3,4 @@
 *.jpeg
 *.tiff
 *.gif
+.idea/*
