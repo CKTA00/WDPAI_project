@@ -164,6 +164,7 @@
     align-items: stretch;
     gap: 0.5em;
     padding: 1em;
+    overflow: auto;
 
     height: 100%;
 }
