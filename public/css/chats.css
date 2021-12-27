@@ -165,8 +165,26 @@ main
     padding: 0;
 }
 
+.send, .received{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;  
+    gap: 0.3em;  
+    padding: 0;
+}
+
+.received{
+    flex-direction: row;
+}
+
+.send{
+    flex-direction: row-reverse;
+}
+
+
 /* SEND MESSAGE SECTION */
-main>div:first-child{
+.input-line{
     background-color: var(--form-background);
     display: flex;
     flex-direction: row;
@@ -176,7 +194,7 @@ main>div:first-child{
     padding: 0;
 }
 
-main>div:last-child>input{
+.input-line>input{
     width: 100%;
 
     /* appearance */
@@ -197,7 +215,7 @@ main>div:last-child>input{
 } */ /* under consideration */
 
 
-main>div:last-child>button{
+.input-line>button{
     /* appearance */
     height: 2.5rem;
     width: 2.5rem;
