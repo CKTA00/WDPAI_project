@@ -77,7 +77,6 @@ main
     background: var(--input-bg) 0% 0% no-repeat padding-box;
     opacity: 1;
     width: 10vw;
-    padding: 0.5em 1em 0.5em 0;
 
     /* content positioning */
     display: flex;

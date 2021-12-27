@@ -164,6 +164,8 @@
     align-items: stretch;
     gap: 0.5em;
     padding: 1em;
+
+    height: 100%;
 }
 
 .message { 
@@ -228,8 +230,14 @@
 
 
 /* SEND MESSAGE SECTION */
+
+
 .input-line{
+    /* appearance */
     background-color: var(--form-background);
+    width: 100%;
+
+    /* content positioning */
     display: flex;
     flex-direction: row;
     justify-content: stretch;
@@ -254,7 +262,7 @@
     overflow: auto;
 }
 
-/* main>div:last-child>input:focus{
+/* .inpu-line>input:focus{
     background-color: var(--alt-input-bg);
 } */ /* under consideration */
 
