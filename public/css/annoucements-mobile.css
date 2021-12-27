@@ -2,7 +2,22 @@
 @media screen and (max-width: 635px)
 {
     aside{
-        display: none;
+        /* display: none; */ /* set in script */
+        width: 100vw;
+    }
+
+    main, header{
+        display: none; /* set in script */
+    }
+
+    header{
+        /* appearance */
+        height: 4em;
+    }
+
+    header button{
+        height: 4rem;
+        min-width: 4rem;
     }
 
     .property{

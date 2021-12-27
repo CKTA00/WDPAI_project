@@ -164,6 +164,7 @@ header{
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    overflow: none;
 }
 
 header button{
