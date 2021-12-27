@@ -156,18 +156,19 @@
 
 /* CHAT */
 
-main
+.chatbox
 {
     display: flex;
     flex-direction: column-reverse;
     justify-content: stretch;
     align-items: stretch;
-    padding: 0;
+    gap: 0.5em;
+    padding: 1em;
 }
 
-.send, .received{
+.message { 
+/* both send and received messages */
     display: flex;
-    flex-direction: row;
     justify-content: flex-start;
     align-items: center;  
     gap: 0.3em;  
@@ -180,6 +181,49 @@ main
 
 .send{
     flex-direction: row-reverse;
+}
+
+.separator
+{
+    flex-direction: column;
+}
+
+.message > img
+{
+    /* appearance */
+    border-radius: 50%;
+    height: 2.4em;
+    width: 2.4em;
+    object-fit: cover;
+}
+
+.message div
+{
+    /* box appearance */
+    border-radius: 1.2em;
+
+    /* text appearance */
+    padding: 0.6em;
+    color: var(--default-text);
+    text-align: left;
+    
+    font: normal normal normal 1.2em Gill Sans Nova;
+    letter-spacing: 0px;
+}
+
+.received div{
+    background-color: var(--basic);
+}
+
+.send div{
+    background-color: var(--form-background);
+}
+
+
+.separator > h6{
+    font: normal normal normal 1em Gill Sans Nova;
+    color: var(--button-text);
+    text-align: center;
 }
 
 
