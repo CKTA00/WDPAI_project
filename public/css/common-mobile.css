@@ -13,13 +13,12 @@
         box-sizing: border-box;
         background: var(--input-bg) 0% 0% no-repeat padding-box;
         opacity: 1;
-        padding: 0.5em 1em 0.5em 0;
 
         /* content positioning */
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        align-items: flex-start;
+        align-items: stretch;
         overflow: auto;
     }
 
