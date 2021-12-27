@@ -1,0 +1,281 @@
+﻿aside
+{
+    /* appearance */
+    height: 100vh;
+    width: 25vw;
+    background: var(--basic) 0% 0% no-repeat padding-box;
+    box-sizing: border-box;
+
+    /* content positioning */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0.5em;
+    overflow: auto;
+    padding-top: 0.5em;
+}
+
+.user-profile
+{
+    /* appearance */
+    height: 3em;
+    margin: 0.3em;
+    margin-bottom: 0;
+    
+    /* content positioning */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+}
+
+.user-profile > img
+{
+    /* appearance */
+    border-radius: 50%;
+    height: 2.4em;
+    width: 2.4em;
+    object-fit: cover;
+}
+
+.user-profile > h2
+{
+    color: var(--default-text);
+    text-align: left;
+    font: normal normal normal 1.2em Gill Sans Nova;
+    letter-spacing: 0px;
+    opacity: 1;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.person > h3
+{
+    color: var(--default-text);
+    text-align: left;
+    font: normal normal normal 1em Gill Sans Nova;
+    letter-spacing: 0px;
+    margin: 0em 1em;
+    opacity: 1;
+}
+
+.person
+{
+    background: var(--alt-input-bg) 0% 0% no-repeat padding-box;
+    border-radius: 0px 2em 2em 0px;
+    opacity: 1;
+    margin: 0 1em 0 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0.5em;
+    padding: 0.5em;
+    
+}
+
+.user-ann{
+    /* appearance */
+    background: var(--basic) 0% 0% no-repeat padding-box;
+    border-radius: 1em;
+    margin: 0 0.2em 0em 0;
+
+    /* content positioning */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.user-ann:last-child{
+    margin: 0 0.2em 0.2em 0;
+}
+
+.user-ann > img
+{
+    width: 3em;
+    height: 9/4em;
+    border-radius: 1em;
+    object-fit: cover;
+}
+
+.person i{
+    margin: 0;
+    width: 0.5em;
+    height: 0.5em;
+}
+
+.person h4
+{
+    margin: 0;
+    color: var(--default-text);
+    text-align: left;
+    font: normal normal normal 1.2em Gill Sans Nova;
+    letter-spacing: 0px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline;
+    white-space: nowrap;
+}
+
+.person>div>h4 /* title */
+{
+    margin: 0;
+    color: var(--input-bg);
+}
+
+.person p{
+    margin: 0;
+    color: var(--button-text);
+    text-align: left;
+    font: italic normal normal 1em/1em Gill Sans Nova;
+    letter-spacing: 0px;
+    opacity: 1;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline;
+    white-space: nowrap;
+}
+
+.active-person{
+    background: var(--input-bg) 0% 0% no-repeat padding-box;
+    /*border-radius: 0;
+    margin: 0;*/ /*makes sense only for left-sided scrollbar which is not well supported */
+    margin: 0 1em 0 0;
+    opacity: 1;
+}
+
+/* CHAT */
+
+.chatbox
+{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: stretch;
+    align-items: stretch;
+    gap: 0.5em;
+    padding: 1em;
+    overflow: auto;
+
+    height: 100%;
+}
+
+.message { 
+/* both send and received messages */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;  
+    gap: 0.3em;  
+    padding: 0;
+}
+
+.received{
+    flex-direction: row;
+}
+
+.send{
+    flex-direction: row-reverse;
+}
+
+.separator
+{
+    flex-direction: column;
+}
+
+.message > img
+{
+    /* appearance */
+    border-radius: 50%;
+    height: 2.4em;
+    width: 2.4em;
+    object-fit: cover;
+}
+
+.message div
+{
+    /* box appearance */
+    border-radius: 1.2em;
+
+    /* text appearance */
+    padding: 0.6em;
+    color: var(--default-text);
+    text-align: left;
+    
+    font: normal normal normal 1.2em Gill Sans Nova;
+    letter-spacing: 0px;
+}
+
+.received div{
+    background-color: var(--basic);
+}
+
+.send div{
+    background-color: var(--form-background);
+}
+
+
+.separator > h6{
+    font: normal normal normal 1em Gill Sans Nova;
+    color: var(--button-text);
+    text-align: center;
+}
+
+
+/* SEND MESSAGE SECTION */
+
+
+.input-line{
+    /* appearance */
+    background-color: var(--form-background);
+    width: 100%;
+
+    /* content positioning */
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;  
+    gap: 0.3em;  
+    padding: 0;
+}
+
+.input-line>input{
+    width: 100%;
+
+    /* appearance */
+    height: 2.5rem;
+    color: var(--button-text);
+    text-align: left;
+    font: normal normal normal 1.2em/1.5em Arial;
+    letter-spacing: 0px;
+    opacity: 1;
+    border: 0;
+    margin: 2px;
+
+    overflow: auto;
+}
+
+/* .inpu-line>input:focus{
+    background-color: var(--alt-input-bg);
+} */ /* under consideration */
+
+
+.input-line>button{
+    /* appearance */
+    height: 2.5rem;
+    width: 2.5rem;
+    color: var(--button-text);
+    background-color: var(--form-background);
+    font: normal normal normal 1em Arial;
+    letter-spacing: 0px;
+    opacity: 1;
+    padding: 0;
+}
