@@ -156,6 +156,10 @@
 
 /* CHAT */
 
+main{
+    justify-content: space-between;
+}
+
 .chatbox
 {
     display: flex;
@@ -165,8 +169,6 @@
     gap: 0.5em;
     padding: 1em;
     overflow: auto;
-
-    height: 100%;
 }
 
 .message { 
