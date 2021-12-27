@@ -171,30 +171,40 @@ main>div:first-child{
     display: flex;
     flex-direction: row;
     justify-content: stretch;
-    align-items: center;    
-    padding: 0.2em;
+    align-items: center;  
+    gap: 0.3em;  
+    padding: 0;
 }
 
 main>div:last-child>input{
     width: 100%;
 
     /* appearance */
-    height: 2em;
+    height: 2.5rem;
     color: var(--button-text);
     text-align: left;
-    font: normal normal normal 14px/16px Arial;
+    font: normal normal normal 1.2em/1.5em Arial;
     letter-spacing: 0px;
     opacity: 1;
     border: 0;
+    margin: 2px;
+
+    overflow: auto;
 }
+
+/* main>div:last-child>input:focus{
+    background-color: var(--alt-input-bg);
+} */ /* under consideration */
+
 
 main>div:last-child>button{
     /* appearance */
-    height: 2em;
-    width: 2em;
+    height: 2.5rem;
+    width: 2.5rem;
     color: var(--button-text);
     background-color: var(--form-background);
-    font: normal normal normal 14px/16px Arial;
+    font: normal normal normal 1em Arial;
     letter-spacing: 0px;
     opacity: 1;
+    padding: 0;
 }
