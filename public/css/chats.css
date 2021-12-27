@@ -129,7 +129,7 @@
 .person>div>h4 /* title */
 {
     margin: 0;
-    color: var(--input-bg);
+    color: var(--dark-text);
 }
 
 .person p{
@@ -218,6 +218,7 @@ main{
 
 .received div{
     background-color: var(--basic);
+    color: var(--dark-text);
 }
 
 .send div{
