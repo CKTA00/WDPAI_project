@@ -149,6 +149,63 @@ aside>h3
     opacity: 1;
 }
 
+/* OPTIONS ABOVE OR BELOW EDIT BOX */
+header{
+    /* appearance */
+    height: 2.5em;
+    flex-grow: 5;
+    box-sizing: border-box;
+    background: var(--alt-input-bg) 0% 0% no-repeat padding-box;
+    opacity: 1;
+    padding: 0;
+
+    /* content positioning */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+header button{
+    height: 2.5rem;
+    min-width: 2.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0 0.5em;
+
+    /* appearance */
+    color: var(--button-text);
+    background-color: rgba(0,0,0,0);
+    text-align: left;
+    font: normal normal normal 24px/42px Gill Sans Nova;
+    letter-spacing: 0px;
+
+    border-right: 1px ridge var(--button-text);
+}
+
+/* ANNOUCEMENT EDIT BOX */
+
+main>div
+{
+    /* appearance */
+    height: 100vh;
+    flex-grow: 5;
+    box-sizing: border-box;
+    background: var(--input-bg) 0% 0% no-repeat padding-box;
+    opacity: 1;
+    padding: 0.5em 1em 0.5em 0;
+
+    /* content positioning */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: auto;
+}
+
 
 .property{
     /* content positioning */
