@@ -7,14 +7,14 @@
     main
     {
         width: 100vw;
-        height: 75vw;
+        height: 80vw;
         overflow: unset;
     }
 
     nav
     {
         /* appearance */
-        height: 25vw;
+        height: 20vw;
         width: 100vw;
 
         /* content positioning */
@@ -34,7 +34,7 @@
     {
         /* appearance */
         width: 25vw;
-        height: 25vw;
+        height: 20vw;
         border: 0;
         background-color: rgba(0,0,0,0);
         border-radius: 0 0 6vw 6vw;
