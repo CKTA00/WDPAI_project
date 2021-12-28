@@ -250,11 +250,12 @@ main{
     padding: 0;
 }
 
-.input-line>input{
+.input-line>textarea{
     width: 100%;
 
     /* appearance */
     height: 2.5rem;
+    resize: none;
     color: var(--button-text);
     text-align: left;
     font: normal normal normal 1.2em/1.5em Arial;
