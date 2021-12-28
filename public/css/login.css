@@ -33,6 +33,10 @@
     align-items: center;
 }
 
+.logo>img{
+    width: 80%;
+}
+
 form{
     /* content positioning */
     display: flex;
@@ -48,6 +52,10 @@ form{
     box-shadow: 5px 10px 10px #00000029;
     border-radius: 3.4em;
     opacity: 1;
+}
+
+form>div{
+    width: 25em;
 }
 
 h1{
@@ -94,18 +102,31 @@ h1{
     text-align: left;
     font: normal normal normal 1.75em Gill Sans Nova;
     letter-spacing: 0px;
-    /*color: #3B9913;*/
     opacity: 1;
 }
 
-.register-link{
+a, p{
     /* appearance */
-    color: var(--defalut-text);
+    color: var(--button-text);
     text-align: left;
+    overflow-wrap: normal;
     font: normal normal 300 1em/1.25em Gill Sans Nova;
     letter-spacing: 0px;
-    /*color: #3B9913;*/
-    opacity: 0.4;
+    text-decoration: none;
+    opacity: 1;
+    margin: 0;
+}
+
+a:hover{
+    color: var(--defalut-text);
+    text-decoration: underline;
+}
+
+hr{
+    margin: 0;
+    height: 1px;
+    border: none;
+    background-color: var(--button-text);
 }
 
 

@@ -20,6 +20,10 @@
         height: 30vh;
     }
 
+    .logo>img{
+        width: 25em;
+    }
+
     .login-form{
         height: 70vh;
     }
