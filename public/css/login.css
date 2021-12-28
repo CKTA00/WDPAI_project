@@ -1,109 +1,169 @@
-﻿body{
+﻿body
+{
+    padding: 0;
+    margin: 0;
+}
+
+.container
+{
     /* proper window displaing */
     height: 100vh;
     width: 100vw;
-    padding: 0;
-    margin: 0;
 
     /* content positioning */
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 
-    /* default text color */
-    color: #3B9913;
-
-    /* background color */ 
-    /* 
-        TODO:
-        replace with img of linear-gradient(0deg, #BBFF9D, #85D861);
-    */
-    background-color: #BBFF9D;
+    /* appearance */
+    background: transparent linear-gradient(180deg, #BBFF9D 0%, #79DC4D 100%) 0% 0% no-repeat padding-box;
+    opacity: 1;
+    color: var(--default-text); /* default text color */
     
+    font-size: 16px;
 }
 
 .login-div, .logo{
-    
     /* content positioning */
+    width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo>img{
+    width: 80%;
 }
 
 form{
     /* content positioning */
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: flex-start;
-    gap: 1em
+    gap: 0.75em;
+    padding: 2em;
+
+    /* appearance */
+    background: var(--form-background) 0% 0% no-repeat padding-box;
+    /* background: #FFFFFF 0% 0% no-repeat padding-box; */
+    box-shadow: 5px 10px 10px #00000029;
+    border-radius: 3.4em;
+    opacity: 1;
+}
+
+form>div{
+    width: 25em;
 }
 
 h1{
-    font-size: 3em;
-    /* default color */
+    /* appearance */
+    color: var(--defalut-text);
+    text-align: left;
+    font: normal normal normal 2.8em/0.5em Gill Sans Nova;
+    letter-spacing: 0px;
+    /*color: #3B9913;*/
+    opacity: 1;
 }
 
-.register-link{
-    font-size: 0.625em; /* 10 px */
+.standard-text{
+    /* appearance */
+    color: var(--defalut-text);
+    text-align: left;
+    font: normal normal normal 1.75em/1em Gill Sans Nova;
+    letter-spacing: 0px;
+    /*color: #3B9913;*/
+    opacity: 1;
+}
+
+.standard-input, .button-22{
+    /* content positioning */
+    padding: 0em 0.5em 0em 0.5em;
+    
+    /* appearance */
+    border-radius: 0.5em;
+}
+
+.standard-input{/**/
+    /* size */    
+    height: 1.75em;
+
+    /* appearance (div) */
+    background: var(--input-bg) 0% 0% no-repeat padding-box;
+    border: 1px solid var(--border);
+    /*background: #EBFEE0 0% 0% no-repeat padding-box;*/
+    /*border: 1px solid #04B30C;*/
+    opacity: 1;
+
+    /* appearance (text) */
+    color: var(--defalut-text);
+    text-align: left;
+    font: normal normal normal 1.75em Gill Sans Nova;
+    letter-spacing: 0px;
+    opacity: 1;
+}
+
+a, p{
+    /* appearance */
+    color: var(--button-text);
+    text-align: left;
+    overflow-wrap: normal;
+    font: normal normal 300 1em/1.25em Gill Sans Nova;
+    letter-spacing: 0px;
+    text-decoration: none;
+    opacity: 1;
+    margin: 0;
+}
+
+a:hover{
+    color: var(--defalut-text);
+    text-decoration: underline;
+}
+
+hr{
+    margin: 0;
+    height: 1px;
+    border: none;
+    background-color: var(--button-text);
 }
 
 
-/* https://getcssscan.com/css-buttons-examples */
-.button-22 {
-  align-items: center;
-  appearance: button;
-  background-color: #85D861;
-  border-radius: 8px;
-  border-style: none;
-  box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
-  box-sizing: border-box;
-  /*color: #fff;*/
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  flex-shrink: 0;
-  font-family: "RM Neue",sans-serif;
-  font-size: 100%;
-  line-height: 1.15;
-  margin: 0;
-  padding: 10px 21px;
-  text-align: center;
-  text-transform: none;
-  transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+/* original from https://getcssscan.com/css-buttons-examples */
+.button-22 { 
+
+    /* position and size */
+    margin: 0;
+    margin-top: 0.5em;
+    box-sizing: border-box;
+    height: 2.5em;
+
+    /* appearance (text) */
+    font: normal normal normal 1.75em Gill Sans Nova;
+    color: var(--button-text);
+    line-height: 1.15;
+    text-align: center;
+    text-transform: none;
+    letter-spacing: 0px;
+
+    /* appearance (button) */
+    background: transparent linear-gradient(180deg, var(--big-button-a) 0%, var(--big-button-b) 100%) 0% 0% no-repeat padding-box;
+    appearance: button;
+    border-style: none;
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    cursor: pointer;
+    transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
 }
 
 .button-22:active {
-  background-color: #85D861;
+   background: transparent linear-gradient(180deg, var(--big-button-b) 0%, var(--big-button-a) 100%) 0% 0% no-repeat padding-box;
 }
 
 .button-22:hover {
-  background-color: #B6F898;
+   background: transparent linear-gradient(180deg, var(--big-button-hover-a) 0%, var(--big-button-hover-b) 100%) 0% 0% no-repeat padding-box;
 }
 
-
-/* MOMBILE VERSION */
-/* 
-    TODO:
-    move this section to another file
-*/
-@media screen and (max-device-width: 414px),
-screen and (max-width: 411px)
-{
-    body {
-        flex-direction: column;
-    }
-
-    .logo{
-        height: 20vh;
-    }
-
-    .login-form{
-        height: 80vh;
-    }
-}

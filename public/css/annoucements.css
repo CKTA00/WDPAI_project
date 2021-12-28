@@ -1,0 +1,381 @@
+﻿aside
+{
+    /* appearance */
+    height: 100vh;
+    width: 25vw;
+    background: var(--basic) 0% 0% no-repeat padding-box;
+    box-sizing: border-box;
+
+    /* content positioning */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0.5em;
+    overflow: auto;
+
+}
+
+aside>div{
+    /* content positioning */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0.5em;
+    overflow: auto;
+}
+
+aside>button{
+    background: var(--bu) 0% 0% no-repeat padding-box;
+    border-radius: 2em;
+    
+    margin: 0 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.5em;
+    
+    /* appearance (text) */
+    color: var(--button-text);
+    text-align: center;
+    text-transform: none;
+    font: normal normal normal 1.2em Gill Sans Nova;
+    letter-spacing: 0px;
+
+    /* overflow handling */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-wrap: unset;
+
+    /* appearance (button) */
+    background-color: var(--alt-input-bg);
+    appearance: button;
+    border-style: none;
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    cursor: pointer;
+    transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+aside>button:hover{
+    background-color: var(--input-bg);
+}
+
+aside>h3
+{
+    color: var(--default-text);
+    text-align: left;
+    font: normal normal normal 1.2em Gill Sans Nova;
+    letter-spacing: 0px;
+    margin: 0em 1em;
+    
+}
+
+.annoucement
+{
+    background: var(--alt-input-bg) 0% 0% no-repeat padding-box;
+    border-radius: 0px 2em 2em 0px;
+    
+    margin: 0 1em 0 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0.5em;
+    padding: 0.5em;
+    
+}
+
+.annoucement img
+{
+    width: 4.4em;
+    height: 3.3em;
+    border-radius: 0.5em;
+    object-fit: cover;
+}
+
+.annoucement div /* title of annoucement */
+{
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5em;
+
+}
+
+.annoucement i{
+    margin: 0;
+    width: 0.5em;
+    height: 0.5em;
+}
+
+.annoucement h4
+{
+    margin: 0;
+    color: var(--default-text);
+    text-align: left;
+    font: normal normal normal 1.2em Gill Sans Nova;
+    letter-spacing: 0px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline;
+    white-space: nowrap;
+}
+
+.annoucement>div>h4 /* title */
+{
+    margin: 0;
+    color: var(--button-text);
+}
+
+.annoucement p{
+    /* appearance */
+    margin: 0;
+    color: var(--button-text);
+    text-align: left;
+    font: italic normal normal 1em/1em Gill Sans Nova;
+    letter-spacing: 0px;
+    
+
+    /* overflow handling */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline;
+    white-space: nowrap;
+}
+
+.active-ann{
+    background: var(--input-bg) 0% 0% no-repeat padding-box;
+    margin: 0 1em 0 0;
+    
+}
+
+/* OPTIONS ABOVE OR BELOW EDIT BOX */
+
+header{
+    /* appearance */
+    height: 2.5em;
+    flex-grow: 5;
+    box-sizing: border-box;
+    background: var(--alt-input-bg) 0% 0% no-repeat padding-box;
+    padding: 0;
+
+    /* content positioning */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: none;
+}
+
+header button{
+    /* appearance */
+    color: var(--button-text);
+    background-color: rgba(0,0,0,0);
+    text-align: left;
+    font: normal normal normal 24px/42px Gill Sans Nova;
+    letter-spacing: 0px;
+    border-right: 1px ridge var(--button-text);
+
+    appearance: button;
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    cursor: pointer;
+    transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+    /* size */
+    height: 2.5rem;
+    min-width: 2.5rem;
+
+    /* content positioning */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0 0.5em;
+}
+
+header button:first-child{
+    display: none;
+}
+
+header button:hover{
+    background-color: var(--form-background);
+}
+
+/* ANNOUCEMENT EDIT BOX */
+
+main>div
+{
+    /* appearance */
+    height: 100vh;
+    flex-grow: 5;
+    box-sizing: border-box;
+    background: var(--input-bg) 0% 0% no-repeat padding-box;
+    
+    padding: 0.5em 1em 0.5em 0;
+
+    /* content positioning */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: auto;
+}
+
+
+.property{
+    /* content positioning */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+
+/*div for title and other content*/
+.property>div{ 
+    background: var(--form-background) 0% 0% no-repeat padding-box;
+    border-radius: 1em;
+    
+    padding: 1em;
+    margin: 0.3em 1em;
+}
+
+.property>button{
+    /* size */
+    height: 3rem;
+    width: 3rem;
+    min-width: 3rem;
+
+    /* appearance */
+    background: var(--basic) 0% 0% no-repeat padding-box;
+    border-radius: 0.5em;
+    color: var(--form-background);
+    font-size: 1.5rem;
+
+    appearance: button;
+    border-style: none;
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    cursor: pointer;
+    transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.property>button:hover{
+    background-color: var(--basic-light);
+}
+
+.property>button>p{
+    display: none;
+    color: var(--button-icon);
+}
+
+.property h1 {
+    color: var(--button-text);
+    text-align: left;
+    font: normal normal normal 2.5em/1em Gill Sans Nova;
+    letter-spacing: 0px;
+    
+}
+
+.property h3
+{
+    color: var(--button-text);
+    text-align: left;
+    font: normal normal normal 1.5em/1.5em Gill Sans Nova;
+    margin: 0.5em 0 0.75em 0;
+    letter-spacing: 0px;
+    
+    
+    display: inline;
+}
+
+.property>div>p
+{
+    color: var(--button-text);
+    text-align: left;
+    font: normal normal 300 1.2em/1.2em Gill Sans Nova;
+    letter-spacing: 0px;
+    
+}
+
+/*photos div*/
+.property>div>div
+{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: stretch;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.property>div>div>img{
+    max-width: 16.66em;
+    height: 12.5em;
+
+    border-radius: 1em;
+
+    object-fit: cover;
+}
+
+.property>div>div>button{
+    /* appearance */
+    box-sizing: border-box;
+    border-radius: 1rem;
+    width: 12.5rem;
+    height: 12.5rem;
+    background: var(--basic) 0% 0% no-repeat padding-box;
+
+    /* content positioning */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    appearance: button;
+    border-style: none;
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    cursor: pointer;
+    transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.property>div>div>button:hover{
+    background: var(--basic-light) 0% 0% no-repeat padding-box;
+}
+
+.property>div>div>button>i{
+    color: var(--button-icon);
+    font-size: 4.5rem;
+} 
+
+.property select{
+    /* size */
+    width: 100%;
+    height: 3em;
+
+    /* appearance */
+    background: var(--alt-input-bg) 0% 0% no-repeat padding-box;
+    border: 1px solid var(--button-text);
+    border-radius: 1em;
+    
+    padding: 0.5em;
+}

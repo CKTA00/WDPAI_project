@@ -1,0 +1,89 @@
+﻿/* Narrow desktop window */
+@media screen and (max-width: 635px)
+{
+    aside{
+        /* display: none; */ /* set in script */
+        width: 100vw;
+    }
+    
+
+    main{
+        display: none; /* set in script */
+    }
+
+    header{
+        /* appearance */
+        height: 4em;
+    }
+
+    header button{
+        height: 4rem;
+        min-width: 4rem;
+    }
+
+    header button:first-child{
+        display: flex;
+    }
+
+    .property{
+        /* content positioning */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        width: auto;
+        min-width: 8em;
+    }
+
+    /*div for title and other content*/
+    .property>div{ 
+        background: var(--form-background) 0% 0% no-repeat padding-box;
+        border-radius: 1em;
+        opacity: 1;
+        width: auto;
+        padding: 1em;
+        margin: 0.3em 1em;
+    }
+
+    .property>button{
+        
+        width: auto;
+        margin: 0.3rem 1rem 1em 1rem;
+        font-size: 1.5rem;
+    }
+
+    .property>button>p{
+        display: inline;
+
+    }
+
+    /*photos div*/
+    .property>div>div
+    {
+        display: flex;
+        flex-flow: column;
+        justify-content: stretch;
+        align-items: center;
+        gap: 0.5em;
+    }
+
+    .property>div>div>img{
+        width: auto;
+        height: auto;
+        max-width: 100%;
+    
+        border-radius: 1em;
+    
+        object-fit: cover;
+    }
+
+    .property>div>div>button{
+    
+        border-radius: 1rem;
+        max-width: none;
+        max-height: none;
+        width: 100%;
+        height: auto;
+        padding: 0.5rem 0;
+    }
+}
