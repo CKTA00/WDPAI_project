@@ -247,6 +247,10 @@ header button{
     padding: 0 0.5em;
 }
 
+header button:first-child{
+    display: none;
+}
+
 header button:hover{
     background-color: var(--form-background);
 }

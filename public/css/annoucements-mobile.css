@@ -21,6 +21,10 @@
         min-width: 4rem;
     }
 
+    header button:first-child{
+        display: flex;
+    }
+
     .property{
         /* content positioning */
         display: flex;
