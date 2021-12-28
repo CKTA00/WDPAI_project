@@ -26,44 +26,6 @@ aside>div{
     overflow: auto;
 }
 
-.user-profile
-{
-    /* appearance */
-    height: 3em;
-    margin: 1em;
-    margin-bottom: 0;
-    
-    /* content positioning */
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 1em;
-}
-
-.user-profile>img
-{
-    /* appearance */
-    border-radius: 50%;
-    height: 3em;
-    width: 3em;
-    object-fit: cover;
-}
-
-.user-profile>h2
-{
-    /* appearnace */
-    color: var(--default-text);
-    text-align: left;
-    font: normal normal bold 1.5em Gill Sans Nova;
-    letter-spacing: 0px;
-
-    /* overflow handling */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
 aside>button{
     background: var(--bu) 0% 0% no-repeat padding-box;
     border-radius: 2em;
