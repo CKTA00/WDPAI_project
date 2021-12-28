@@ -2,9 +2,10 @@
 
     /* Colors: */
     --basic: #8CE366;
+    --basic-light: #a3df8a;
     --default-text: #3B9913;
     --dark-text: #32830f;
-    --alt-input-bg: #BFFFC2; /* not used yet */
+    --alt-input-bg: #BFFFC2;
     --button-text: #296B0E;
     --border: #04B30C;
     --input-bg: #EBFEE0;
