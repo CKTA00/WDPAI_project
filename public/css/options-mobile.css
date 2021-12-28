@@ -1,0 +1,16 @@
+﻿/* Narrow desktop window */
+@media screen and (max-width: 635px)
+{
+    aside{
+        /* display: none; */ /* set in script */
+        width: 100vw;
+    }
+    
+    main{
+        display: none; /* set in script */
+    }
+
+    aside>button{
+        background-color: var(--input-bg);
+    }
+}

@@ -1,0 +1,47 @@
+﻿@media screen and (max-width: 635px)
+{
+    .base-container{
+        flex-direction: column;
+    }
+
+    main
+    {
+        width: 100vw;
+        height: 80vw;
+        overflow: unset;
+    }
+
+    nav
+    {
+        /* appearance */
+        height: 20vw;
+        width: 100vw;
+
+        /* content positioning */
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .main-buttons
+    {
+        display: flex;
+        flex-direction: row;
+    }
+
+    nav button
+    {
+        /* appearance */
+        width: 25vw;
+        height: 20vw;
+        border: 0;
+        background-color: rgba(0,0,0,0);
+        border-radius: 0 0 6vw 6vw;
+    }
+    
+    nav i
+    {
+        font-size: 14vw;
+    }
+}
