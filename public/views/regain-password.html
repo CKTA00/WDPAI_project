@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Little Places - Recover Password</title>
-    <link rel="stylesheet" type="text/css" href="../css/colors.css">
-    <link rel="stylesheet" type="text/css" href="../css/login.css">
-    <link rel="stylesheet" type="text/css" href="../css/login-mobile.css">
+    <link rel="stylesheet" type="text/css" href="public/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="public/css/login.css">
+    <link rel="stylesheet" type="text/css" href="public/css/login-mobile.css">
 </head>
 <body>
     <div class="container">
         <div class="logo">
-            <img src="../img/logo1_nobg.png">
+            <img src="public/img/logo1_nobg.png">
         </div>
         
         <div class="login-div">

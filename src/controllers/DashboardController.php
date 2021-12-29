@@ -1,21 +1,21 @@
-﻿<?php
+<?php
 
 require_once 'AppController.php'; //raz tylko importuje
 require_once __DIR__.'/../models/Notice.php';
 
 class DashboardController extends AppController
 {
-    public function index()
+    public function index(): void
     {
         $this->login();
     }
 
-    public function login()
+    public function login(): void
     {
         $this->render('login');
     }
 
-    public function dashboard()
+    public function dashboard(): void
     {
         //$data= ["zaginoł kot","korepetycje z matematyki dla dzieci z klas 4-8"];
         $notice = new Notice(
@@ -54,10 +54,30 @@ class DashboardController extends AppController
             ]);
     }
 
-    public function users(): void
+    public function annoucements(): void
+    {
+        $this->render('annoucements');
+    }
+
+    public function chats(): void
     {
         // TODO retrieve users from db
-        $this->render('users',['users'=>[]]);
+        $this->render('chats',['users'=>[]]);
     }
-   
+
+    public function options(): void
+    {
+        $this->render('options');
+    }
+
+    public function register(): void
+    {
+        $this->render('register');
+    }
+
+    public function regain_password(): void
+    {
+        $this->render('regain-password');
+    }
+
 }

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 require_once "Routing.php";
 
@@ -8,10 +8,14 @@ $path = parse_url($path, PHP_URL_PATH);
 if(empty($path))
 {
     $path = 'login'; // rerout here? ...
-} 
-Router::get('index','DashboardController'); 
+}
+Router::get('index','DashboardController');
 Router::get('login','DashboardController');
+Router::get('register','DashboardController');
 Router::get('dashboard','DashboardController');
-Router::get('users','DashboardController');
+Router::get('annoucements','DashboardController');
+Router::get('chats','DashboardController');
+Router::get('options','DashboardController');
+Router::get('regain_password','DashboardController');
 
 Router::run($path); // or rerout in run()?

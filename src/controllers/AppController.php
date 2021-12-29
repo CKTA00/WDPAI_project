@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 class AppController {
     private $request;
@@ -10,7 +10,7 @@ class AppController {
 
     protected function render(string $template = null, array $variables = [])
     {
-        $templatePath = 'public/views/'. $template.'.html';
+        $templatePath = 'public/views/'.$template.'.html';
         $output = 'File not found';
                 
         if(file_exists($templatePath)){
