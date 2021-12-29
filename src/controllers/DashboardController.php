@@ -54,9 +54,9 @@ class DashboardController extends AppController
             ]);
     }
 
-    public function annoucements(): void
+    public function announcements(): void
     {
-        $this->render('annoucements');
+        $this->render('announcements');
     }
 
     public function chats(): void

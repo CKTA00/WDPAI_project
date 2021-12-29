@@ -13,7 +13,7 @@ Router::get('index','DashboardController');
 Router::get('login','DashboardController');
 Router::get('register','DashboardController');
 Router::get('dashboard','DashboardController');
-Router::get('annoucements','DashboardController');
+Router::get('announcements','DashboardController');
 Router::get('chats','DashboardController');
 Router::get('options','DashboardController');
 Router::get('regain_password','DashboardController');
