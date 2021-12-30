@@ -8,8 +8,8 @@
     <link rel="stylesheet" type="text/css" href="public/css/colors.css">
     <link rel="stylesheet" type="text/css" href="public/css/common.css">
     <link rel="stylesheet" type="text/css" href="public/css/common-mobile.css">
-    <link rel="stylesheet" type="text/css" href="public/css/new-announcement.css">
-    <link rel="stylesheet" type="text/css" href="public/css/new-announcement-mobile.css">
+    <link rel="stylesheet" type="text/css" href="public/css/property.css">
+    <link rel="stylesheet" type="text/css" href="public/css/property-mobile.css">
     <title>Little Places - Your Announcements</title>
 </head>
 <body>
@@ -57,7 +57,7 @@
 
                 <div class="property">
                     <h3>description</h3>
-                    <textarea class="description" name="description" cols="500" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px";this.style'></textarea>
+                    <textarea class="description" name="description" cols="500" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>
                 </div>
 
                 <div class="property">

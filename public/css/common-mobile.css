@@ -7,8 +7,6 @@
     main, .main
     {
         width: 100vw;
-        height: 80vw;
-        /*overflow: unset;*/
     }
 
     /* temporary */
@@ -52,11 +50,26 @@
 
     header{
         /* appearance */
-        height: 4em;
+        min-height: 4em;
+        overflow-x: auto;
     }
 
     header button{
         height: 4rem;
         min-width: 4rem;
+        font: normal normal normal 1.2em/1.2em Gill Sans Nova;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0em;
+        padding: 0 0em;
     }
+
+    header button p{
+        overflow: hidden;
+    }
+
+
 }

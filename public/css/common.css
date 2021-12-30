@@ -162,8 +162,7 @@ aside
 
 header{
     /* appearance */
-    /*height: 2.5em;*/
-    flex-grow: 5;
+    height: min-content;
     box-sizing: border-box;
     background: var(--alt-input-bg) 0% 0% no-repeat padding-box;
     padding: 0;
@@ -173,7 +172,7 @@ header{
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 header button{
@@ -196,7 +195,7 @@ header button{
 
     /* size */
     height: 2.5rem;
-    min-width: auto;
+
 
     /* content positioning */
 

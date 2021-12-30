@@ -1,57 +1,6 @@
-﻿/* Narrow desktop window */
-@media screen and (max-width: 635px)
+﻿@media screen and (max-width: 635px)
 {
-    aside{
-        /* display: none; */ /* set in script */
-        width: 100vw;
-    }
-    
-
-    main{
-        display: none; /* set in script */
-    }
-
     header button:first-child{
         display: flex;
-    }
-
-    .property{
-        background: var(--form-background) 0% 0% no-repeat padding-box;
-        border-radius: 1em;
-        opacity: 1;
-        width: auto;
-        padding: 1em;
-        margin: 0.3em 1em;
-    }
-
-
-    /*photos div*/
-    .image-container
-    {
-        display: flex;
-        flex-flow: column;
-        justify-content: stretch;
-        align-items: center;
-        gap: 0.5em;
-    }
-
-    .image-container>img{
-        width: auto;
-        height: auto;
-        max-width: 100%;
-    
-        border-radius: 1em;
-    
-        object-fit: cover;
-    }
-
-    .image-container>button{
-    
-        border-radius: 1rem;
-        max-width: none;
-        max-height: none;
-        width: 100%;
-        height: auto;
-        padding: 0.5rem 0;
     }
 }
