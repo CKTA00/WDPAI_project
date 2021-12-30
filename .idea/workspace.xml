@@ -5,19 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="456d8cd5-6747-402e-83f0-6cfb9f002ed8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/css/new-announcement-mobile.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/new-announcement.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/views/new_announcement.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/AnnouncementController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Routing.php" beforeDir="false" afterPath="$PROJECT_DIR$/Routing.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/announcements.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/announcements.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/views/announcements.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/views/announcements.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/views/chats.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/views/chats.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/views/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/views/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/AppController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/AppController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/SecurityController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +66,7 @@
       <workItem from="1640801956942" duration="4630000" />
       <workItem from="1640806931649" duration="1758000" />
       <workItem from="1640858845833" duration="11027000" />
-      <workItem from="1640876119893" duration="5329000" />
+      <workItem from="1640876119893" duration="7304000" />
     </task>
     <servers />
   </component>
