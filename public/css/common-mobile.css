@@ -52,6 +52,7 @@
         /* appearance */
         min-height: 4em;
         overflow-x: auto;
+        overflow-y: hidden;
     }
 
     header button{
@@ -70,6 +71,4 @@
     header button p{
         overflow: hidden;
     }
-
-
 }
