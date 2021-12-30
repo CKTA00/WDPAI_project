@@ -14,36 +14,37 @@
 </head>
 <body>
     <div class="base-container">
-        <main>
-            <form action="new_announcement" method="POST" enctype="multipart/form-data">
-                <header>
-                    <button type="button">
-                        <i class="fas fa-chevron-left"></i>
-                        <p>cancel</p>
-                    </button>
-                    <button type="submit">
-                        <i class="fas fa-check"></i>
-                        <p>save</p>
-                    </button>
-                </header>
-
-                <?php
-                if(isset($messages))
-                {
-                    foreach ($messages as $msg)
+        <form class="main" action="new_announcement" method="POST" enctype="multipart/form-data">
+            <header>
+                <button type="button">
+                    <i class="fas fa-chevron-left"></i>
+                    <p>cancel</p>
+                </button>
+                <button type="submit">
+                    <i class="fas fa-check"></i>
+                    <p>save</p>
+                </button>
+            </header>
+            <div>
+                <div class="property">
+                    <?php
+                    if(isset($messages))
                     {
-                        echo "<p>".$msg."</p>";
+                        foreach ($messages as $msg)
+                        {
+                            echo "<p>".$msg."</p>";
+                        }
                     }
-                }
-                ?>
-                <div>
-                    <h3>title</h3>
-                    <textarea class="title" name="title" cols="500" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>title</textarea>
+                    ?>
+                    <div>
+                        <h3>title</h3>
+                        <textarea class="title" name="title" cols="500" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>title</textarea>
+                    </div>
                 </div>
 
-                <div>
+                <div class="property">
                     <h3>photos</h3>
-                    <div>
+                    <div class="image-container">
 
                         <img src="public/img/he.png">
                         <div class="new_upload">
@@ -54,19 +55,19 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="property">
                     <h3>description</h3>
                     <textarea class="description" name="description" cols="500" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px";this.style'></textarea>
                 </div>
 
-                <div>
+                <div class="property">
                     <h3>location</h3>
                     <div>
                         TODO: add map
                     </div>
                 </div>
 
-                <div>
+                <div class="property">
                     <h3>range</h3>
                     <div>
                         <select name="range" class="range-dropdown">
@@ -79,10 +80,9 @@
                         </select>
                     </div>
                 </div>
+            </div>
 
-            </form>
-            
-        </main>
+        </form>
 
 
         <nav>

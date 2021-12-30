@@ -79,79 +79,64 @@
             </div>
            
         </aside>
-
         
-        
-        <main>
+        <main class="main">
             <header>
                 <button>
                     <i class="fas fa-chevron-left"></i>
                 </button>
                 <button>
-                    <i class="far fa-trash-alt"></i>
-                    <p>delete</p>
+                    <i class="far fa-edit"></i>
+                    <p>edit</p>
                 </button>
                 <button>
                     <i class="far fa-clone"></i>
                     <p>copy</p>
                 </button>
+                <button>
+                    <i class="far fa-trash-alt"></i>
+                    <p>delete</p>
+                </button>
             </header>
             <div>
                 <div class="property">
-                    <div>
-                        <h1>
-                            <?php
-                            if(isset($anns))
-                                print $anns[0]->getTitle();
-                            else
-                                print "Title";
-                            ?>
-                        </h1>
-                    </div>
-                    <button type="button">
-                        <i class="far fa-edit"></i><p>edit</p>
-                    </button>
+                    <h1>
+                        <?php
+                        if(isset($anns))
+                            print $anns[0]->getTitle();
+                        else
+                            print "Title";
+                        ?>
+                    </h1>
                 </div>
     
                 <div class="property">
-                    <div>
+                    <h3>photos</h3>
+                    <div class="image-container">
+                        <?php
+                        if(isset($anns))
+                        {
+                            $fileName = $anns[0]->getImageUrl();
+                            print "<img src=public/uploads/".$fileName.">";
+                        }
 
-                        <h3>photos</h3>
-                        <div>
-                            <?php
-                            if(isset($anns))
-                            {
-                                $fileName = $anns[0]->getImageUrl();
-                                print "<img src=public/uploads/".$fileName.">";
-                            }
-
-                            else
-                                print '<img src="public/img/hehe.png"><img src="public/img/he.png">';
-                            ?>
-
-                            <button type="button"><i class="far fa-plus-square"></i></button>
-                        </div>
+                        else
+                            print '<img src="public/img/hehe.png"><img src="public/img/he.png">';
+                        ?>
+                        <button type="button"><i class="far fa-plus-square"></i></button>
                     </div>
-                    <button type="button">
-                        <i class="far fa-edit"></i><p>edit</p>
-                    </button>
                 </div>
     
                 <div class="property">
-                    <div>
-                        <h3>description</h3>
-                        <p>
-                            <?php
-                            if(isset($anns))
-                                print $anns[0]->getDescription();
-                            else
-                                print "Description";
-                            ?>
-                        </p>
-                    </div>
-                    <button>
-                        <i class="far fa-edit"></i><p>edit</p>
-                    </button>
+                    <h3>description</h3>
+                    <p>
+                        <?php
+                        if(isset($anns))
+                            print $anns[0]->getDescription();
+                        else
+                            print "Description";
+                        ?>
+                    </p>
                 </div>
     
                 <div class="property">
@@ -161,9 +146,6 @@
                             TODO: add map
                         </div>
                     </div>
-                    <button type="button">
-                        <i class="far fa-edit"></i><p>edit</p>
-                    </button>
                 </div>
     
                 <div class="property">
@@ -172,16 +154,14 @@
                         <p>
                             <?php
                             if(isset($anns))
-                                print $anns[0]->getRangeName($anns[0]->getRange());
+                                print Announcement::getRangeName($anns[0]->getRange());
                             else
-                                print $anns[0]->getRangeName(4);
+                                print Announcement::getRangeName(4);
                             ?>
                         </p>
                     </div>
                 </div>
-
             </div>
-            
         </main>
 
 

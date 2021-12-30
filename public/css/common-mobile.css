@@ -4,11 +4,16 @@
         flex-direction: column;
     }
 
-    main
+    main, .main
     {
         width: 100vw;
         height: 80vw;
-        overflow: unset;
+        /*overflow: unset;*/
+    }
+
+    /* temporary */
+    aside{
+        display: none;
     }
 
     nav
@@ -43,5 +48,15 @@
     nav i
     {
         font-size: 14vw;
+    }
+
+    header{
+        /* appearance */
+        height: 4em;
+    }
+
+    header button{
+        height: 4rem;
+        min-width: 4rem;
     }
 }

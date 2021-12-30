@@ -1,67 +1,53 @@
-﻿/* OPTIONS ABOVE OR BELOW EDIT BOX */
-header{
-    /* appearance */
-    /*height: 2.5em;*/
-    width: 100%;
-    box-sizing: border-box;
-    background: var(--alt-input-bg) 0% 0% no-repeat padding-box;
-    padding: 0;
-    margin: 0;
+﻿
 
-    /* content positioning */
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
-}
+/*!*photos div*!*/
+/*.main>div>div*/
+/*{*/
+/*    display: flex;*/
+/*    flex-flow: row wrap;*/
+/*    justify-content: stretch;*/
+/*    align-items: center;*/
+/*    gap: 0.5em;*/
+/*}*/
 
-header button{
-    /* appearance */
-    color: var(--button-text);
-    background-color: rgba(0,0,0,0);
-    text-align: left;
-    font: normal normal normal 24px/42px Gill Sans Nova;
-    letter-spacing: 0px;
-    border-right: 1px ridge var(--button-text);
-    width:auto;
+/*.main .image-container>img{*/
+/*    max-width: 16.66em;*/
+/*    height: 12.5em;*/
 
-    appearance: button;
-    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
-    cursor: pointer;
-    transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
+/*    border-radius: 1em;*/
 
-    /* size */
-    height: 2.5rem;
-    min-width: auto;
+/*    object-fit: cover;*/
+/*}*/
 
-    /* content positioning */
 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5em;
-    padding: 0 0.5em;
-}
 
-header button:hover{
-    background-color: var(--form-background);
-}
+/*.main select{*/
+/*    !* size *!*/
+/*    width: 100%;*/
+/*    height: 3em;*/
 
-/* Announcement EDIT BOX */
+/*    !* appearance *!*/
+/*    background: var(--alt-input-bg) 0% 0% no-repeat padding-box;*/
+/*    border: 1px solid var(--button-text);*/
+/*    border-radius: 1em;*/
 
-main>form
+/*    padding: 0.5em;*/
+/*}*/
+
+
+/* ========================================== */
+/* ========================================== */
+/* ========================================== */
+
+.main>div
 {
     /* appearance */
     height: 100vh;
+    flex-grow: 5;
     box-sizing: border-box;
     background: var(--input-bg) 0% 0% no-repeat padding-box;
 
-    padding: 0;
+    padding: 0.5em 1em 0.5em 0;
 
     /* content positioning */
     display: flex;
@@ -69,76 +55,38 @@ main>form
     justify-content: flex-start;
     align-items: flex-start;
     overflow: auto;
-    gap: 0.75em;
 }
 
 
-/*div for title and other content*/
-main>form>div{
+.property{
     background: var(--form-background) 0% 0% no-repeat padding-box;
     border-radius: 1em;
+
     padding: 1em;
-    margin: 0 1em;
-    box-sizing: border-box;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
-    align-items: flex-start;
+    margin: 0.3em 1em;
 }
 
-main>form>button{
-    /* size */
-    height: 3rem;
-    width: 3rem;
-    min-width: 3rem;
-
-    /* appearance */
-    background: var(--basic) 0% 0% no-repeat padding-box;
-    border-radius: 0.5em;
-    color: var(--form-background);
-    font-size: 1.5rem;
-
-    appearance: button;
-    border-style: none;
-    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
-    cursor: pointer;
-    transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-}
-
-main>form>button:hover{
-    background-color: var(--basic-light);
-}
-
-main>form>button>p{
-    display: none;
-    color: var(--button-icon);
-}
-
-main>form h1 {
+.property h1 {
     color: var(--button-text);
     text-align: left;
     font: normal normal normal 2.5em/1em Gill Sans Nova;
     letter-spacing: 0px;
-    
+
 }
 
-main>form h3
+.property h3
 {
     color: var(--button-text);
     text-align: left;
     font: normal normal normal 1.5em/1.5em Gill Sans Nova;
-    margin: 0;
+    margin: 0.5em 0 0.75em 0;
     letter-spacing: 0px;
-    
-    
+
+
     display: inline;
 }
 
-main>form>div>p
+.property p
 {
     color: var(--button-text);
     text-align: left;
@@ -146,28 +94,26 @@ main>form>div>p
     letter-spacing: 0px;
 }
 
-main>form .title
+.property textarea
 {
     color: var(--button-text);
     text-align: left;
+    letter-spacing: 0px;
+    resize: none;
+    width: 100%;
+}
+
+.property .title
+{
     font: normal normal normal 2.5em/1em Gill Sans Nova;
-    letter-spacing: 0px;
-    resize: none;
-    width: 100%;
 }
 
-main>form .description
+.property .description
 {
-    color: var(--button-text);
-    text-align: left;
     font: normal normal 300 1.2em/1.2em Gill Sans Nova;
-    letter-spacing: 0px;
-    resize: none;
-    width: 100%;
 }
 
-/*photos div*/
-main>form>div>div
+.image-container
 {
     display: flex;
     flex-flow: row wrap;
@@ -176,7 +122,7 @@ main>form>div>div
     gap: 0.5em;
 }
 
-main>form>div>div>img{
+.image-container>img{
     max-width: 16.66em;
     height: 12.5em;
 
@@ -185,18 +131,7 @@ main>form>div>div>img{
     object-fit: cover;
 }
 
-main>form>div>div>button {
-    appearance: button;
-    border-style: none;
-    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
-    cursor: pointer;
-    transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-}
-
-.new_upload, main>form>div>div>button{
+.new_upload, .image-container>button{
     /* appearance */
     box-sizing: border-box;
     border-radius: 1rem;
@@ -212,16 +147,27 @@ main>form>div>div>button {
     align-items: center;
 }
 
-main>form>div>div>button:hover{
+.main .image-container>button {
+    appearance: button;
+    border-style: none;
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    cursor: pointer;
+    transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.image-container>button:hover{
     background: var(--basic-light) 0% 0% no-repeat padding-box;
 }
 
-main>form>div>div>button>i{
+.image-container>button>i{
     color: var(--button-icon);
     font-size: 4.5rem;
 }
 
-main>form select{
+.property select{
     /* size */
     width: 100%;
     height: 3em;
@@ -230,6 +176,6 @@ main>form select{
     background: var(--alt-input-bg) 0% 0% no-repeat padding-box;
     border: 1px solid var(--button-text);
     border-radius: 1em;
-    
+
     padding: 0.5em;
 }
