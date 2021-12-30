@@ -175,12 +175,19 @@ header{
     flex-wrap: nowrap;
 }
 
-header button{
+header>p{
+    font: normal normal normal 1.2rem/2rem Gill Sans Nova;
+    color: var(--default-text);
+    text-align: center;
+    margin: auto;
+}
+
+header>button{
     /* appearance */
     color: var(--button-text);
     background-color: rgba(0,0,0,0);
     text-align: left;
-    font: normal normal normal 24px/42px Gill Sans Nova;
+    font: normal normal normal 1.5rem/2.6rem Gill Sans Nova;
     letter-spacing: 0px;
     border-right: 1px ridge var(--button-text);
     width:auto;

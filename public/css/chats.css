@@ -3,6 +3,10 @@
     padding-top: 0.5em;
 }
 
+header button:first-child{
+    display: none;
+}
+
 .user-profile
 {
     /* appearance */

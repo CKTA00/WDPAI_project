@@ -21,7 +21,7 @@
                     <h2> Name Surname </h2>
                 </div>
                 
-                <h3>Ogłoszenia użytkownika:</h3>
+                <h3>User announcements:</h3>
                 <div class="user-ann">
                     <img src="public/img/he.png">
                     <h4>title</h4>
@@ -34,7 +34,7 @@
                     <h2> Name Surname </h2>
                 </div>
                 
-                <h3>Ogłoszenia użytkownika:</h3>
+                <h3>User announcements:</h3>
                 <div class="user-ann">
                     <img src="public/img/he.png">
                     <h4>title</h4>
@@ -47,28 +47,7 @@
                     <h2> Name Surname </h2>
                 </div>
                 
-                <h3>Ogłoszenia użytkownika:</h3>
-                <div class="user-ann">
-                    <img src="public/img/he.png">
-                    <h4>title</h4>
-                </div>
-                <div class="user-ann">
-                    <img src="public/img/he.png">
-                    <h4>title</h4>
-                </div>
-                <div class="user-ann">
-                    <img src="public/img/he.png">
-                    <h4>title</h4>
-                </div>
-            </div>
-
-            <div class="person">
-                <div class="user-profile">
-                    <img src="public/img/blank-profile-picture.svg">
-                    <h2> Name Surname </h2>
-                </div>
-                
-                <h3>Ogłoszenia użytkownika:</h3>
+                <h3>User announcements:</h3>
                 <div class="user-ann">
                     <img src="public/img/he.png">
                     <h4>title</h4>
@@ -89,7 +68,28 @@
                     <h2> Name Surname </h2>
                 </div>
                 
-                <h3>Ogłoszenia użytkownika:</h3>
+                <h3>User announcements:</h3>
+                <div class="user-ann">
+                    <img src="public/img/he.png">
+                    <h4>title</h4>
+                </div>
+                <div class="user-ann">
+                    <img src="public/img/he.png">
+                    <h4>title</h4>
+                </div>
+                <div class="user-ann">
+                    <img src="public/img/he.png">
+                    <h4>title</h4>
+                </div>
+            </div>
+
+            <div class="person">
+                <div class="user-profile">
+                    <img src="public/img/blank-profile-picture.svg">
+                    <h2> Name Surname </h2>
+                </div>
+                
+                <h3>User announcements:</h3>
                 <div class="user-ann">
                     <img src="public/img/he.png">
                     <h4>title</h4>
@@ -100,6 +100,12 @@
         </aside>
         
         <main>
+            <header>
+                <button>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <p>chat with Name Surname</p>
+            </header>
             <div class="chatbox">
                 <div class="send message">
                     <img src="public/img/blank-profile-picture.svg">

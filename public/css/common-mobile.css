@@ -68,6 +68,13 @@
         padding: 0 0em;
     }
 
+    header>p{
+        font: normal normal normal 1.2rem/2rem Gill Sans Nova;
+        color: var(--default-text);
+        text-align: center;
+        margin: auto;
+    }
+
     header button p{
         overflow: hidden;
     }
