@@ -180,6 +180,7 @@ main>div, .main>div
     text-align: left;
     font: normal normal normal 2.5em/1em Gill Sans Nova;
     letter-spacing: 0px;
+    overflow-wrap: anywhere;
 }
 
 .property h3
@@ -190,7 +191,7 @@ main>div, .main>div
     margin: 0.5em 0 0.75em 0;
     letter-spacing: 0px;
     display: inline;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
 }
 
 .property p
