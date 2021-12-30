@@ -21,11 +21,11 @@
             </span>
             <button>
                 <i class="fas fa-plus-circle"></i>
-                <p>new annoucement</p>
+                <p>new announcement</p>
             </button>
             <h3>Your announcements:</h3>
             <div>
-                <div class="annoucement" id="ann1">
+                <div class="announcement" id="ann1">
                     <div>
                         <img src="public/img/he.png">
                         <h4>title</h4>
@@ -34,7 +34,7 @@
                     <h4>Followers:</h4>
                 </div>
     
-                <div class="annoucement" id="ann2">
+                <div class="announcement" id="ann2">
                     <div>
                         <img src="public/img/he.png">
                         <h4>title</h4>
@@ -43,7 +43,7 @@
                     <h4>Followers:</h4>
                 </div>
     
-                <div class="annoucement active-ann" id="ann3">
+                <div class="announcement active-ann" id="ann3">
                     <div>
                         <img src="public/img/he.png">
                         <h4>title</h4>
@@ -51,7 +51,7 @@
                     <p><i class="fas fa-map-marker-alt"></i> location name</p>
                     <h4>Followers:</h4>
                 </div>
-                <div class="annoucement" id="ann3">
+                <div class="announcement" id="ann3">
                     <div>
                         <img src="public/img/he.png">
                         <h4>title</h4>
@@ -59,7 +59,7 @@
                     <p><i class="fas fa-map-marker-alt"></i> location name</p>
                     <h4>Followers:</h4>
                 </div>
-                <div class="annoucement" id="ann3">
+                <div class="announcement" id="ann3">
                     <div>
                         <img src="public/img/he.png">
                         <h4>title</h4>
@@ -67,7 +67,7 @@
                     <p><i class="fas fa-map-marker-alt"></i> location name</p>
                     <h4>Followers:</h4>
                 </div>
-                <div class="annoucement" id="ann3">
+                <div class="announcement" id="ann3">
                     <div>
                         <img src="public/img/he.png">
                         <h4>title</h4>
@@ -87,6 +87,10 @@
                 <button>
                     <i class="fas fa-chevron-left"></i>
                 </button>
+<!--                <button type="submit">-->
+<!--                    <i class="fas fa-check"></i>-->
+<!--                    <p>save</p>-->
+<!--                </button>-->
                 <button>
                     <i class="far fa-trash-alt"></i>
                     <p>delete</p>
@@ -100,8 +104,9 @@
                 <div class="property">
                     <div>
                         <h1>title</h1>
+<!--                        <textarea class="title" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>title</textarea>-->
                     </div>
-                    <button>
+                    <button type="button">
                         <i class="far fa-edit"></i><p>edit</p>
                     </button>
                 </div>
@@ -112,10 +117,10 @@
                         <div>
                             <img src="public/img/hehe.png">
                             <img src="public/img/he.png">
-                            <button><i class="far fa-plus-square"></i></button>
+                            <button type="button"><i class="far fa-plus-square"></i></button>
                         </div>
                     </div>
-                    <button>
+                    <button type="button">
                         <i class="far fa-edit"></i><p>edit</p>
                     </button>
                 </div>
@@ -126,6 +131,7 @@
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                         </p>
+<!--                        <textarea class="description" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px";this.style'></textarea>-->
                     </div>
                     <button>
                         <i class="far fa-edit"></i><p>edit</p>
@@ -134,12 +140,12 @@
     
                 <div class="property">
                     <div>
-                        <h3>localistaion</h3>
+                        <h3>location</h3>
                         <div>
                             TODO: add map
                         </div>
                     </div>
-                    <button>
+                    <button type="button">
                         <i class="far fa-edit"></i><p>edit</p>
                     </button>
                 </div>

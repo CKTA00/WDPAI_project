@@ -130,7 +130,7 @@
                 </div>
             </div>
             <div class="input-line"> 
-                <textarea type="text"></textarea>
+                <textarea type="text" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>
                 <button>
                     <i class="fas fa-arrow-right"></i>
                 </button>

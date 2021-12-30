@@ -1,12 +1,19 @@
 <?php
 
 require_once 'src/controllers/DashboardController.php';
+require_once 'src/controllers/SecurityController.php';
+require_once 'src/controllers/AnnouncementController.php';
 
 class Router
 {
     public static $routes;
 
     public static function get($url, $controller)
+    {
+        self::$routes[$url] = $controller;
+    }
+
+    public static function post($url, $controller)
     {
         self::$routes[$url] = $controller;
     }
