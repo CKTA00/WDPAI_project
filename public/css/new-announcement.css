@@ -185,19 +185,7 @@ main>form>div>div>img{
     object-fit: cover;
 }
 
-main>form>div>div>button{
-    /* appearance */
-    box-sizing: border-box;
-    border-radius: 1rem;
-    width: 12.5rem;
-    height: 12.5rem;
-    background: var(--basic) 0% 0% no-repeat padding-box;
-
-    /* content positioning */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+main>form>div>div>button {
     appearance: button;
     border-style: none;
     box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
@@ -206,6 +194,22 @@ main>form>div>div>button{
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+}
+
+.new_upload, main>form>div>div>button{
+    /* appearance */
+    box-sizing: border-box;
+    border-radius: 1rem;
+    min-width: 12.5rem;
+    height: 12.5rem;
+    background: var(--basic) 0% 0% no-repeat padding-box;
+    padding: 0.5em;
+
+    /* content positioning */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 main>form>div>div>button:hover{

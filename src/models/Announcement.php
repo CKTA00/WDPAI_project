@@ -1,6 +1,6 @@
 <?php
 
-class Notice
+class Announcement
 {
     private string $title;
     private string $imageUrl;
@@ -20,7 +20,7 @@ class Notice
         return $this->title;
     }
 
-    public function setTitle(string $title): Notice
+    public function setTitle(string $title): Announcement
     {
         $this->title = $title;
         return $this;
@@ -31,7 +31,7 @@ class Notice
         return $this->imageUrl;
     }
 
-    public function setImageUrl(string $imageUrl): Notice
+    public function setImageUrl(string $imageUrl): Announcement
     {
         $this->imageUrl = $imageUrl;
         return $this;
@@ -42,7 +42,7 @@ class Notice
         return $this->description;
     }
 
-    public function setDescription(string $description): Notice
+    public function setDescription(string $description): Announcement
     {
         $this->description = $description;
         return $this;
@@ -53,7 +53,7 @@ class Notice
         return $this->location;
     }
 
-    public function setLocation($location): Notice
+    public function setLocation($location): Announcement
     {
         $this->location = $location;
         return $this;

@@ -15,7 +15,7 @@
 <body>
     <div class="base-container">
         <main>
-            <form action="new_announcement" type="POST" enctype="multipart/form-data">
+            <form action="new_announcement" method="POST" enctype="multipart/form-data">
                 <header>
                     <button type="button">
                         <i class="fas fa-chevron-left"></i>
@@ -38,21 +38,25 @@
                 ?>
                 <div>
                     <h3>title</h3>
-                    <textarea class="title" cols="500" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>title</textarea>
+                    <textarea class="title" name="title" cols="500" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>title</textarea>
                 </div>
 
                 <div>
                     <h3>photos</h3>
                     <div>
-                        <img src="public/img/hehe.png">
+
                         <img src="public/img/he.png">
+                        <div class="new_upload">
+                            <span>chose your file:</span>
+                            <input type="file" name="file">
+                        </div>
                         <button type="button"><i class="far fa-plus-square"></i></button>
                     </div>
                 </div>
 
                 <div>
                     <h3>description</h3>
-                    <textarea class="description" cols="500" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px";this.style'></textarea>
+                    <textarea class="description" name="description" cols="500" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px";this.style'></textarea>
                 </div>
 
                 <div>
