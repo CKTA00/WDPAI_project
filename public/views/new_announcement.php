@@ -70,10 +70,12 @@
                     <h3>range</h3>
                     <div>
                         <select name="range" class="range-dropdown">
-                            <option value="huge">Biggest (2km)</option>
-                            <option value="big">Big (1km)</option>
-                            <option value="medium">Medium (500m)</option>
-                            <option value="small">Small (300m)</option>
+                            <?php
+                            for($i = 1; $i<=4; $i++)
+                            {
+                                echo "<option value=".$i.">".Announcement::getRangeName($i)."</option>";
+                            }
+                            ?>
                         </select>
                     </div>
                 </div>

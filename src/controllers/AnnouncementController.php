@@ -19,7 +19,9 @@ class AnnouncementController extends AppController
                 $_FILES["file"]["tmp_name"],
                 dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES["file"]["name"]
             );
-            return $this->render('announcements', ['messages' => $this->message]);
+
+            $ann = new Announcement($_POST['title'],  $_FILES['file']['name'], $_POST['description'], $_POST['range']);
+            return $this->render('announcements', ['messages' => $this->message, 'anns' => [$ann]]);
         }
         return $this->render('new_announcement', ['messages' => $this->message]);
     }

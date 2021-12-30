@@ -5,14 +5,14 @@ class Announcement
     private string $title;
     private string $imageUrl;
     private string $description;
-    private string $location;
+    private int $range;
 
-    public function __construct(string $title, string $imageUrl, string $description, $location)
+    public function __construct(string $title, string $imageUrl, string $description, int $range)
     {
         $this->title = $title;
         $this->imageUrl = $imageUrl;
         $this->description = $description;
-        $this->location = $location;
+        $this->range = $range;
     }
 
     public function getTitle(): string
@@ -20,10 +20,9 @@ class Announcement
         return $this->title;
     }
 
-    public function setTitle(string $title): Announcement
+    public function setTitle(string $title)
     {
         $this->title = $title;
-        return $this;
     }
 
     public function getImageUrl(): string
@@ -31,10 +30,9 @@ class Announcement
         return $this->imageUrl;
     }
 
-    public function setImageUrl(string $imageUrl): Announcement
+    public function setImageUrl(string $imageUrl)
     {
         $this->imageUrl = $imageUrl;
-        return $this;
     }
 
     public function getDescription(): string
@@ -42,22 +40,38 @@ class Announcement
         return $this->description;
     }
 
-    public function setDescription(string $description): Announcement
+    public function setDescription(string $description)
     {
         $this->description = $description;
-        return $this;
     }
 
-    public function getLcation()
+    public function getRange(): int
     {
-        return $this->location;
+        return $this->range;
     }
 
-    public function setLocation($location): Announcement
+    public function setRange(int $range)
     {
-        $this->location = $location;
-        return $this;
+        $this->title = $range;
     }
 
-
+    public static function getRangeName($range): string
+    {
+        $ret="";
+        switch ($range){
+            case 1:
+                $ret = "Small (300m)";
+                break;
+            case 2:
+                $ret = "Medium (500m)";
+                break;
+            case 3:
+                $ret = "Large (1km)";
+                break;
+            case 4:
+                $ret = "Very Large (2km)";
+                break;
+        }
+        return $ret;
+    }
 }

@@ -87,10 +87,6 @@
                 <button>
                     <i class="fas fa-chevron-left"></i>
                 </button>
-<!--                <button type="submit">-->
-<!--                    <i class="fas fa-check"></i>-->
-<!--                    <p>save</p>-->
-<!--                </button>-->
                 <button>
                     <i class="far fa-trash-alt"></i>
                     <p>delete</p>
@@ -103,8 +99,14 @@
             <div>
                 <div class="property">
                     <div>
-                        <h1>title</h1>
-<!--                        <textarea class="title" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>title</textarea>-->
+                        <h1>
+                            <?php
+                            if(isset($anns))
+                                print $anns[0]->getTitle();
+                            else
+                                print "Title";
+                            ?>
+                        </h1>
                     </div>
                     <button type="button">
                         <i class="far fa-edit"></i><p>edit</p>
@@ -113,10 +115,20 @@
     
                 <div class="property">
                     <div>
+
                         <h3>photos</h3>
                         <div>
-                            <img src="public/img/hehe.png">
-                            <img src="public/img/he.png">
+                            <?php
+                            if(isset($anns))
+                            {
+                                $fileName = $anns[0]->getImageUrl();
+                                print "<img src=public/uploads/".$fileName.">";
+                            }
+
+                            else
+                                print '<img src="public/img/hehe.png"><img src="public/img/he.png">';
+                            ?>
+
                             <button type="button"><i class="far fa-plus-square"></i></button>
                         </div>
                     </div>
@@ -129,9 +141,13 @@
                     <div>
                         <h3>description</h3>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            <?php
+                            if(isset($anns))
+                                print $anns[0]->getDescription();
+                            else
+                                print "Description";
+                            ?>
                         </p>
-<!--                        <textarea class="description" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px";this.style'></textarea>-->
                     </div>
                     <button>
                         <i class="far fa-edit"></i><p>edit</p>
@@ -153,14 +169,14 @@
                 <div class="property">
                     <div>
                         <h3>range</h3>
-                        <div>
-                            <select name="range" class="range-dropdown">
-                                <option value="huge">Biggest (2km)</option>
-                                <option value="big">Big (1km)</option>
-                                <option value="medium">Medium (500m)</option>
-                                <option value="small">Small (300m)</option>
-                            </select>
-                        </div>
+                        <p>
+                            <?php
+                            if(isset($anns))
+                                print $anns[0]->getRangeName($anns[0]->getRange());
+                            else
+                                print $anns[0]->getRangeName(4);
+                            ?>
+                        </p>
                     </div>
                 </div>
 
