@@ -58,7 +58,7 @@ class Announcement
     public static function getRangeName($range): string
     {
         $ret="";
-        switch ($range){
+        switch ($range){ // TODO fetch this names from database
             case 1:
                 $ret = "Small (300m)";
                 break;
