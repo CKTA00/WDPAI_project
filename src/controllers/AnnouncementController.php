@@ -34,7 +34,7 @@ class AnnouncementController extends AppController
         }
 
         if (!isset($file["type"]) || !in_array($file["type"], self::SUPPORTED_TYPES)) {
-            $this->message[] = 'File type is not supported.';
+            $this->message[] = 'This file type is not supported.';
             return false;
         }
         return true;

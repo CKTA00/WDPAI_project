@@ -26,16 +26,18 @@
                 </button>
             </header>
             <div>
-                <div class="property">
-                    <?php
-                    if(isset($messages))
+                <?php
+                if(isset($messages))
+                {
+                    foreach ($messages as $msg)
                     {
-                        foreach ($messages as $msg)
-                        {
-                            echo "<p>".$msg."</p>";
-                        }
+                        echo "<div class='property warning'>";
+                        echo "<p><i class='fas fa-exclamation-circle'></i> ".$msg."</p>";
+                        echo "</div>";
                     }
-                    ?>
+                }
+                ?>
+                <div class="property">
                     <div>
                         <h3>title</h3>
                         <textarea class="title" name="title" cols="500" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>title</textarea>

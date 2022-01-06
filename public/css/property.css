@@ -41,6 +41,7 @@ main>div, .main>div
     overflow-wrap: break-word;
 }
 
+
 .property p
 {
     color: var(--button-text);
@@ -137,4 +138,8 @@ main>div, .main>div
     border-radius: 1em;
 
     padding: 0.5em;
+}
+
+.warning p, .warning i{
+    color: var(--incorrect);
 }
