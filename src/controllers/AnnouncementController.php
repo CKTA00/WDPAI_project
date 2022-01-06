@@ -17,7 +17,8 @@ class AnnouncementController extends AppController
             $this->message[] = 'INTERESTING';
             move_uploaded_file(
                 $_FILES["file"]["tmp_name"],
-                dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES["file"]["name"]
+                dirname(__DIR__).self::UPLOAD_DIRECTORY.time().$_FILES["file"]["name"]
+
             );
 
             $ann = new Announcement($_POST['title'],  $_FILES['file']['name'], $_POST['description'], $_POST['range']);
