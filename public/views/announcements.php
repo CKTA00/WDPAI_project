@@ -26,8 +26,24 @@
     <div class="base-container">
         <aside>
             <span class="user-profile">
-                <img src="public/img/blank-profile-picture.svg">
-                <h2> Name Surname </h2>
+                 <?php
+                 if(isset($profileImage))
+                 {
+                     echo '<img src="public/uploads/'.$profileImage.'">';
+                 }
+                 else
+                     echo '<img src="public/img/blank-profile-picture.svg">';
+
+                 if(isset($username))
+                 {
+                     echo'<h2> '.$username.'</h2>';
+                 }
+                 else
+                     echo '<h2>username missing</h2>';
+
+                 ?>
+
+
             </span>
             <button>
                 <i class="fas fa-plus-circle"></i>

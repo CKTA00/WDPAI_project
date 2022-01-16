@@ -3,6 +3,7 @@
 require_once "AppController.php";
 require_once __DIR__."/../models/Announcement.php";
 require_once __DIR__."/../repository/AnnouncementRepository.php";
+require_once __DIR__."/../repository/UserRepository.php";
 
 class AnnouncementController extends AppController
 {
@@ -12,17 +13,20 @@ class AnnouncementController extends AppController
 
     private array $message = [];
     private $announcementRepository;
+    private $userRepository;
 
     public function __construct()
     {
         parent::__construct();
         $this->announcementRepository = new AnnouncementRepository();
+        $this->userRepository = new UserRepository();
     }
 
     //TODO: manipulate focus id with js script
     public function announcements(int $annId=-1): void
     {
-        $anns = $this->announcementRepository->getAnnouncements(3);//TODO: Fetch user id from session
+        $userId = 1;//TODO: Fetch user id from session
+        $anns = $this->announcementRepository->getAnnouncements($userId);
         if($anns == null)
             array_push($this->message,"You have no announcements yet :)");
 
@@ -38,7 +42,15 @@ class AnnouncementController extends AppController
             }
         }
 
-        $this->render('announcements', ['messages' => $this->message, 'anns' => $anns,'focusAnnIndex' => $focusIndex]);
+        $user = $this->userRepository->getUserFromId($userId);
+
+        $this->render('announcements', [
+                'username' => $user->getName().' '.$user->getSurname(),
+                'profileImage' => $user->getImage(),
+                'messages' => $this->message,
+                'anns' => $anns,
+                'focusAnnIndex' => $focusIndex
+            ]);
     }
 
     private function get_focus_index($anns,$annId): int

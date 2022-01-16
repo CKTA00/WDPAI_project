@@ -26,7 +26,33 @@ class UserRepository extends Repository
             $user['login'],
             $user['name'],
             $user['surname'],
-            $user['password']
+            $user['password'],
+            $user['profile_image']
+        );
+    }
+
+    public function getUserFromId(int $id): ?User
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM public.users WHERE id = :id
+        ');
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if($user == false){
+            // TODO throw exception, SecurityController will catch in login
+            return null;
+        }
+
+        return new User(
+            $user['email'],
+            $user['login'],
+            $user['name'],
+            $user['surname'],
+            $user['password'],
+            $user['profile_image']
         );
     }
 }
