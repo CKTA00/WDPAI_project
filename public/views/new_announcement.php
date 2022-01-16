@@ -45,15 +45,15 @@
                 </div>
 
                 <div class="property">
-                    <h3>photos</h3>
+                    <h3>images</h3>
                     <div class="image-container">
-
-                        <img src="public/img/he.png">
                         <div class="new_upload">
                             <span>chose your file:</span>
                             <input type="file" name="file">
+                            <!--TODO: if enough time, add button for deleting images and changing their order-->
                         </div>
                         <button type="button"><i class="far fa-plus-square"></i></button>
+                        <!--TODO: JS script that allows to add multiple images when clicking this button-->
                     </div>
                 </div>
 
@@ -83,10 +83,7 @@
                     </div>
                 </div>
             </div>
-
         </form>
-
-
         <nav>
             <div class="main-buttons">
                 <button>

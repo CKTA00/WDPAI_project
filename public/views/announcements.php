@@ -106,7 +106,7 @@
                 </div>
     
                 <div class="property">
-                    <h3>photos</h3>
+                    <h3>images</h3>
                     <div class="image-container">
                         <?php
                         $ann = $anns[$focusAnnIndex];
