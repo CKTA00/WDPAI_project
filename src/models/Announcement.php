@@ -2,17 +2,36 @@
 
 class Announcement
 {
+    private int $id;
     private string $title;
-    private string $imageUrl;
     private string $description;
+    private string $images;
+    private string $location;
     private int $range;
 
-    public function __construct(string $title, string $imageUrl, string $description, int $range)
+    public function __construct(
+        string $title,
+        string $description,
+        string $images,
+        string $location,
+        int $range
+    )
     {
         $this->title = $title;
-        $this->imageUrl = $imageUrl;
         $this->description = $description;
+        $this->images = $images;
+        $this->location = $location;
         $this->range = $range;
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
     }
 
     public function getTitle(): string
@@ -25,14 +44,14 @@ class Announcement
         $this->title = $title;
     }
 
-    public function getImageUrl(): string
+    public function getImages(): string
     {
-        return $this->imageUrl;
+        return $this->images;
     }
 
-    public function setImageUrl(string $imageUrl)
+    public function setImages(string $images)
     {
-        $this->imageUrl = $imageUrl;
+        $this->images = $images;
     }
 
     public function getDescription(): string
@@ -43,6 +62,16 @@ class Announcement
     public function setDescription(string $description)
     {
         $this->description = $description;
+    }
+
+    public function getLocation(): string
+    {
+        return $this->location;
+    }
+
+    public function setLocation(string $location): void
+    {
+        $this->location = $location;
     }
 
     public function getRange(): int

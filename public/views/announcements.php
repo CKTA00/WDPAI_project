@@ -13,6 +13,12 @@
     <link rel="stylesheet" type="text/css" href="public/css/announcements.css">
     <link rel="stylesheet" type="text/css" href="public/css/announcements-mobile.css">
     <title>Little Places - Your Announcements</title>
+    <?php
+        if($anns==null)
+        {
+            print "<style> .property{display: none} </style>";
+        }
+    ?>
 </head>
 <body>
     <div class="base-container">
@@ -100,12 +106,20 @@
                     <p>delete</p>
                 </button>
             </header>
-            <div>
+            <div> <?php
+                foreach ($messages as $msg)
+                {
+                    print '<div class="message"><p>';
+
+                    print $msg.'</p></div>';
+                }
+                ?>
                 <div class="property">
                     <h1>
                         <?php
+
                         if(isset($anns))
-                            print $anns[0]->getTitle();
+                            print $anns[$focusAnnIndex]->getTitle();
                         else
                             print "Title";
                         ?>
@@ -118,7 +132,7 @@
                         <?php
                         if(isset($anns))
                         {
-                            $fileName = $anns[0]->getImageUrl();
+                            $fileName = $anns[$focusAnnIndex]->getImages();
                             print "<img src=public/uploads/".$fileName.">";
                         }
 
@@ -134,7 +148,7 @@
                     <p>
                         <?php
                         if(isset($anns))
-                            print $anns[0]->getDescription();
+                            print $anns[$focusAnnIndex]->getDescription();
                         else
                             print "Description";
                         ?>
@@ -156,7 +170,7 @@
                         <p>
                             <?php
                             if(isset($anns))
-                                print Announcement::getRangeName($anns[0]->getRange());
+                                print Announcement::getRangeName($anns[$focusAnnIndex]->getRange());
                             else
                                 print Announcement::getRangeName(4);
                             ?>

@@ -54,11 +54,6 @@ class DashboardController extends AppController
             ]);
     }
 
-    public function announcements(): void
-    {
-        $this->render('announcements');
-    }
-
     public function chats(): void
     {
         // TODO retrieve users from db

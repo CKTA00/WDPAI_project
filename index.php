@@ -12,11 +12,14 @@ if(empty($path))
 Router::get('index','DashboardController');
 Router::get('login','DashboardController');
 Router::get('register','DashboardController');
-Router::post('login_user','SecurityController');
+//announcements edit and full view:
 Router::post('new_announcement','AnnouncementController');
+Router::get('announcements','AnnouncementController');
+
+Router::post('login_user','SecurityController');
 Router::post('register_user','SecurityController');
+
 Router::get('dashboard','DashboardController');
-Router::get('announcements','DashboardController');
 Router::get('chats','DashboardController');
 Router::get('options','DashboardController');
 Router::get('regain_password','DashboardController');
