@@ -14,9 +14,11 @@
     <link rel="stylesheet" type="text/css" href="public/css/announcements-mobile.css">
     <title>Little Places - Your Announcements</title>
     <?php
-        if($anns==null)
+        if($anns==null) //TODO: probably better to do it in JS
         {
-            print "<style> .property{display: none} </style>";
+            echo "<style>";
+            echo ".property,header{display: none}\n";
+            echo "</style>";
         }
     ?>
 </head>
@@ -31,59 +33,36 @@
                 <i class="fas fa-plus-circle"></i>
                 <p>new announcement</p>
             </button>
-            <h3>Your announcements:</h3>
+            <?php
+            if($anns!=null) //TODO: probably better to do it in JS
+            {
+                echo "<h3>Your announcements:</h3>";
+            }
+            ?>
             <div>
-                <div class="announcement" id="ann1">
-                    <div>
-                        <img src="public/img/he.png">
-                        <h4>title</h4>
-                    </div>
-                    <p><i class="fas fa-map-marker-alt"></i> location name</p>
-                    <h4>Followers:</h4>
-                </div>
-    
-                <div class="announcement" id="ann2">
-                    <div>
-                        <img src="public/img/he.png">
-                        <h4>title</h4>
-                    </div>
-                    <p><i class="fas fa-map-marker-alt"></i> location name</p>
-                    <h4>Followers:</h4>
-                </div>
-    
-                <div class="announcement active-ann" id="ann3">
-                    <div>
-                        <img src="public/img/he.png">
-                        <h4>title</h4>
-                    </div>
-                    <p><i class="fas fa-map-marker-alt"></i> location name</p>
-                    <h4>Followers:</h4>
-                </div>
-                <div class="announcement" id="ann3">
-                    <div>
-                        <img src="public/img/he.png">
-                        <h4>title</h4>
-                    </div>
-                    <p><i class="fas fa-map-marker-alt"></i> location name</p>
-                    <h4>Followers:</h4>
-                </div>
-                <div class="announcement" id="ann3">
-                    <div>
-                        <img src="public/img/he.png">
-                        <h4>title</h4>
-                    </div>
-                    <p><i class="fas fa-map-marker-alt"></i> location name</p>
-                    <h4>Followers:</h4>
-                </div>
-                <div class="announcement" id="ann3">
-                    <div>
-                        <img src="public/img/he.png">
-                        <h4>title</h4>
-                    </div>
-                    <p><i class="fas fa-map-marker-alt"></i> location name</p>
-                    <h4>Followers:</h4>
-                </div>
-
+                <?php
+                    $i = 0;
+                    if(isset($anns)) foreach ($anns as $ann)
+                    {
+                        echo '<div class="announcement';                                //OPEN ann div
+                            if($i == $focusAnnIndex)
+                                echo ' active-ann';
+                            echo '" id="ann'.$i.'">';
+                            echo '<div>';                                               //OPEN image and title div
+                                $mainImg = $ann->getImages();
+                                //$mainImg = $ann->getImages()[0]; //TODO: uncomment when implemented
+                                if($mainImg!=null)
+                                    echo '<img src="public/uploads/'.$mainImg.'">';
+                                echo '<h4>'.$ann->getTitle().'</h4>';
+                            echo '</div>';                                              //CLOSE image and title div
+                            //TODO: get location name from mapbox api (add 2 spaces)
+                            echo '<p><i class="fas fa-map-marker-alt"></i>  Kraków</p>';
+                            echo '<h4>Followers:</h4>';
+                            // TODO: get followers from db
+                        echo '</div>';                                                  //CLOSE ann div
+                        $i++;
+                    }
+                ?>
             </div>
            
         </aside>
@@ -130,16 +109,17 @@
                     <h3>photos</h3>
                     <div class="image-container">
                         <?php
-                        if(isset($anns))
+                        $ann = $anns[$focusAnnIndex];
+                        if($ann!=null)
                         {
-                            $fileName = $anns[$focusAnnIndex]->getImages();
+                            //$imgJSON = $ann->getImages(); //TODO: Show all images from json
+                            $fileName = $ann->getImages();
                             print "<img src=public/uploads/".$fileName.">";
                         }
-
-                        else
-                            print '<img src="public/img/hehe.png"><img src="public/img/he.png">';
+                        else{
+                            echo '<p>No images</p>';
+                        }
                         ?>
-                        <button type="button"><i class="far fa-plus-square"></i></button>
                     </div>
                 </div>
     

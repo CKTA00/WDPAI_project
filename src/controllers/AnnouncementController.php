@@ -54,11 +54,6 @@ class AnnouncementController extends AppController
         return -1;
     }
 
-//    public function announcements(): void
-//    {
-//        return $this->announcements(0);
-//    }
-
     public function new_announcement(){
         if ($this->isPost() && is_uploaded_file($_FILES["file"]["tmp_name"]) && $this->validate($_FILES["file"]))
         {
