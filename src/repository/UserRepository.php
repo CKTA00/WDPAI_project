@@ -31,19 +31,48 @@ class UserRepository extends Repository
         );
     }
 
-   public function addUser(User $user): void
-   {
+    public function addUser(User $user)
+    {
        $stmt = $this->database->connect()->prepare('
             INSERT INTO public.users (login,email,password,name,surname) VALUES (?,?,?,?,?)
         ');
-       $stmt->execute([
+       $success = $stmt->execute([
            $user->getLogin(),
            $user->getEmail(),
            $user->getPassword(),
            $user->getName(),
            $user->getSurname()
        ]);
-   }
+
+       if(!$success)
+       {
+           $stmt = $this->database->connect()->prepare('
+            SELECT * FROM public.users WHERE email = :email
+            ');
+           $email = $user->getEmail();
+           $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+           $stmt->execute();
+           $existingUser = $stmt->fetch(PDO::FETCH_ASSOC);
+           if(isset($existingUser) && $existingUser!=false)
+           {
+               return 'email';
+           }
+
+           $stmt = $this->database->connect()->prepare('
+            SELECT * FROM public.users WHERE login = :login
+            ');
+           $login = $user->getLogin();
+           $stmt->bindParam(":login", $login, PDO::PARAM_STR);
+           $stmt->execute();
+           $existingUser = $stmt->fetch(PDO::FETCH_ASSOC);
+           if(isset($existingUser) && $existingUser!=false)
+           {
+               return 'login';
+           }
+       }
+
+       return true;
+    }
 
     public function getUserFromId(int $id): ?User
     {

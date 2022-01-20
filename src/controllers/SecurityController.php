@@ -7,6 +7,7 @@ require_once __DIR__."/../repository/UserRepository.php";
 class SecurityController extends AppController
 {
     private $userRepository;
+    const USER_COOKIE = "userLogin";
 
     public function __construct()
     {
@@ -43,8 +44,15 @@ class SecurityController extends AppController
             return $this->render("login",["messages"=>["Wrong password."]]);
         }
 
+        setcookie(self::USER_COOKIE,$user->getLogin(),time()+3600,"/");
+
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/announcements");
+    }
+
+    public function timeout()
+    {
+        return $this->render("login",["messages"=>["Session timeout."]]);
     }
 
     public function register()
@@ -64,7 +72,20 @@ class SecurityController extends AppController
         }
         $password = hash("sha256", $password);
         $user = new User($email,$login,$name,$surname,$password,null);
-        $this->userRepository->addUser($user);
+        $success = $this->userRepository->addUser($user);
+        if($success==='login')
+        {
+            return $this->render('register', ['messages' => ['User with this login already exists.']]);
+        }
+        else if($success==='email')
+        {
+            return $this->render('register', ['messages' => ['User with this email already exists.']]);
+        }
         return $this->render('login', ['messages' => ['Success! Log into your new account.']]);
+    }
+
+    public function logout(){
+        setcookie(self::USER_COOKIE,"",time()-100);
+        return $this->render('login', ['messages' => ['You successfully log out.']]);
     }
 }

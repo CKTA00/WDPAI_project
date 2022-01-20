@@ -19,6 +19,15 @@
         <div class="login-div">
             <form action="register" method="POST" enctype="application/x-www-form-urlencoded">
                 <h1>Register your account</h1>
+                <?php
+                if(isset($messages))
+                {
+                    foreach ($messages as $msg)
+                    {
+                        echo "<p>".$msg."</p>";
+                    }
+                }
+                ?>
                 <input class="standard-input" type="text" placeholder="login" name="login">
                 <input class="standard-input" type="email" placeholder="email" name="email">
                 <input class="standard-input" type="text" placeholder="name" name="name">

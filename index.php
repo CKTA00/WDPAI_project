@@ -10,15 +10,20 @@ if(empty($path))
     $path = 'login';
 }
 Router::get('index','SecurityController');
+Router::requireNoLogin('index');
+Router::get('logout','SecurityController');
+Router::requireNoLogin('logout');
 Router::post('login','SecurityController');
+Router::requireNoLogin('login');
 Router::post('register','SecurityController');
+Router::requireNoLogin('register');
+
 //announcements edit and full view:
 Router::post('new_announcement','AnnouncementController');
 Router::get('announcements','AnnouncementController');
-
 Router::get('dashboard','DashboardController');
 Router::get('chats','DashboardController');
 Router::get('options','DashboardController');
 Router::get('regain_password','DashboardController');
 
-Router::run($path); // or rerout in run()?
+Router::run($path);
