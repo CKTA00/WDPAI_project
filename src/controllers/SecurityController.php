@@ -14,14 +14,19 @@ class SecurityController extends AppController
         $this->userRepository = new UserRepository();
     }
 
-    public function login_user()
+    public function index()
+    {
+        return $this->login();
+    }
+
+    public function login()
     {
         if(!$this->isPost())
         {
             return $this->render('login');
         }
         $login = $_POST["login"];
-        $password = sha256($_POST["password"]);
+        $password = hash("sha256", $_POST["password"]);
 
         $user = $this->userRepository->getUser($login);
         if(!$user)
@@ -40,5 +45,26 @@ class SecurityController extends AppController
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/announcements");
+    }
+
+    public function register()
+    {
+        if(!$this->isPost()) {
+            return $this->render('register');
+        }
+        $login = $_POST["login"];
+        $email = $_POST["email"];
+        $name = $_POST["name"];
+        $surname = $_POST["surname"];
+        $password = $_POST["password"];
+        $repeatPassword = $_POST["repeatPassword"];
+        if($password!==$repeatPassword)
+        {
+            return $this->render('register',['messages' => ['Your password and repeated password are not the same.']]);
+        }
+        $password = hash("sha256", $password);
+        $user = new User($email,$login,$name,$surname,$password,null);
+        $this->userRepository->addUser($user);
+        return $this->render('login', ['messages' => ['Success! Log into your new account.']]);
     }
 }

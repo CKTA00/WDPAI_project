@@ -25,10 +25,10 @@ class AnnouncementController extends AppController
     //TODO: manipulate focus id with js script
     public function announcements(int $annId=-1): void
     {
-        $userId = 1;//TODO: Fetch user id from session
+        $userId = 3;//TODO: Fetch user id from session
         $anns = $this->announcementRepository->getAnnouncements($userId);
         if($anns == null)
-            array_push($this->message,"You have no announcements yet :)");
+            $this->message[] = "You have no announcements yet :)";
 
         if($annId<0)
             $focusIndex = 0;
@@ -93,7 +93,7 @@ class AnnouncementController extends AppController
         }
 
         if (!isset($file["type"]) || !in_array($file["type"], self::SUPPORTED_TYPES)) {
-            $this->message[] = 'This file type is not supported.';
+            $this->message[] = 'This file format is not supported.';
             return false;
         }
         return true;

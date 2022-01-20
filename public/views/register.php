@@ -17,16 +17,16 @@
         </div>
         
         <div class="login-div">
-            <form>
+            <form action="register" method="POST" enctype="application/x-www-form-urlencoded">
                 <h1>Register your account</h1>
-                <input class="standard-input" type="text" placeholder="login">
-                <input class="standard-input" type="email" placeholder="email@site">
-                <input class="standard-input" type="text" placeholder="name">
-                <input class="standard-input" type="text" placeholder="surname">
-                <input class="standard-input" type="password" placeholder="password">
-                <input class="standard-input" type="password" placeholder="repeat password">
+                <input class="standard-input" type="text" placeholder="login" name="login">
+                <input class="standard-input" type="email" placeholder="email" name="email">
+                <input class="standard-input" type="text" placeholder="name" name="name">
+                <input class="standard-input" type="text" placeholder="surname" name="surname">
+                <input class="standard-input" type="password" placeholder="password" name="password">
+                <input class="standard-input" type="password" placeholder="repeat password" name="repeatPassword">
                 <div><p>By pressing "sign in", you confirm that you acknowledged and accepted our <a>agreement</a>.</p></div>
-                <button class="button-22" role="button">sign in</button>
+                <button class="button-22" role="button" type="submit">sign in</button>
             </form>
         </div>
     </div>

@@ -5,16 +5,6 @@ require_once __DIR__ . '/../models/Announcement.php';
 
 class DashboardController extends AppController
 {
-    public function index(): void
-    {
-        $this->login();
-    }
-
-    public function login(): void
-    {
-        $this->render('login');
-    }
-
     public function dashboard(): void
     {
         //$data= ["zaginoł kot","korepetycje z matematyki dla dzieci z klas 4-8"];
@@ -63,11 +53,6 @@ class DashboardController extends AppController
     public function options(): void
     {
         $this->render('options');
-    }
-
-    public function register(): void
-    {
-        $this->render('register');
     }
 
     public function regain_password(): void
