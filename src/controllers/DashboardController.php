@@ -5,43 +5,22 @@ require_once __DIR__ . '/../models/Announcement.php';
 
 class DashboardController extends AppController
 {
+    private AnnouncementRepository $annRep;
+    private UserRepository $userRep;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->annRep = new AnnouncementRepository();
+        $this->userRep = new UserRepository();
+    }
+
+
     public function dashboard(): void
     {
-        //$data= ["zaginoł kot","korepetycje z matematyki dla dzieci z klas 4-8"];
-        $notice = new Announcement(
-            'Zaginął kot',
-            "https://cdn.pixabay.com/photo/2017/11/09/21/41/cat-2934720_1280.jpg",
-            "desc",
-            "location"
-        );
-
-        $notice2 = new Announcement('','','','');
-        $notice2->setTitle('a')
-            ->setImageUrl("https://cdn.pixabay.com/photo/2017/11/09/21/41/cat-2934720_1280.jpg")
-            ->setDescription('d2')
-            ->setLocation('l2');
-        $notice3 = new Announcement('','','','');
-        $notice3->setTitle('3')
-            ->setImageUrl("https://cdn.pixabay.com/photo/2017/11/09/21/41/cat-2934720_1280.jpg")
-            ->setDescription('d3')
-            ->setLocation('l3');
-
-        $this->render('dashboard', [
-            'notices'=>
-                [
-                    $notice,
-                    $notice2,
-                    $notice3
-                ],
-            'title'=>
-                [
-                    "Tytuł test"
-                ],
-            'title2'=>
-
-                    "Tytuł test 2"
-
-            ]);
+        //$user = $this->userRep->getUserFromLogin($this->userLogin);
+        $anns = $this->annRep->getAnnouncementsByDistance("TODO: location");
+        $this->render('dashboard', ["anns"=>$anns]);
     }
 
     public function chats(): void

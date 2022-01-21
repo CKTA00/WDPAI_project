@@ -64,4 +64,46 @@ class AnnouncementRepository extends Repository
         $id = $stmt->fetch(PDO::FETCH_ASSOC);
         return $id["id"];
     }
+
+    public function getAnnouncementsByDistance(string $userLocation, $maxDistance=2000.0): ?Array
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT ann.id, ann.title, ann.description, ann.range_id, ann.images, ann.location, u.login, u.name, u.surname, u.profile_image
+            FROM announcements ann JOIN users u ON ann.user_id = u.id
+        ');
+        $stmt->execute();
+
+        $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if($projects == false){
+            return null;
+        }
+
+        $anns = [];
+        foreach($projects as $project)
+        {
+            $owner = new User(
+                "_",
+                $project['login'],
+                $project['name'],
+                $project['surname'],
+                "_",
+                $project['profile_image']
+            );
+            $ann = new Announcement(
+                $project['title'],
+                $project['description'],
+                $project['images'],
+                $project['location'],
+                $project['range_id']
+            );
+            $ann->setId($project['id']);
+            $ann->setOwner($owner);
+            $anns[] = $ann;
+        }
+
+        // TODO: calculate distance to each one from user and show only nearest
+
+        return $anns;
+    }
 }

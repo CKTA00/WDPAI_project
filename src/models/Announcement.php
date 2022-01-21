@@ -1,13 +1,17 @@
 <?php
 
+require_once "User.php";
+
 class Announcement
 {
-    private int $id;
     private string $title;
     private string $description;
     private string $images;
     private string $location;
     private int $range;
+
+    private int $id;
+    private User $owner;
 
     public function __construct(
         string $title,
@@ -32,6 +36,16 @@ class Announcement
     public function setId(int $id): void
     {
         $this->id = $id;
+    }
+
+    public function getOwner(): User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(User $user): void
+    {
+        $this->owner = $user;
     }
 
     public function getTitle(): string
