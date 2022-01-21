@@ -1,0 +1,37 @@
+@media screen and (max-width: 635px)
+{
+    .property {
+        background: var(--form-background) 0% 0% no-repeat padding-box;
+        border-radius: 1em;
+        opacity: 1;
+        width: auto;
+        padding: 1em;
+        margin: 0.3em 1em;
+    }
+
+    .image-container {
+        display: flex;
+        flex-flow: column;
+        justify-content: stretch;
+        align-items: center;
+        gap: 0.5em;
+    }
+
+    .image-container > img {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+
+        border-radius: 1em;
+
+        object-fit: cover;
+    }
+
+    .new_upload, .image-container>button{
+        min-width: unset;
+        min-height: unset;
+        width: 100%;
+        height: auto;
+        padding: 0.5rem 0;
+    }
+}

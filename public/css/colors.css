@@ -1,4 +1,4 @@
-﻿:root {
+:root {
 
     /* Colors: */
     --basic: #8CE366;
@@ -17,4 +17,6 @@
     --big-button-b: #85D861;
     --big-button-hover-a: #c3f8aa;
     --big-button-hover-b: #97d47c;
+
+    --incorrect: #d30000;
 }

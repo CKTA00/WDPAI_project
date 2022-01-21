@@ -1,0 +1,145 @@
+main>div, .main>div
+{
+    /* appearance */
+    box-sizing: border-box;
+    background: var(--input-bg) 0% 0% no-repeat padding-box;
+    padding: 0.5em 1em 0.5em 0;
+
+    /* content positioning */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: auto;
+}
+
+
+.property, .message{
+    background: var(--form-background) 0% 0% no-repeat padding-box;
+    border-radius: 1em;
+
+    padding: 1em;
+    margin: 0.3em 1em;
+}
+
+.property h1 {
+    color: var(--button-text);
+    text-align: left;
+    font: normal normal normal 2.5em/1em Gill Sans Nova;
+    letter-spacing: 0px;
+    overflow-wrap: anywhere;
+}
+
+.property h3
+{
+    color: var(--button-text);
+    text-align: left;
+    font: normal normal normal 1.5em/1.5em Gill Sans Nova;
+    margin: 0.5em 0 0.75em 0;
+    letter-spacing: 0px;
+    display: inline;
+    overflow-wrap: break-word;
+}
+
+
+.property p, .message p
+{
+    color: var(--button-text);
+    text-align: left;
+    font: normal normal 300 1.2em/1.2em Gill Sans Nova;
+    letter-spacing: 0px;
+    overflow-wrap: anywhere;
+}
+
+.property textarea
+{
+    color: var(--button-text);
+    text-align: left;
+    letter-spacing: 0px;
+    resize: none;
+    width: 100%;
+}
+
+.property .title
+{
+    font: normal normal normal 2.5em/1em Gill Sans Nova;
+}
+
+.property .description
+{
+    font: normal normal 300 1.2em/1.2em Gill Sans Nova;
+}
+
+.image-container
+{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: stretch;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.image-container>img{
+    max-width: 16.66em;
+    height: 12.5em;
+
+    border-radius: 1em;
+
+    object-fit: cover;
+}
+
+.new_upload, .image-container>button{
+    /* appearance */
+    box-sizing: border-box;
+    border-radius: 1rem;
+    min-width: 12.5rem;
+    height: 12.5rem;
+    background: var(--basic) 0% 0% no-repeat padding-box;
+    padding: 0.5em;
+
+    /* content positioning */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container>button {
+    appearance: button;
+    border-style: none;
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    cursor: pointer;
+    transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.image-container>button:hover
+{
+    background: var(--basic-light) 0% 0% no-repeat padding-box;
+}
+
+.image-container>button>i
+{
+    color: var(--button-icon);
+    font-size: 4.5rem;
+}
+
+.property select
+{
+    /* size */
+    width: 100%;
+    height: 3em;
+
+    /* appearance */
+    background: var(--alt-input-bg) 0% 0% no-repeat padding-box;
+    border: 1px solid var(--button-text);
+    border-radius: 1em;
+
+    padding: 0.5em;
+}
+
+.warning p, .warning i{
+    color: var(--incorrect);
+}

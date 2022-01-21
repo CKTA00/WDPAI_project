@@ -80,15 +80,16 @@ nav i
     font-size: 3rem;
 }
 
-main
+main, .main
 {
     /* appearance */
     height: 100vh;
-    flex-grow: 5;
+    flex-basis: 70%;
+    flex-shrink: 1000;
+    flex-grow: 1;
     box-sizing: border-box;
     background: var(--input-bg) 0% 0% no-repeat padding-box;
     opacity: 1;
-    width: 10vw;
 
     /* content positioning */
     display: flex;
@@ -98,7 +99,26 @@ main
     overflow: auto;
 }
 
-/* User mini profile in annoucements and options views */
+aside
+{
+    /* appearance */
+    height: 100vh;
+    flex-basis: 30%;
+    flex-shrink: 1;
+    flex-grow: 1000;
+    background: var(--basic) 0% 0% no-repeat padding-box;
+    box-sizing: border-box;
+
+    /* content positioning */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0.5em;
+    overflow: auto;
+}
+
+/* User mini profile in announcements and options views */
 
 .user-profile
 {
@@ -136,4 +156,64 @@ main
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+/* OPTIONS ABOVE OR BELOW EDIT BOX */
+
+header{
+    /* appearance */
+    height: min-content;
+    box-sizing: border-box;
+    background: var(--alt-input-bg) 0% 0% no-repeat padding-box;
+    padding: 0;
+
+    /* content positioning */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+header>p{
+    font: normal normal normal 1.2rem/2rem Gill Sans Nova;
+    color: var(--default-text);
+    text-align: center;
+    margin: auto;
+}
+
+header>button{
+    /* appearance */
+    color: var(--button-text);
+    background-color: rgba(0,0,0,0);
+    text-align: left;
+    font: normal normal normal 1.5rem/2.6rem Gill Sans Nova;
+    letter-spacing: 0px;
+    border-right: 1px ridge var(--button-text);
+    width:auto;
+
+    appearance: button;
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    cursor: pointer;
+    transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+    /* size */
+    height: 2.5rem;
+
+
+    /* content positioning */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0 0.5em;
+}
+
+header button:hover{
+    background-color: var(--form-background);
 }

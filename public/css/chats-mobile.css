@@ -9,6 +9,10 @@
         /* display: none; */ /* set in script */
     }
 
+    header button:first-child{
+        display: flex;
+    }
+
     .input-line{
         /* appearance */
         height: 4em;

@@ -1,1 +1,5 @@
-public/img/he*.png
+*he*.png
+public/uploads/
+.idea
+.vscode
+config.php
