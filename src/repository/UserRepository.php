@@ -98,4 +98,29 @@ class UserRepository extends Repository
             $user['profile_image']
         );
     }
+
+    public function getUserFromLogin(string $login): ?User
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM public.users WHERE login = :login
+        ');
+        $stmt->bindParam(":login", $login, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if($user == false){
+            // TODO throw exception, SecurityController will catch in login
+            return null;
+        }
+
+        return new User(
+            $user['email'],
+            $user['login'],
+            $user['name'],
+            $user['surname'],
+            $user['password'],
+            $user['profile_image']
+        );
+    }
 }

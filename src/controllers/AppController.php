@@ -2,10 +2,12 @@
 
 class AppController {
     private $request;
+    protected $userLogin;
 
     public function __construct()
     {
         $this->request = $_SERVER['REQUEST_METHOD'];
+        $this->userLogin = $_COOKIE['userLogin'];
     }
 
     protected function isPost(): bool

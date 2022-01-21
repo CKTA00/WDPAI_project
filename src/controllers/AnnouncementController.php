@@ -25,8 +25,7 @@ class AnnouncementController extends AppController
     //TODO: manipulate focus id with js script
     public function announcements(int $annId=-1): void
     {
-        $userId = 3;//TODO: Fetch user id from session
-        $anns = $this->announcementRepository->getAnnouncements($userId);
+        $anns = $this->announcementRepository->getAnnouncements($this->userLogin);
         if($anns == null)
             $this->message[] = "You have no announcements yet :)";
 
@@ -42,7 +41,7 @@ class AnnouncementController extends AppController
             }
         }
 
-        $user = $this->userRepository->getUserFromId($userId);
+        $user = $this->userRepository->getUserFromLogin($this->userLogin);
 
         $this->render('announcements', [
                 'username' => $user->getName().' '.$user->getSurname(),

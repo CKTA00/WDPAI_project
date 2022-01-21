@@ -6,15 +6,15 @@ require_once __DIR__.'/../models/User.php';
 
 class AnnouncementRepository extends Repository
 {
-    public function getAnnouncements(string $userId): ?Array
+    public function getAnnouncements(string $userLogin): ?Array
     {
         $stmt = $this->database->connect()->prepare('
             SELECT ann.id, ann.title, ann.description, ann.range_id, ann.images, ann.location
             FROM announcements ann JOIN users u
             ON u.id = ann.user_id
-            WHERE :user_id = ann.user_id
+            WHERE :login = u.login
         ');
-        $stmt->bindParam(":user_id", $userId, PDO::PARAM_INT);
+        $stmt->bindParam(":login", $userLogin, PDO::PARAM_STR);
         $stmt->execute();
 
         $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
