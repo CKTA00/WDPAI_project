@@ -8,6 +8,7 @@ class SecurityController extends AppController
 {
     private $userRepository;
     const USER_COOKIE = "userLogin";
+    const SESSION_PASS_COOKIE = "sessionPass";
 
     public function __construct()
     {
@@ -22,7 +23,7 @@ class SecurityController extends AppController
 
     public function login()
     {
-        if(!isset($_COOKIE["userLogin"])) // assume that user actually wants to continue previous session
+        if(!$this->authorize()) // assume that user actually wants to continue previous session
         {
             if(!$this->isPost())
             {
@@ -46,7 +47,7 @@ class SecurityController extends AppController
                 return $this->render("login",["messages"=>["Wrong password."]]);
             }
 
-            setcookie(self::USER_COOKIE,$user->getLogin(),time()+3600,"/");
+            $this->beginSession($user);
         }
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/announcements");
@@ -59,7 +60,7 @@ class SecurityController extends AppController
 
     public function register()
     {
-        setcookie(self::USER_COOKIE,"",time()-100); // assume that user wants to log out and register another user
+        $this->endSession(); // assume that user wants to log out and register another user
         if(!$this->isPost()) {
             return $this->render('register');
         }
@@ -88,7 +89,43 @@ class SecurityController extends AppController
     }
 
     public function logout(){
-        setcookie(self::USER_COOKIE,"",time()-100);
+        $this->endSession();
         return $this->render('login', ['messages' => ['You successfully log out.']]);
+    }
+
+    private function endSession(){
+        if(isset($_COOKIE[self::USER_COOKIE]))
+        {
+            $this->userRepository->setUserSessionPass($_COOKIE[self::USER_COOKIE],null);
+            setcookie(self::USER_COOKIE,"",time()-100);
+            setcookie(self::SESSION_PASS_COOKIE,"",time()-100);
+        }
+    }
+
+    private function beginSession(User $user){
+        if(!isset($_COOKIE[self::USER_COOKIE]))
+        {
+            $sessionPass = sha1($user->getPassword().time());
+            $this->userRepository->setUserSessionPass($user->getLogin(),$sessionPass);
+            setcookie(self::USER_COOKIE,$user->getLogin(),time()+3600,"/");
+            setcookie(self::SESSION_PASS_COOKIE,$sessionPass,time()+3600,"/");
+        }
+    }
+
+    public function authorize(): bool
+    {
+        if(isset($_COOKIE[self::USER_COOKIE]) && isset($_COOKIE[self::SESSION_PASS_COOKIE]))
+        {
+            $sessionPass = $this->userRepository->getUserSessionPass($_COOKIE[self::USER_COOKIE]);
+            if($_COOKIE[self::SESSION_PASS_COOKIE] === $sessionPass)
+                return true;
+            else{
+                $this->endSession();
+                // TODO: Notify FBI about hacker xd
+                return false;
+            }
+
+        }
+        return false;
     }
 }

@@ -32,15 +32,21 @@ class Router
             die("404 PAGE NOT FOUND");
         }
 
-        if(!isset($_COOKIE['userLogin']) && !in_array($action,self::$noLogin)){
-            $obj=new SecurityController();
-            $obj->timeout();
-        }
-        else
+        $security=new SecurityController();
+
+        if(in_array($action,self::$noLogin) || $security->authorize()) //do not require authorization or user is authorized
         {
             $controller = self::$routes[$action]; // using $action as a key
             $obj = new $controller; // creating controller object from its name
             $obj->$action(); // using $action as a function name in controller object
+        }
+        else if(!isset($_COOKIE['userLogin']))
+        {
+            $security->timeout(); //user session ended
+        }
+        else
+        {
+            $security->login(); //unauthorized user
         }
     }
 }

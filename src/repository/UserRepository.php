@@ -123,4 +123,43 @@ class UserRepository extends Repository
             $user['profile_image']
         );
     }
+
+    public function getUserSessionPass(string $login): ?string
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT session_pass FROM public.users WHERE login = :login
+        ');
+        $stmt->bindParam(":login", $login, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $pass = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if($pass == false){
+            // TODO throw exception, SecurityController will catch in login
+            return null;
+        }
+
+        return $pass["session_pass"];
+    }
+
+    public function setUserSessionPass(string $login, ?string $pass)
+    {
+        if(isset($pass))
+        {
+            $stmt = $this->database->connect()->prepare('
+            UPDATE public.users SET session_pass = :pass WHERE login = :login
+            ');
+            $stmt->bindParam(":login", $login, PDO::PARAM_STR);
+            $stmt->bindParam(":pass", $pass, PDO::PARAM_STR);
+            $stmt->execute();
+        }
+        else
+        {
+            $stmt = $this->database->connect()->prepare('
+            UPDATE public.users SET session_pass = NULL WHERE login = :login
+            ');
+            $stmt->bindParam(":login", $login, PDO::PARAM_STR);
+            $stmt->execute();
+        }
+    }
 }
