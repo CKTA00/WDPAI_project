@@ -40,7 +40,7 @@ class AnnouncementRepository extends Repository
         return $anns;
     }
 
-    public function addAnnouncement(Announcement $announcement): int
+    public function addAnnouncement(Announcement $announcement, string $ownerId): int
     {
         $stmt = $this->database->connect()->prepare('
             WITH i AS(
@@ -48,12 +48,9 @@ class AnnouncementRepository extends Repository
             VALUES (?, ?, ?, ?, ?, ?) RETURNING id
             ) SELECT i.id FROM i
         '); // WITH selects id of added row
-
-        $userId = 3; //TODO: Fetch from session
-
         $stmt->execute(
             [
-                $userId,
+                $ownerId,
                 $announcement->getTitle(),
                 $announcement->getDescription(),
                 $announcement->getRange(),

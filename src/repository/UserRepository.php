@@ -127,6 +127,24 @@ class UserRepository extends Repository
         );
     }
 
+    public function getUserIdFromLogin(string $login): ?int
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT id FROM public.users WHERE login = :login
+        ');
+        $stmt->bindParam(":login", $login, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if($user == false){
+            // TODO throw exception, SecurityController will catch in login
+            return null;
+        }
+
+        return $user["id"];
+    }
+
     public function getUserSessionPass(string $login): ?string
     {
         $stmt = $this->database->connect()->prepare('

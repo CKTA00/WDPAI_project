@@ -12,9 +12,10 @@
     <link rel="stylesheet" type="text/css" href="public/css/property-mobile.css">
     <link rel="stylesheet" type="text/css" href="public/css/announcements.css">
     <link rel="stylesheet" type="text/css" href="public/css/announcements-mobile.css">
+    <script type="text/javascript" src="./public/js/announcements.js" defer></script>
     <title>Little Places - Your Announcements</title>
     <?php
-        if($anns==null) //TODO: probably better to do it in JS
+        if(!isset($anns)) //TODO: probably better to do it in JS
         {
             echo "<style>";
             echo ".property,header{display: none}\n";
@@ -42,10 +43,8 @@
                      echo '<h2>username missing</h2>';
 
                  ?>
-
-
             </span>
-            <button>
+            <button id="new-button">
                 <i class="fas fa-plus-circle"></i>
                 <p>new announcement</p>
             </button>

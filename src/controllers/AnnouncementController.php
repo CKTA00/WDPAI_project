@@ -33,7 +33,7 @@ class AnnouncementController extends AppController
             $focusIndex = 0;
         else
         {
-            $focusIndex=$this->get_focus_index($anns,$annId);
+            $focusIndex=$this->getFocusIndex($anns,$annId);
             if($focusIndex==-1)
             {
                 $this->message[] = "Your new announcement is still processed. Refresh after few seconds to see it.";
@@ -52,19 +52,6 @@ class AnnouncementController extends AppController
             ]);
     }
 
-    private function get_focus_index($anns,$annId): int
-    {
-        $arr_size = count($anns);
-        for($i = 0; $i<$arr_size;$i++)
-        {
-            if($anns[$i]->getId()==$annId)
-            {
-                return $i;
-            }
-        }
-        return -1;
-    }
-
     public function new_announcement(){
         if ($this->isPost() && is_uploaded_file($_FILES["file"]["tmp_name"]) && $this->validate($_FILES["file"]))
         {
@@ -77,11 +64,25 @@ class AnnouncementController extends AppController
             //TODO: replace point with location from map
             $anns = new Announcement($_POST['title'], $_POST['description'], $dbFileName, '{"point":[0.0,0.0]}' , $_POST['range']);
 
-            $id = $this->announcementRepository->addAnnouncement($anns);
+            $userId = $this->userRepository->getUserIdFromLogin($this->userLogin);
+            $id = $this->announcementRepository->addAnnouncement($anns,$userId);
             return $this->announcements($id);
             //return $this->render('announcements', ['messages' => $this->message, 'anns' => $anns]);
         }
         return $this->render('new_announcement', ['messages' => $this->message]);
+    }
+
+    private function getFocusIndex($anns, $annId): int
+    {
+        $arr_size = count($anns);
+        for($i = 0; $i<$arr_size;$i++)
+        {
+            if($anns[$i]->getId()==$annId)
+            {
+                return $i;
+            }
+        }
+        return -1;
     }
 
     private function validate(array $file): bool
