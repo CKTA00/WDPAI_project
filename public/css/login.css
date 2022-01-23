@@ -86,7 +86,7 @@ h1{
     border-radius: 0.5em;
 }
 
-.standard-input{/**/
+.standard-input{
     /* size */    
     height: 1.75em;
 
@@ -105,6 +105,11 @@ h1{
     opacity: 1;
 }
 
+.invalid-input{
+    border: 2px solid var(--incorrect);
+    box-shadow: var(--incorrect) 0 0 4px 2px inset;
+}
+
 a, p{
     /* appearance */
     color: var(--button-text);
@@ -115,6 +120,11 @@ a, p{
     text-decoration: none;
     opacity: 1;
     margin: 0;
+}
+
+.hide
+{
+    display: none;
 }
 
 a:hover{

@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/login.css">
     <link rel="stylesheet" type="text/css" href="public/css/login-mobile.css">
     <link rel="stylesheet" type="text/css" href="public/css/register.css">
-    <script type="text/javascript" src="./public/js/validation.js"></script>
+    <script type="text/javascript" src="./public/js/validation.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -30,13 +30,19 @@
                 }
                 ?>
                 <input class="standard-input" type="text" placeholder="login" name="login">
+                <p class="hide">Login needs to be between 3 and 254 characters.</p>
                 <input class="standard-input" type="email" placeholder="email" name="email">
+                <p class="hide">This email is invalid.</p>
                 <input class="standard-input" type="text" placeholder="name" name="name">
+                <p class="hide">Name is required!</p>
                 <input class="standard-input" type="text" placeholder="surname" name="surname">
+                <p class="hide">Surname is required!</p>
                 <input class="standard-input" type="password" placeholder="password" name="password">
+                <p class="hide">Password needs to be at least 8 characters.</p>
                 <input class="standard-input" type="password" placeholder="repeat password" name="repeatPassword">
+                <p class="hide">Passwords are not the same.</p>
                 <div><p>By pressing "sign in", you confirm that you acknowledged and accepted our <a>agreement</a>.</p></div>
-                <button class="button-22" role="button" type="submit">sign in</button>
+                <button class="button-22" role="button" type="button">sign in</button>
             </form>
         </div>
     </div>

@@ -6,12 +6,12 @@ require_once __DIR__.'/../models/User.php';
 
 class UserRepository extends Repository
 {
-    public function getUser(string $login): ?User
+    public function getUser(string $loginOrEmail): ?User
     {
         $stmt = $this->database->connect()->prepare('
             SELECT * FROM public.users WHERE email = :login OR login = :login
         ');
-        $stmt->bindParam(":login", $login, PDO::PARAM_STR);
+        $stmt->bindParam(":login", $loginOrEmail, PDO::PARAM_STR);
         $stmt->execute();
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -33,45 +33,48 @@ class UserRepository extends Repository
 
     public function addUser(User $user)
     {
-       $stmt = $this->database->connect()->prepare('
+        $problems = [];
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM public.users WHERE email = :email
+            ');
+        $email = $user->getEmail();
+        $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+        $stmt->execute();
+        $existingUser = $stmt->fetch(PDO::FETCH_ASSOC);
+        if(isset($existingUser) && $existingUser!=false)
+        {
+            $problems[] = 'This email is already used.';
+        }
+
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM public.users WHERE login = :login
+            ');
+        $login = $user->getLogin();
+        $stmt->bindParam(":login", $login, PDO::PARAM_STR);
+        $stmt->execute();
+        $existingUser = $stmt->fetch(PDO::FETCH_ASSOC);
+        if(isset($existingUser) && $existingUser!=false)
+        {
+            $problems[] = 'This login is already taken.';
+        }
+
+        if(strlen($user->getLogin())<3 || $user->getLogin()>254) $problems[] = 'Login needs to have between 3 and 254 characters.';
+        if(strlen($user->getName())<1) $problems[] = 'Name is required!';
+        if(strlen($user->getSurname())<1) $problems[] = 'Surname is required!';
+        if(!filter_var($user->getEmail(), FILTER_VALIDATE_EMAIL)) $problems[] = 'Typed email is invalid.';
+
+        if(count($problems)>0) return $problems;
+
+        $stmt = $this->database->connect()->prepare('
             INSERT INTO public.users (login,email,password,name,surname) VALUES (?,?,?,?,?)
         ');
-       $success = $stmt->execute([
+        return $stmt->execute([
            $user->getLogin(),
            $user->getEmail(),
            $user->getPassword(),
            $user->getName(),
            $user->getSurname()
-       ]);
-
-       if(!$success)
-       {
-           $stmt = $this->database->connect()->prepare('
-            SELECT * FROM public.users WHERE email = :email
-            ');
-           $email = $user->getEmail();
-           $stmt->bindParam(":email", $email, PDO::PARAM_STR);
-           $stmt->execute();
-           $existingUser = $stmt->fetch(PDO::FETCH_ASSOC);
-           if(isset($existingUser) && $existingUser!=false)
-           {
-               return 'email';
-           }
-
-           $stmt = $this->database->connect()->prepare('
-            SELECT * FROM public.users WHERE login = :login
-            ');
-           $login = $user->getLogin();
-           $stmt->bindParam(":login", $login, PDO::PARAM_STR);
-           $stmt->execute();
-           $existingUser = $stmt->fetch(PDO::FETCH_ASSOC);
-           if(isset($existingUser) && $existingUser!=false)
-           {
-               return 'login';
-           }
-       }
-
-       return true;
+        ]);
     }
 
     public function getUserFromId(int $id): ?User

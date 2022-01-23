@@ -76,21 +76,41 @@ class SecurityController extends AppController
         }
         $password = hash("sha256", $password);
         $user = new User($email,$login,$name,$surname,$password,null);
-        $success = $this->userRepository->addUser($user);
-        if($success==='login')
+        $problems = $this->userRepository->addUser($user);
+        if(is_array($problems))
         {
-            return $this->render('register', ['messages' => ['User with this login already exists.']]);
+            return $this->render('register', ['messages' => $problems]);
         }
-        else if($success==='email')
+        else if(is_bool($problems) && $problems)
         {
-            return $this->render('register', ['messages' => ['User with this email already exists.']]);
+            return $this->render('login', ['messages' => ['Success! Log into your new account.']]);
         }
-        return $this->render('login', ['messages' => ['Success! Log into your new account.']]);
+        else
+        {
+            return $this->render('register', ['messages' => ["Something went wrong. Contact administrator."]]);
+        }
     }
 
     public function logout(){
         $this->endSession();
         return $this->render('login', ['messages' => ['You successfully log out.']]);
+    }
+
+    public function authorize(): bool
+    {
+        if(isset($_COOKIE[self::USER_COOKIE]) && isset($_COOKIE[self::SESSION_PASS_COOKIE]))
+        {
+            $sessionPass = $this->userRepository->getUserSessionPass($_COOKIE[self::USER_COOKIE]);
+            if($_COOKIE[self::SESSION_PASS_COOKIE] === $sessionPass)
+                return true;
+            else{
+                $this->endSession();
+                // TODO: Notify FBI about hacker xd
+                return false;
+            }
+
+        }
+        return false;
     }
 
     private function endSession(){
@@ -112,20 +132,4 @@ class SecurityController extends AppController
         }
     }
 
-    public function authorize(): bool
-    {
-        if(isset($_COOKIE[self::USER_COOKIE]) && isset($_COOKIE[self::SESSION_PASS_COOKIE]))
-        {
-            $sessionPass = $this->userRepository->getUserSessionPass($_COOKIE[self::USER_COOKIE]);
-            if($_COOKIE[self::SESSION_PASS_COOKIE] === $sessionPass)
-                return true;
-            else{
-                $this->endSession();
-                // TODO: Notify FBI about hacker xd
-                return false;
-            }
-
-        }
-        return false;
-    }
 }

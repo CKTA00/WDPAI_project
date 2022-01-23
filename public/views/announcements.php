@@ -195,4 +195,51 @@
         </nav>
     </div>
 </body>
+
+<template id="announcement-properties">
+    <div class="property">
+        <h1>
+            Title
+        </h1>
+    </div>
+
+    <div class="property">
+        <h3>images</h3>
+        <div class="image-container">
+            <!--
+            <img src=public/uploads/">
+            -->
+            <p>No images</p>
+        </div>
+    </div>
+
+    <div class="property">
+        <h3>description</h3>
+        <p>
+            Description
+        </p>
+    </div>
+
+    <div class="property">
+        <div>
+            <h3>location</h3>
+            <div>
+                TODO: add map
+            </div>
+        </div>
+    </div>
+
+    <div class="property">
+        <div>
+            <h3>range</h3>
+            <p>
+                rangename
+            </p>
+        </div>
+    </div>
+
+</template>
+
+
+
 </html>
