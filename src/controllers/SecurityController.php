@@ -22,30 +22,32 @@ class SecurityController extends AppController
 
     public function login()
     {
-        if(!$this->isPost())
+        if(!isset($_COOKIE["userLogin"])) // assume that user actually wants to continue previous session
         {
-            return $this->render('login');
-        }
-        $login = $_POST["login"];
-        $password = hash("sha256", $_POST["password"]);
+            if(!$this->isPost())
+            {
+                return $this->render('login');
+            }
+            $login = $_POST["login"];
+            $password = hash("sha256", $_POST["password"]);
 
-        $user = $this->userRepository->getUser($login);
-        if(!$user)
-        {
-            return $this->render("login",["messages"=>["User does not exist."]]);
-        }
+            $user = $this->userRepository->getUser($login);
+            if(!$user)
+            {
+                return $this->render("login",["messages"=>["User does not exist."]]);
+            }
 
-        if($login !== $user->getEmail() && $login !== $user->getLogin())
-        {
-            return $this->render("login",["messages"=>["User with this email or login does not exist."]]);
-        }
-        if($password !== $user->getPassword())
-        {
-            return $this->render("login",["messages"=>["Wrong password."]]);
-        }
+            if($login !== $user->getEmail() && $login !== $user->getLogin())
+            {
+                return $this->render("login",["messages"=>["User with this email or login does not exist."]]);
+            }
+            if($password !== $user->getPassword())
+            {
+                return $this->render("login",["messages"=>["Wrong password."]]);
+            }
 
-        setcookie(self::USER_COOKIE,$user->getLogin(),time()+3600,"/");
-
+            setcookie(self::USER_COOKIE,$user->getLogin(),time()+3600,"/");
+        }
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/announcements");
     }
@@ -57,6 +59,7 @@ class SecurityController extends AppController
 
     public function register()
     {
+        setcookie(self::USER_COOKIE,"",time()-100); // assume that user wants to log out and register another user
         if(!$this->isPost()) {
             return $this->render('register');
         }

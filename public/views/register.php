@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/login.css">
     <link rel="stylesheet" type="text/css" href="public/css/login-mobile.css">
     <link rel="stylesheet" type="text/css" href="public/css/register.css">
+    <script type="text/javascript" src="./public/js/validation.js"></script>
 </head>
 <body>
     <div class="container">

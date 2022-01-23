@@ -28,7 +28,7 @@
                     <p>grid view</p>
                 </button>
             </header>
-            <div> <?php
+            <div class="grid-view"> <?php
                 if(isset($messages))
                 {
                     foreach ($messages as $msg)

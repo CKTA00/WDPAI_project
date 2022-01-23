@@ -1,4 +1,4 @@
-main>div
+main>.grid-view
 {
     /* appearance */
     box-sizing: border-box;
@@ -8,7 +8,7 @@ main>div
     overflow: inherit;
 }
 
-main>div>div{
+main>.grid-view>div{
     /* content positioning */
     display: flex;
     flex-direction: row;
