@@ -36,11 +36,15 @@
                         echo "</div>";
                     }
                 }
+                if(isset($id))
+                {
+                    echo '<input type="hidden" name="id" value="'.$id.'">';
+                }
                 ?>
                 <div class="property">
                     <div>
                         <h3>title</h3>
-                        <textarea class="title" name="title" cols="500" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'><?php if(isset($ann)) $ann->getTitle(); ?></textarea>
+                        <textarea class="title" name="title" cols="500" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'><?php if(isset($ann)) echo $ann->getTitle(); ?></textarea>
                     </div>
                 </div>
 
@@ -59,7 +63,7 @@
 
                 <div class="property">
                     <h3>description</h3>
-                    <textarea class="description" name="description" cols="500" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'><?php if(isset($ann)) $ann->getDescription(); ?></textarea>
+                    <textarea class="description" name="description" cols="500" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'><?php if(isset($ann)) echo $ann->getDescription(); ?></textarea>
                 </div>
 
                 <div class="property">
@@ -87,14 +91,6 @@
                         </select>
                     </div>
                 </div>
-
-                <?php
-                if(isset($id))
-                {
-                    echo '<input type="hidden" name="id">'.$id.'</input>';
-                }
-                ?>
-
             </div>
         </form>
         <nav>

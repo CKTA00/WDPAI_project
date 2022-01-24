@@ -95,25 +95,31 @@ class AnnouncementRepository extends Repository
         return $id["id"];
     }
 
-    public function editAnnouncement(int $id, Announcement $announcement, string $ownerId)
+    public function editAnnouncement(int $id, Announcement $announcement, int $ownerId)
     {
         $stmt = $this->database->connect()->prepare('
-            UPDATE announcements 
-            SET title = ?, description = ?, range_id = ?, images = ?, location = ?
-            WHERE id = ? AND owner_id = ?
-        '); // WITH selects id of added row
+            UPDATE public.announcements 
+            SET title = :title, description = :description,
+                range_id = :range_id, images = :images, location = :location
+            WHERE id = :id AND user_id = :owner_id
+        ');
+        $title = $announcement->getTitle();
+        $description = $announcement->getDescription();
+        $range = $announcement->getRange();
+        $images = $announcement->getImages();
+        $location = $announcement->getLocation();
+        echo $id;
+        echo $ownerId;
+        $stmt->bindParam(":title",$title,PDO::PARAM_STR);
+        $stmt->bindParam(":description",$description,PDO::PARAM_STR);
+        $stmt->bindParam(":range_id",$range,PDO::PARAM_INT);
+        $stmt->bindParam(":images",$images,PDO::PARAM_STR);
+        $stmt->bindParam(":location",$location,PDO::PARAM_STR);
+        $stmt->bindParam(":id",$id,PDO::PARAM_INT);
+        $stmt->bindParam(":owner_id",$ownerId,PDO::PARAM_INT);
 
-        return $stmt->execute(
-            [
-                $announcement->getTitle(),
-                $announcement->getDescription(),
-                $announcement->getRange(),
-                $announcement->getImages(),
-                $announcement->getLocation(),
-                $id,
-                $ownerId
-            ]
-        );
+        $res = $stmt->execute();
+        return $res;
     }
 
     public function getAnnouncementsByDistance(string $userLocation, $maxDistance=2000.0): ?Array

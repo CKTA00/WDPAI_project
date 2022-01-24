@@ -67,29 +67,31 @@ class AnnouncementController extends AppController
     }
 
     public function new_announcement(){
-        if ($this->isPost() && is_uploaded_file($_FILES["file"]["tmp_name"]) && $this->validate($_FILES["file"]))
-        {
-            $dbFileName = time().$_FILES["file"]["name"];
-            move_uploaded_file(
-                $_FILES["file"]["tmp_name"],
-                dirname(__DIR__).self::UPLOAD_DIRECTORY.$dbFileName
-            );
-
-            //TODO: replace point with location from map
-            $anns = new Announcement($_POST['title'], $_POST['description'], $dbFileName, '{"point":[0.0,0.0]}' , $_POST['range']);
-
-            $userId = $this->userRepository->getUserIdFromLogin($this->userLogin);
-            $id = $this->announcementRepository->addAnnouncement($anns,$userId);
-            return $this->announcements($id);
-            //return $this->render('announcements', ['messages' => $this->message, 'anns' => $anns]);
-        }
-        return $this->render('new_announcement', ['messages' => $this->message]);
+        $this->edit_announcement();
+//        if ($this->isPost() && is_uploaded_file($_FILES["file"]["tmp_name"]) && $this->validate($_FILES["file"]))
+//        {
+//            $dbFileName = time().$_FILES["file"]["name"];
+//            move_uploaded_file(
+//                $_FILES["file"]["tmp_name"],
+//                dirname(__DIR__).self::UPLOAD_DIRECTORY.$dbFileName
+//            );
+//
+//            //TODO: replace point with location from map
+//            $anns = new Announcement($_POST['title'], $_POST['description'], $dbFileName, '{"point":[0.0,0.0]}' , $_POST['range']);
+//
+//            $userId = $this->userRepository->getUserIdFromLogin($this->userLogin);
+//            $id = $this->announcementRepository->addAnnouncement($anns,$userId);
+//            return $this->announcements($id);
+//            //return $this->render('announcements', ['messages' => $this->message, 'anns' => $anns]);
+//        }
+//        return $this->render('new_announcement', ['messages' => $this->message]);
     }
 
     public function edit_announcement(){
         if ($this->isPost() )
         {
-            $id = $_POST['id'];
+            $id = intval($_POST['id']);
+
             if(is_uploaded_file($_FILES["file"]["tmp_name"]) && $this->validate($_FILES["file"]))
             {
                 $dbFileName = time().$_FILES["file"]["name"];
@@ -121,6 +123,7 @@ class AnnouncementController extends AppController
                 return $this->render('new_announcement', ['messages' => $this->message, 'ann' => $ann, 'id' => $id]);
             }
         }
+
         return $this->render('new_announcement', ['messages' => $this->message]);
     }
 

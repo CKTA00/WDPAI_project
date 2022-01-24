@@ -87,18 +87,18 @@
         
         <main class="main">
             <header>
-                <button>
+                <button id="back-button">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <button>
+                <button id="edit-button">
                     <i class="far fa-edit"></i>
                     <p>edit</p>
                 </button>
-                <button>
+                <button id="copy-button">
                     <i class="far fa-clone"></i>
                     <p>copy</p>
                 </button>
-                <button>
+                <button id="delete-button">
                     <i class="far fa-trash-alt"></i>
                     <p>delete</p>
                 </button>

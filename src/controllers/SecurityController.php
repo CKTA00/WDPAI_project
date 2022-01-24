@@ -102,13 +102,16 @@ class SecurityController extends AppController
         {
             $sessionPass = $this->userRepository->getUserSessionPass($_COOKIE[self::USER_COOKIE]);
             if($_COOKIE[self::SESSION_PASS_COOKIE] === $sessionPass)
+            {
+                setcookie(self::USER_COOKIE,$_COOKIE[self::USER_COOKIE],time()+3600,"/");
+                setcookie(self::SESSION_PASS_COOKIE,$_COOKIE[self::SESSION_PASS_COOKIE],time()+3600,"/");
                 return true;
+            }
             else{
                 $this->endSession();
                 // TODO: Notify FBI about hacker xd
                 return false;
             }
-
         }
         return false;
     }
