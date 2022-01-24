@@ -147,3 +147,7 @@ header button:first-child{
     display: none;
 }
 
+.hidden{
+    display: none;
+}
+

@@ -40,6 +40,32 @@ class AnnouncementRepository extends Repository
         return $anns;
     }
 
+    public function getAnnouncementById(int $id): ?Announcement
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT ann.title, ann.description, ann.range_id, ann.images, ann.location
+            FROM announcements ann
+            WHERE :id = ann.id
+        ');
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $project = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if($project == false){
+            return null;
+        }
+        $ann = new Announcement(
+            $project['title'],
+            $project['description'],
+            $project['images'],
+            $project['location'],
+            $project['range_id']
+        );
+        $ann->setId($id);
+        return $ann;
+    }
+
     public function addAnnouncement(Announcement $announcement, string $ownerId): int
     {
         $stmt = $this->database->connect()->prepare('
@@ -60,6 +86,27 @@ class AnnouncementRepository extends Repository
         );
         $id = $stmt->fetch(PDO::FETCH_ASSOC);
         return $id["id"];
+    }
+
+    public function editAnnouncement(int $id, Announcement $announcement, string $ownerId)
+    {
+        $stmt = $this->database->connect()->prepare('
+            UPDATE announcements 
+            SET title = ?, description = ?, range_id = ?, images = ?, location = ?
+            WHERE id = ? AND owner_id = ?
+        '); // WITH selects id of added row
+
+        return $stmt->execute(
+            [
+                $announcement->getTitle(),
+                $announcement->getDescription(),
+                $announcement->getRange(),
+                $announcement->getImages(),
+                $announcement->getLocation(),
+                $id,
+                $ownerId
+            ]
+        );
     }
 
     public function getAnnouncementsByDistance(string $userLocation, $maxDistance=2000.0): ?Array

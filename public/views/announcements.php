@@ -53,16 +53,19 @@
             {
                 echo "<h3>Your announcements:</h3>";
             }
+
+            echo '<h6 class="hidden" id="focusId">'.$focusId."</h6>";
             ?>
             <div>
                 <?php
-                    $i = 0;
+                    //$i = 0;
                     if(isset($anns)) foreach ($anns as $ann)
                     {
                         echo '<div class="announcement';                                //OPEN ann div
-                            if($i == $focusAnnIndex)
+                            if($ann->getId() == $focusId)
                                 echo ' active-ann';
-                            echo '" id="ann'.$i.'">';
+                            echo '" id="'.$ann->getId().'">';
+//                        echo '<h6 class="hidden">'.$ann->getId().'<h6>';
                             echo '<div>';                                               //OPEN image and title div
                                 $mainImg = $ann->getImages();
                                 //$mainImg = $ann->getImages()[0]; //TODO: uncomment when implemented
@@ -75,7 +78,7 @@
                             echo '<h4>Followers:</h4>';
                             // TODO: get followers from db
                         echo '</div>';                                                  //CLOSE ann div
-                        $i++;
+                        //$i++;
                     }
                 ?>
             </div>

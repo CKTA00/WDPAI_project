@@ -40,7 +40,7 @@
                 <div class="property">
                     <div>
                         <h3>title</h3>
-                        <textarea class="title" name="title" cols="500" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>title</textarea>
+                        <textarea class="title" name="title" cols="500" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'><?php if(isset($ann)) $ann->getTitle(); ?></textarea>
                     </div>
                 </div>
 
@@ -59,7 +59,7 @@
 
                 <div class="property">
                     <h3>description</h3>
-                    <textarea class="description" name="description" cols="500" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>
+                    <textarea class="description" name="description" cols="500" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'><?php if(isset($ann)) $ann->getDescription(); ?></textarea>
                 </div>
 
                 <div class="property">
@@ -76,12 +76,25 @@
                             <?php
                             for($i = 1; $i<=4; $i++)
                             {
-                                echo "<option value=".$i.">".Announcement::getRangeName($i)."</option>";
+                                echo "<option value=".$i;
+                                if(isset($ann) && $ann->getRange()==$i)
+                                {
+                                    echo ' selected';
+                                }
+                                echo ">".Announcement::getRangeName($i)."</option>";
                             }
                             ?>
                         </select>
                     </div>
                 </div>
+
+                <?php
+                if(isset($id))
+                {
+                    echo '<input type="hidden" name="id">'.$id.'</input>';
+                }
+                ?>
+
             </div>
         </form>
         <nav>

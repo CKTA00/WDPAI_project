@@ -29,16 +29,9 @@ class AnnouncementController extends AppController
         if($anns == null)
             $this->message[] = "You have no announcements yet :)";
 
-        if($annId<0)
-            $focusIndex = 0;
-        else
+        if($annId==-1)
         {
-            $focusIndex=$this->getFocusIndex($anns,$annId);
-            if($focusIndex==-1)
-            {
-                $this->message[] = "Your new announcement is still processed. Refresh after few seconds to see it.";
-                $focusIndex=0;
-            }
+            $annId = $anns[0]->getId();
         }
 
         $user = $this->userRepository->getUserFromLogin($this->userLogin);
@@ -48,7 +41,8 @@ class AnnouncementController extends AppController
                 'profileImage' => $user->getImage(),
                 'messages' => $this->message,
                 'anns' => $anns,
-                'focusAnnIndex' => $focusIndex
+                'focusId' => $annId,
+                'focusAnnIndex' => $this->getFocusIndex($anns,$annId)
             ]);
     }
 
@@ -72,6 +66,44 @@ class AnnouncementController extends AppController
         return $this->render('new_announcement', ['messages' => $this->message]);
     }
 
+    public function edit_announcement(){
+        if ($this->isPost() )
+        {
+            $id = $_POST['id'];
+            if(is_uploaded_file($_FILES["file"]["tmp_name"]) && $this->validate($_FILES["file"]))
+            {
+                $dbFileName = time().$_FILES["file"]["name"];
+                move_uploaded_file(
+                    $_FILES["file"]["tmp_name"],
+                    dirname(__DIR__).self::UPLOAD_DIRECTORY.$dbFileName
+                );
+
+                //TODO: replace point with location from map
+                $ann = new Announcement($_POST['title'], $_POST['description'], $dbFileName, '{"point":[0.0,0.0]}' , $_POST['range']);
+                if(isset($id))
+                {
+                    $ann->setId($id);
+                    $userId = $this->userRepository->getUserIdFromLogin($this->userLogin);
+                    $this->announcementRepository->editAnnouncement($id,$ann,$userId);
+                    return $this->announcements($id);
+                }
+                else
+                {
+                    $userId = $this->userRepository->getUserIdFromLogin($this->userLogin);
+                    $this->announcementRepository->addAnnouncement($ann,$userId);
+                    return $this->announcements($id);
+                }
+            }
+            else if(isset($id))
+            {
+                $ann = $this->announcementRepository->getAnnouncementById($id);
+                //TODO: check if it's user's announcement
+                return $this->render('new_announcement', ['messages' => $this->message, 'ann' => $ann, 'id' => $id]);
+            }
+        }
+        return $this->render('new_announcement', ['messages' => $this->message]);
+    }
+
     private function getFocusIndex($anns, $annId): int
     {
         $arr_size = count($anns);
@@ -82,7 +114,7 @@ class AnnouncementController extends AppController
                 return $i;
             }
         }
-        return -1;
+        return 0;
     }
 
     private function validate(array $file): bool
