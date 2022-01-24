@@ -164,3 +164,20 @@ header button:first-child{
     display: none;
 }
 
+.loader {
+    border: 0.2em solid var(--input-bg);
+    border-top: 0.2em solid var(--basic);
+    border-radius: 50%;
+    width: 4em;
+    height: 4em;
+    animation: spin 1.5s linear infinite;
+    align-self: center;
+    justify-self: center;
+    margin-top: 5em;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+

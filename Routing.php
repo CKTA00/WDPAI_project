@@ -26,7 +26,9 @@ class Router
 
     public static function run(?string $url)
     {
-        $action = explode("/",$url)[0]; // extraction of key and function name from url
+        $URLparts = explode("/",$url); // extraction of key and function name from url
+        $action = $URLparts[0];
+        $id = $URLparts[1] ?? -1;
         if(!array_key_exists($action, self::$routes))
         {
             die("404 PAGE NOT FOUND");
@@ -38,7 +40,7 @@ class Router
         {
             $controller = self::$routes[$action]; // using $action as a key
             $obj = new $controller; // creating controller object from its name
-            $obj->$action(); // using $action as a function name in controller object
+            $obj->$action($id); // using $action as a function name in controller object
         }
         else if(!isset($_COOKIE['userLogin']))
         {

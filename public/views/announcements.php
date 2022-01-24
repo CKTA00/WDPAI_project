@@ -103,7 +103,9 @@
                     <p>delete</p>
                 </button>
             </header>
-            <div> <?php
+            <div>
+
+                <?php
                 foreach ($messages as $msg)
                 {
                     print '<div class="message"><p>';
@@ -163,17 +165,15 @@
                 </div>
     
                 <div class="property">
-                    <div>
-                        <h3>range</h3>
-                        <p>
-                            <?php
-                            if(isset($anns))
-                                print Announcement::getRangeName($anns[$focusAnnIndex]->getRange());
-                            else
-                                print Announcement::getRangeName(4);
-                            ?>
-                        </p>
-                    </div>
+                    <h3>range</h3>
+                    <p>
+                        <?php
+                        if(isset($anns))
+                            print Announcement::getRangeName($anns[$focusAnnIndex]->getRange());
+                        else
+                            print Announcement::getRangeName(4);
+                        ?>
+                    </p>
                 </div>
             </div>
         </main>
@@ -208,16 +208,13 @@
     <div class="property">
         <h3>images</h3>
         <div class="image-container">
-            <!--
-            <img src=public/uploads/">
-            -->
-            <p>No images</p>
+            <img>
         </div>
     </div>
 
     <div class="property">
         <h3>description</h3>
-        <p>
+        <p id="description">
             Description
         </p>
     </div>
@@ -232,16 +229,17 @@
     </div>
 
     <div class="property">
-        <div>
-            <h3>range</h3>
-            <p>
-                rangename
-            </p>
-        </div>
+        <h3>range</h3>
+        <p id="range">
+            rangename
+        </p>
     </div>
 
 </template>
 
+<template id="loader">
+    <div class="loader"></div>
+</template>
 
 
 </html>

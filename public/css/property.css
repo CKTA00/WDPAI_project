@@ -4,6 +4,7 @@ main>div, .main>div
     box-sizing: border-box;
     background: var(--input-bg) 0% 0% no-repeat padding-box;
     padding: 0.5em 1em 0.5em 0;
+    height: 100%;
 
     /* content positioning */
     display: flex;

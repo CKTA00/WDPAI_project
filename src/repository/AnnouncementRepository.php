@@ -42,15 +42,8 @@ class AnnouncementRepository extends Repository
 
     public function getAnnouncementById(int $id): ?Announcement
     {
-        $stmt = $this->database->connect()->prepare('
-            SELECT ann.title, ann.description, ann.range_id, ann.images, ann.location
-            FROM announcements ann
-            WHERE :id = ann.id
-        ');
-        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
-        $stmt->execute();
 
-        $project = $stmt->fetch(PDO::FETCH_ASSOC);
+        $project = $this->getRawAnnouncementById($id);
 
         if($project == false){
             return null;
@@ -65,6 +58,20 @@ class AnnouncementRepository extends Repository
         $ann->setId($id);
         return $ann;
     }
+
+    public function getRawAnnouncementById(int $id)
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT ann.title, ann.description, ann.range_id, ann.images, ann.location
+            FROM announcements ann
+            WHERE :id = ann.id
+        ');
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
 
     public function addAnnouncement(Announcement $announcement, string $ownerId): int
     {

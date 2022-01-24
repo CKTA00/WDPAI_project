@@ -36,6 +36,7 @@ class AnnouncementController extends AppController
 
         $user = $this->userRepository->getUserFromLogin($this->userLogin);
 
+
         $this->render('announcements', [
                 'username' => $user->getName().' '.$user->getSurname(),
                 'profileImage' => $user->getImage(),
@@ -44,6 +45,25 @@ class AnnouncementController extends AppController
                 'focusId' => $annId,
                 'focusAnnIndex' => $this->getFocusIndex($anns,$annId)
             ]);
+    }
+
+    public function get_announcement(int $annId)
+    {
+
+//        if($ann->getOwner()->getLogin() != $this->userLogin)
+//        {
+//            http_response_code(403);
+//        }
+        //$contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+
+        //if ($contentType === "application/json") {
+            //$content = trim(file_get_contents("php://input"));
+            //$decoded = json_decode($content, true);
+
+        header('Content-type: application/json');
+
+        $ann = $this->announcementRepository->getRawAnnouncementById($annId);
+        echo json_encode($ann);
     }
 
     public function new_announcement(){
