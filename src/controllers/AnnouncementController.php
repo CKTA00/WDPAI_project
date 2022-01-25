@@ -67,28 +67,11 @@ class AnnouncementController extends AppController
     }
 
     public function new_announcement(){
-        $this->edit_announcement();
-//        if ($this->isPost() && is_uploaded_file($_FILES["file"]["tmp_name"]) && $this->validate($_FILES["file"]))
-//        {
-//            $dbFileName = time().$_FILES["file"]["name"];
-//            move_uploaded_file(
-//                $_FILES["file"]["tmp_name"],
-//                dirname(__DIR__).self::UPLOAD_DIRECTORY.$dbFileName
-//            );
-//
-//            //TODO: replace point with location from map
-//            $anns = new Announcement($_POST['title'], $_POST['description'], $dbFileName, '{"point":[0.0,0.0]}' , $_POST['range']);
-//
-//            $userId = $this->userRepository->getUserIdFromLogin($this->userLogin);
-//            $id = $this->announcementRepository->addAnnouncement($anns,$userId);
-//            return $this->announcements($id);
-//            //return $this->render('announcements', ['messages' => $this->message, 'anns' => $anns]);
-//        }
-//        return $this->render('new_announcement', ['messages' => $this->message]);
+        return $this->edit_announcement();
     }
 
     public function edit_announcement(){
-        if ($this->isPost() )
+        if ($this->isPost())
         {
             $id = intval($_POST['id']);
 
@@ -102,7 +85,7 @@ class AnnouncementController extends AppController
 
                 //TODO: replace point with location from map
                 $ann = new Announcement($_POST['title'], $_POST['description'], $dbFileName, '{"point":[0.0,0.0]}' , $_POST['range']);
-                if(isset($id))
+                if($id!=null)
                 {
                     $ann->setId($id);
                     $userId = $this->userRepository->getUserIdFromLogin($this->userLogin);
@@ -116,7 +99,7 @@ class AnnouncementController extends AppController
                     return $this->announcements($id);
                 }
             }
-            else if(isset($id))
+            else
             {
                 $ann = $this->announcementRepository->getAnnouncementById($id);
                 //TODO: check if it's user's announcement
@@ -125,6 +108,24 @@ class AnnouncementController extends AppController
         }
 
         return $this->render('new_announcement', ['messages' => $this->message]);
+    }
+
+    public function delete_announcement()
+    {
+        $id = intval($_POST['id']);
+        if ($this->isPost()) {
+            $userId = $this->userRepository->getUserIdFromLogin($this->userLogin);
+            if($this->announcementRepository->deleteAnnouncement($id,$userId)){
+                $this->message[] = "Announcement has been deleted.";
+            }
+            else{
+                $this->message[] = "This announcement is already deleted.";
+            }
+
+            return $this->announcements();
+        }
+        $this->message[] = "Failed to delete..";
+        return $this->announcements();
     }
 
     private function getFocusIndex($anns, $annId): int

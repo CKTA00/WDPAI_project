@@ -21,6 +21,7 @@ Router::requireNoLogin('register');
 //announcements edit and full view:
 Router::post('new_announcement','AnnouncementController');
 Router::post('edit_announcement','AnnouncementController');
+Router::post('delete_announcement','AnnouncementController');
 Router::get('get_announcement','AnnouncementController');
 Router::get('announcements','AnnouncementController');
 Router::get('dashboard','DashboardController');

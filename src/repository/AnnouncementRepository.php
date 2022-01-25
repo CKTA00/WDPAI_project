@@ -108,8 +108,6 @@ class AnnouncementRepository extends Repository
         $range = $announcement->getRange();
         $images = $announcement->getImages();
         $location = $announcement->getLocation();
-        echo $id;
-        echo $ownerId;
         $stmt->bindParam(":title",$title,PDO::PARAM_STR);
         $stmt->bindParam(":description",$description,PDO::PARAM_STR);
         $stmt->bindParam(":range_id",$range,PDO::PARAM_INT);
@@ -117,9 +115,19 @@ class AnnouncementRepository extends Repository
         $stmt->bindParam(":location",$location,PDO::PARAM_STR);
         $stmt->bindParam(":id",$id,PDO::PARAM_INT);
         $stmt->bindParam(":owner_id",$ownerId,PDO::PARAM_INT);
+        return $stmt->execute();
+    }
 
-        $res = $stmt->execute();
-        return $res;
+    public function deleteAnnouncement(int $id, int $ownerId)
+    {
+        $stmt = $this->database->connect()->prepare('
+            DELETE FROM announcements 
+            WHERE id = :id AND user_id = :owner_id
+        ');
+
+        $stmt->bindParam(":id",$id,PDO::PARAM_INT);
+        $stmt->bindParam(":owner_id",$ownerId,PDO::PARAM_INT);
+        return $stmt->execute();
     }
 
     public function getAnnouncementsByDistance(string $userLocation, $maxDistance=2000.0): ?Array

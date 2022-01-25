@@ -1,5 +1,6 @@
 const newButton = document.getElementById("new-button");
 const editButton = document.getElementById("edit-button");
+const deleteButton = document.getElementById("delete-button");
 const announcements = document.getElementsByClassName("announcement");
 const announcementsView = document.querySelector("main>div");
 const announcementTemplate= document.querySelector("#announcement-properties");
@@ -81,24 +82,32 @@ function getRangeName(range)
     return ret;
 }
 
-function editAnnouncement()
+function submitIdForm(form)
 {
-    postEditAnnouncement(focusId);
-}
-
-function postEditAnnouncement(announcement_id){
-    const form = document.createElement('form');
-    form.method = 'post';
-    form.action = './edit_announcement';
-
     const hiddenField = document.createElement('input');
     hiddenField.type = 'hidden';
     hiddenField.name = 'id';
-    hiddenField.value = announcement_id;
+    hiddenField.value = focusId;
     form.appendChild(hiddenField);
 
     document.body.appendChild(form);
     form.submit();
+}
+
+function deleteAnnouncement(){
+    if(window.confirm("Are you sure you want ot delete this announcement?")){
+        const form = document.createElement('form');
+        form.method = 'post';
+        form.action = './delete_announcement';
+        submitIdForm(form);
+    }
+}
+
+function editAnnouncement(){
+    const form = document.createElement('form');
+    form.method = 'post';
+    form.action = './edit_announcement';
+    submitIdForm(form);
 }
 
 function bindElement(element)
@@ -108,4 +117,5 @@ function bindElement(element)
 
 newButton.addEventListener("click",newAnnouncement);
 editButton.addEventListener("click",editAnnouncement);
+deleteButton.addEventListener("click",deleteAnnouncement);
 Array.prototype.forEach.call(announcements,(element)=>bindElement(element));
