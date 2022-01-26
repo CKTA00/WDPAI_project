@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/announcements.css">
     <link rel="stylesheet" type="text/css" href="public/css/announcements-mobile.css">
     <script type="text/javascript" src="./public/js/announcements.js" defer></script>
+    <script type="text/javascript" src="./public/js/navigation.js" defer></script>
     <title>Little Places - Your Announcements</title>
     <?php
         if(!isset($anns)) //TODO: probably better to do it in JS

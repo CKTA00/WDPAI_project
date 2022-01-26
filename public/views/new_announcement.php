@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/common-mobile.css">
     <link rel="stylesheet" type="text/css" href="public/css/property.css">
     <link rel="stylesheet" type="text/css" href="public/css/property-mobile.css">
+    <script type="text/javascript" src="./public/js/navigation.js" defer></script>
     <title>Little Places - Your Announcements</title>
 </head>
 <body>

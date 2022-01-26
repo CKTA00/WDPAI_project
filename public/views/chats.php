@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/common-mobile.css">
     <link rel="stylesheet" type="text/css" href="public/css/chats.css">
     <link rel="stylesheet" type="text/css" href="public/css/chats-mobile.css">
+    <script type="text/javascript" src="./public/js/navigation.js" defer></script>
     <title>Little Places - Your Messages</title>
 </head>
 <body>
@@ -144,11 +145,11 @@
         </main>
         <nav>
             <div class="main-buttons">
-                <button id="active-tab">
-                    <i class="fas fa-map-marked-alt" id="active-tab"></i>
-                </button>
                 <button>
-                    <i class="fas fa-comments"></i>
+                    <i class="fas fa-map-marked-alt"></i>
+                </button>
+                <button id="active-tab">
+                    <i class="fas fa-comments" id="active-tab"></i>
                 </button>
                 <button>
                     <i class="fas fa-clipboard-list"></i>
