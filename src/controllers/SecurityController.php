@@ -96,6 +96,11 @@ class SecurityController extends AppController
         return $this->render('login', ['messages' => ['You successfully log out.']]);
     }
 
+    public function regain_password(): void
+    {
+        $this->render('regain-password');
+    }
+
     public function authorize(): bool
     {
         if(isset($_COOKIE[self::USER_COOKIE]) && isset($_COOKIE[self::SESSION_PASS_COOKIE]))

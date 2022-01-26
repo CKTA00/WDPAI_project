@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/property.css">
     <link rel="stylesheet" type="text/css" href="public/css/property-mobile.css">
     <script type="text/javascript" src="./public/js/navigation.js" defer></script>
+    <script type="text/javascript" src="./public/js/simple_back.js" defer></script>
     <title>Little Places - Your Announcements</title>
 </head>
 <body>
@@ -53,7 +54,7 @@
                     <h3>images</h3>
                     <div class="image-container">
                         <div class="new_upload">
-                            <span>chose your file:</span>
+                            <span><p>chose your file:</p></span>
                             <input type="file" name="file">
                             <!--TODO: if enough time, add button for deleting images and changing their order-->
                         </div>

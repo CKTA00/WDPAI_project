@@ -145,6 +145,24 @@ class UserRepository extends Repository
         return $user["id"];
     }
 
+    public function changeUserData(string $login, ?string $profilePictureUrl): bool
+    {
+        if($profilePictureUrl == null) {
+            $stmt = $this->database->connect()->prepare('
+                UPDATE users SET profile_image = NULL WHERE login = :login
+            ');
+        }
+        else{
+            $stmt = $this->database->connect()->prepare('
+                UPDATE users SET profile_image = :image WHERE login = :login
+            ');
+            $stmt->bindParam(":image", $profilePictureUrl, PDO::PARAM_STR);
+        }
+
+        $stmt->bindParam(":login", $login, PDO::PARAM_STR);
+        return $stmt->execute();
+    }
+
     public function getUserSessionPass(string $login): ?string
     {
         $stmt = $this->database->connect()->prepare('

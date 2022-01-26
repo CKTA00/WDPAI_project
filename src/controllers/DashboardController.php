@@ -29,14 +29,4 @@ class DashboardController extends AppController
         $this->render('chats',['users'=>[]]);
     }
 
-    public function options(): void
-    {
-        $this->render('options');
-    }
-
-    public function regain_password(): void
-    {
-        $this->render('regain-password');
-    }
-
 }
