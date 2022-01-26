@@ -78,10 +78,6 @@
                     <i class="far fa-edit"></i>
                     <p>edit</p>
                 </button>
-                <button id="copy-button">
-                    <i class="far fa-clone"></i>
-                    <p>copy</p>
-                </button>
                 <button id="delete-button">
                     <i class="far fa-trash-alt"></i>
                     <p>delete</p>
