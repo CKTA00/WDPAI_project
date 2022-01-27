@@ -11,10 +11,15 @@
     <link rel="stylesheet" type="text/css" href="public/css/common-mobile.css">
     <link rel="stylesheet" type="text/css" href="public/css/dashboard.css">
     <script type="text/javascript" src="./public/js/navigation.js" defer></script>
+    <script type="text/javascript" src="./public/js/dashboard.js" defer></script>
+    <script type="text/javascript" src="./public/js/mobile_back.js" defer></script>
     <title>Little Places - Map</title>
 </head>
 <body>
     <div class="base-container">
+        <aside>
+
+        </aside>
         <main>
             <header>
                 <button>
@@ -47,7 +52,7 @@
                 $i = 0;
                 if(isset($anns)) foreach ($anns as $ann)
                 {
-                    echo '<div class="announcement" id="ann'.$i.'">';
+                    echo '<div class="announcement" id="'.$ann->getId().'">';
                     $mainImg = $ann->getImages();
                     //$mainImg = $ann->getImages()[0]; //TODO: uncomment when implemented
                     if($mainImg!=null)
@@ -90,3 +95,21 @@
         </nav>
     </div>
 </body>
+
+<template id="announcement-details">
+    <h2>title</h2>
+    <img>
+    <p id="description">description</p>
+    <p id="location">location</p>
+    <p id="time">time of post</p>
+    <div>
+        <img class="owner">
+        <h3></h3>
+        <button id="follow"> </button>
+        <button id="chat"> </button>
+    </div>
+</template>
+
+<template id="loader">
+    <div class="loader"></div>
+</template>

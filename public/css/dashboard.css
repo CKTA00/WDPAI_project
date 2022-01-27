@@ -147,3 +147,25 @@ main p, .message p
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+
+.hidden{
+    display: none;
+}
+
+.loader {
+    border: 0.4em solid var(--default-text);
+    border-top: 0.4em solid var(--dark-text);
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+    animation: spin 1.5s linear infinite;
+    align-self: center;
+    justify-self: center;
+    margin-top: 5em;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

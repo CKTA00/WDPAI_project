@@ -156,10 +156,6 @@ aside>h3
 
 /* Announcement EDIT BOX */
 
-header button:first-child{
-    display: none;
-}
-
 .hidden{
     display: none;
 }

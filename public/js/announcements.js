@@ -19,6 +19,7 @@ function deactivateAnnouncement(element)
 function showAnnouncement(element){
     Array.prototype.forEach.call(announcements,(ann)=>deactivateAnnouncement(ann));
     element.classList.add('active-ann');
+    viewMain();
 
     if(focusId != element.id)
     {

@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/chats.css">
     <link rel="stylesheet" type="text/css" href="public/css/chats-mobile.css">
     <script type="text/javascript" src="./public/js/navigation.js" defer></script>
+    <script type="text/javascript" src="./public/js/mobile_back.js" defer></script>
     <title>Little Places - Your Messages</title>
 </head>
 <body>
@@ -137,7 +138,7 @@
                 </div>
             </div>
             <div class="input-line"> 
-                <textarea type="text" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>
+                <textarea type="text"></textarea>
                 <button>
                     <i class="fas fa-arrow-right"></i>
                 </button>

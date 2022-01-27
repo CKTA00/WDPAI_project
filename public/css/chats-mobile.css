@@ -1,12 +1,7 @@
 ﻿@media screen and (max-width: 635px)
 {
     aside{
-        display: none; /* set in script */
         width: 100vw;
-    }
-
-    main{
-        /* display: none; */ /* set in script */
     }
 
     header button:first-child{
@@ -16,14 +11,18 @@
     .input-line{
         /* appearance */
         height: 4em;
+        min-height: 4rem;
     }
 
-    .input-line>input{
+    .input-line>textarea{
         height: 4rem;
+        min-height: 4rem;
     }
 
     .input-line>button{
         height: 4rem;
         width: 4rem;
+        min-height: 4rem;
+        min-width: 4rem;
     }
 }

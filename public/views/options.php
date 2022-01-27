@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/options-mobile.css">
     <script type="text/javascript" src="./public/js/navigation.js" defer></script>
     <script type="text/javascript" src="./public/js/options.js" defer></script>
+    <script type="text/javascript" src="./public/js/mobile_back.js" defer></script>
     <title>Little Places - Your Announcements</title>
 </head>
 <body>
@@ -36,7 +37,6 @@
         
         
         <main>
-
         </main>
 
 

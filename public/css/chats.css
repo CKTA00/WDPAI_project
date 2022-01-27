@@ -3,10 +3,6 @@
     padding-top: 0.5em;
 }
 
-header button:first-child{
-    display: none;
-}
-
 .user-profile
 {
     /* appearance */
@@ -149,6 +145,7 @@ header button:first-child{
 
 main{
     justify-content: space-between;
+    overflow: hidden;
 }
 
 .chatbox
@@ -245,8 +242,10 @@ main{
     width: 100%;
 
     /* appearance */
+    min-height: 2.5rem;
     height: 2.5rem;
     resize: none;
+    box-sizing: border-box;
     color: var(--button-text);
     text-align: left;
     font: normal normal normal 1.2em/1.5em Arial;
@@ -265,8 +264,11 @@ main{
 
 .input-line>button{
     /* appearance */
+    min-height: 2.5rem;
+    min-width: 2.5rem;
     height: 2.5rem;
     width: 2.5rem;
+    box-sizing: border-box;
     color: var(--button-text);
     background-color: var(--form-background);
     font: normal normal normal 1em Arial;

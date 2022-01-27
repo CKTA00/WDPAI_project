@@ -26,7 +26,9 @@ function changeProfileData() {
             deletePicture();
         }
     );
-    //TODO back button
+    assignBackButton();
+    viewMain();
+    checkForMobile();
 }
 
 function saveChangesToProfile() {
@@ -36,7 +38,9 @@ function saveChangesToProfile() {
 
 
 function deletePicture() {
-    location.replace('./deleteProfileImage');
+    if(window.confirm("Are you sure you want to delete your profile picture? It will be replaced by default picture.")){
+        location.replace('./deleteProfileImage');
+    }
 }
 
 

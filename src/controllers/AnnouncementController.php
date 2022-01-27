@@ -45,7 +45,7 @@ class AnnouncementController extends AppController
     public function get_announcement(int $annId)
     {
         header('Content-type: application/json');
-
+        //TODO: check ownership?
         $ann = $this->announcementRepository->getRawAnnouncementById($annId);
         echo json_encode($ann);
     }

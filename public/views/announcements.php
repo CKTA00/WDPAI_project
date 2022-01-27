@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/announcements.css">
     <link rel="stylesheet" type="text/css" href="public/css/announcements-mobile.css">
     <script type="text/javascript" src="./public/js/announcements.js" defer></script>
+    <script type="text/javascript" src="./public/js/mobile_back.js" defer></script>
     <script type="text/javascript" src="./public/js/navigation.js" defer></script>
     <title>Little Places - Your Announcements</title>
     <?php
@@ -106,7 +107,7 @@
                 </div>
     
                 <div class="property">
-                    <h3>images</h3>
+                    <h3>image</h3>
                     <div class="image-container">
                         <?php
                         $ann = $anns[$focusAnnIndex];

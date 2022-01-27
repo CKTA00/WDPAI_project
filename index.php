@@ -29,6 +29,7 @@ Router::get('get_announcement','AnnouncementController');
 Router::get('announcements','AnnouncementController');
 //dashboard endpoints:
 Router::get('dashboard','DashboardController');
+Router::get('get_announcement_JSON','DashboardController');
 //chats endpoints:
 Router::get('chats','DashboardController');
 //options endpoints:
