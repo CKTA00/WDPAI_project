@@ -53,33 +53,25 @@ function showDetails(ann)
     const time = result.querySelector("#time");
     time.innerHTML = ann.created_at;
 
+    const owner_picture = result.querySelector("div>img");
+    if(ann.profile_image==null)
+        owner_picture.src = "public/img/blank-profile-picture.svg";
+    else
+        owner_picture.src = "public/uploads/"+ann.profile_image;
 
+    const owner_name = result.querySelector("div>h2");
+    owner_name.innerHTML = ann.name + " " + ann.surname;
 
-    // const range = result.querySelector(".property>#range");
-    // range.innerHTML = getRangeName(ann.range_id);
+    const follow_button = result.querySelector("#follow");
+    if(ann.follows)
+        follow_button.innerHTML = "unfollow";
+    else
+        follow_button.innerHTML = "follow";
+
+    const chat_button = result.querySelector("#chat");
 
     announcementDiv.appendChild(result);
 }
-
-// function getRangeName(range)
-// {
-//     let ret="";
-//     switch (range){ // TODO fetch this names from database
-//         case 1:
-//             ret = "Small (300m)";
-//             break;
-//         case 2:
-//             ret = "Medium (500m)";
-//             break;
-//         case 3:
-//             ret = "Large (1km)";
-//             break;
-//         case 4:
-//             ret = "Very Large (2km)";
-//             break;
-//     }
-//     return ret;
-// }
 
 function submitIdForm(form)
 {

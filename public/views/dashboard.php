@@ -102,11 +102,13 @@
     <p id="description">description</p>
     <p id="location">location</p>
     <p id="time">time of post</p>
-    <div>
+    <div class="user-profile">
         <img class="owner">
-        <h3></h3>
-        <button id="follow"> </button>
-        <button id="chat"> </button>
+        <h2></h2>
+    </div>
+    <div>
+        <button id="follow">  </button>
+        <button id="chat"> send message </button>
     </div>
 </template>
 
