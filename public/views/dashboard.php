@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/colors.css">
     <link rel="stylesheet" type="text/css" href="public/css/common.css">
     <link rel="stylesheet" type="text/css" href="public/css/common-mobile.css">
+    <link rel="stylesheet" type="text/css" href="public/css/aside-button.css">
     <link rel="stylesheet" type="text/css" href="public/css/dashboard.css">
     <script type="text/javascript" src="./public/js/navigation.js" defer></script>
     <script type="text/javascript" src="./public/js/dashboard.js" defer></script>
@@ -97,17 +98,20 @@
 </body>
 
 <template id="announcement-details">
-    <h2>title</h2>
-    <img>
-    <p id="description">description</p>
-    <p id="location">location</p>
-    <p id="time">time of post</p>
-    <div class="user-profile">
-        <img class="owner">
-        <h2></h2>
+    <div class="ann-detail">
+        <img>
+        <h2>title</h2>
+        <p id="description">description</p>
+        <p id="location">location</p>
+        <p id="time">time of post</p>
     </div>
-    <div>
-        <button id="follow">  </button>
+    <div class="footer">
+        <button id="follow"></button>
+        <hr>
+        <span class="user-profile">
+            <img class="owner">
+            <h2></h2>
+        </span>
         <button id="chat"> send message </button>
     </div>
 </template>

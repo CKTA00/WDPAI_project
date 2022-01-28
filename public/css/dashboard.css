@@ -130,9 +130,66 @@ main p, .message p
     background: var(--basic-light) 0% 0% no-repeat padding-box;
 }
 
-aside p{
-
+aside{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 0;
 }
+
+.ann-detail{
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+
+    gap: 0.5em;
+    padding-top: 0.5em;
+    overflow: auto;
+}
+
+.ann-detail h2{
+    color: var(--dark-text);
+    text-align: left;
+    font: normal normal bold 2em/1em Gill Sans Nova;
+    letter-spacing: 0px;
+    margin: 0 0.5em;
+}
+
+.ann-detail p{
+    color: var(--default-text);
+    text-align: left;
+    font: normal normal normal 1.2em/1.2em Gill Sans Nova;
+    letter-spacing: 0px;
+    margin: 0 0.5em;
+}
+
+.ann-detail>img{
+    /*max-width: 16.66em;*/
+    max-height: 20em;
+    border-radius: 0.5em;
+    object-fit: contain;
+    border: solid 1px var(--border);
+    background-color: var(--input-bg);
+    margin: 0 0.5em;
+}
+
+aside>.footer{
+    width: 100%;
+    background-color: var(--basic-light);
+    margin: 0;
+    padding: 0.5em 0;
+    justify-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 0.5em;
+}
+
 
 .user-profile > img
 {
@@ -162,8 +219,8 @@ aside p{
 }
 
 .loader {
-    border: 0.4em solid var(--default-text);
-    border-top: 0.4em solid var(--dark-text);
+    border: 0.4em solid var(--alt-input-bg);
+    border-top: 0.4em solid var(--button-icon);
     border-radius: 50%;
     width: 3em;
     height: 3em;

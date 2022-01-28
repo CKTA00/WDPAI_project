@@ -53,20 +53,20 @@ function showDetails(ann)
     const time = result.querySelector("#time");
     time.innerHTML = ann.created_at;
 
-    const owner_picture = result.querySelector("div>img");
+    const owner_picture = result.querySelector(".user-profile>img");
     if(ann.profile_image==null)
         owner_picture.src = "public/img/blank-profile-picture.svg";
     else
         owner_picture.src = "public/uploads/"+ann.profile_image;
 
-    const owner_name = result.querySelector("div>h2");
+    const owner_name = result.querySelector(".user-profile>h2");
     owner_name.innerHTML = ann.name + " " + ann.surname;
 
     const follow_button = result.querySelector("#follow");
     if(ann.follows)
-        follow_button.innerHTML = "unfollow";
+        follow_button.innerHTML = "unfollow announcement";
     else
-        follow_button.innerHTML = "follow";
+        follow_button.innerHTML = "follow announcement";
 
     const chat_button = result.querySelector("#chat");
 

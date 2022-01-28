@@ -81,12 +81,12 @@ main>div, .main>div
 }
 
 .image-container>img{
-    max-width: 16.66em;
-    height: 12.5em;
-
-    border-radius: 1em;
-
-    object-fit: cover;
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    border-radius: 0.5em;
+    object-fit: contain;
+    background-color: var(--input-bg);
 }
 
 .new_upload, .image-container>button{

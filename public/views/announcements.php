@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/colors.css">
     <link rel="stylesheet" type="text/css" href="public/css/common.css">
     <link rel="stylesheet" type="text/css" href="public/css/common-mobile.css">
+    <link rel="stylesheet" type="text/css" href="public/css/aside-button.css">
     <link rel="stylesheet" type="text/css" href="public/css/property.css">
     <link rel="stylesheet" type="text/css" href="public/css/property-mobile.css">
     <link rel="stylesheet" type="text/css" href="public/css/announcements.css">
@@ -187,7 +188,7 @@
     </div>
 
     <div class="property">
-        <h3>images</h3>
+        <h3>image</h3>
         <div class="image-container">
             <img>
         </div>
