@@ -48,18 +48,19 @@ function showDetails(ann)
     description.innerHTML = ann.description;
 
     const location = result.querySelector("#location");
-    location.innerHTML = ann.location; //TODO: get location name
+    location.innerHTML = "<i class=\"fas fa-map-marker-alt\"></i>&nbsp;"+ann.location; //TODO: get location name
 
     const time = result.querySelector("#time");
-    time.innerHTML = ann.created_at;
+    console.log(ann.created_at);
+    time.innerHTML = "<i class=\"fas fa-clock\"></i>&nbsp;" + formatTimespan(new Date(ann.created_at));
 
-    const owner_picture = result.querySelector(".user-profile>img");
+    const owner_picture = result.querySelector(".mini-user-profile>img");
     if(ann.profile_image==null)
         owner_picture.src = "public/img/blank-profile-picture.svg";
     else
         owner_picture.src = "public/uploads/"+ann.profile_image;
 
-    const owner_name = result.querySelector(".user-profile>h2");
+    const owner_name = result.querySelector(".mini-user-profile>h2");
     owner_name.innerHTML = ann.name + " " + ann.surname;
 
     const follow_button = result.querySelector("#follow");
@@ -71,6 +72,23 @@ function showDetails(ann)
     const chat_button = result.querySelector("#chat");
 
     announcementDiv.appendChild(result);
+}
+
+function formatTimespan(created_at)
+{
+    // let timespan = Date.now() - created_at;
+    // console.log(Date.now());
+    // console.log(created_at);
+    // timespan = Math.floor(timespan/1000);
+    // console.log(timespan);
+    // if(timespan<60) return "just a moment ago";
+    // timespan = Math.floor(timespan/60);
+    // if(timespan<120) return timespan + " minutes ago";
+    // timespan = Math.floor(timespan/60);
+    // if(timespan<48) return timespan + " hours ago";
+    // timespan = Math.floor(timespan/24);
+    // if(timespan<31) return timespan + " days ago";
+    return "posted at " + created_at.toLocaleDateString();
 }
 
 function submitIdForm(form)

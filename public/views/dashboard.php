@@ -61,10 +61,10 @@
                     echo '<h4>'.$ann->getTitle().'</h4>';
 
                     //TODO: get location name from mapbox api (add 2 spaces)
-                    echo '<p><i class="fas fa-map-marker-alt"></i>  Kraków</p>';
+                    echo '<p><i class="fas fa-map-marker-alt"></i>&nbsp;Kraków</p>';
                     $owner = $ann->getOwner();
                     $profileImage = $owner->getImage();
-                        echo '<div class="user-profile">';                              //OPEN owner div
+                        echo '<div class="mini-user-profile">';                              //OPEN owner div
                         if(isset($profileImage))
                             echo '<img src="public/uploads/'.$owner->getImage().'">';
                         else
@@ -101,14 +101,14 @@
     <div class="ann-detail">
         <img>
         <h2>title</h2>
-        <p id="description">description</p>
-        <p id="location">location</p>
-        <p id="time">time of post</p>
+        <p id="time"><i class="fas fa-clock"></i>  time of post</p>
+        <p id="location"><i class="fas fa-map-marker-alt"></i>  location</p>
+        <h6 id="description">description</h6>
     </div>
     <div class="footer">
         <button id="follow"></button>
         <hr>
-        <span class="user-profile">
+        <span class="mini-user-profile">
             <img class="owner">
             <h2></h2>
         </span>
