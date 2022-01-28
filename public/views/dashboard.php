@@ -13,7 +13,6 @@
     <link rel="stylesheet" type="text/css" href="public/css/dashboard.css">
     <script type="text/javascript" src="./public/js/navigation.js" defer></script>
     <script type="text/javascript" src="./public/js/dashboard.js" defer></script>
-    <script type="text/javascript" src="./public/js/mobile_back.js" defer></script>
     <title>Little Places - Map</title>
 </head>
 <body>
@@ -23,9 +22,6 @@
         </aside>
         <main>
             <header>
-                <button>
-                    <i class="fas fa-chevron-left"></i>
-                </button>
                 <button>
                     <i class="fas fa-map"></i>
                     <p>map view</p>
@@ -107,6 +103,7 @@
     </div>
     <div class="footer">
         <button id="follow"></button>
+        <button id="back-to-map">back to map</button>
         <hr>
         <span class="mini-user-profile">
             <img class="owner">

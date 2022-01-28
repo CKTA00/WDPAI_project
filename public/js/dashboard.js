@@ -2,8 +2,56 @@ const announcementTemplate= document.querySelector("#announcement-details");
 const announcementDiv= document.querySelector("aside");
 const announcements = document.getElementsByClassName("announcement");
 const loaderTemplate = document.querySelector("#loader");
+const mainView = document.querySelector("main");
+const detailView = document.querySelector("aside");
+let backButton;
+
 let focusId;
-console.log(announcements);
+let isMobile;
+let isViewDetails;
+checkForMobile();
+viewMain();
+
+function checkForMobile() {
+    let w = window.innerWidth;
+    if(w<635)
+    {
+        isMobile = true;
+        if(isViewDetails)
+        {
+            viewDetail();
+        }
+        else{
+            viewMain();
+        }
+    }
+    else{
+        isMobile = false;
+        if(isViewDetails)
+        {
+            detailView.style.display = "flex";
+        }
+        mainView.style.display = "flex";
+    }
+}
+window.onresize = checkForMobile;
+
+function viewDetail()
+{
+    if(isMobile)
+    {
+        mainView.style.display = "none";
+    }
+    detailView.style.display = "flex";
+    isViewDetails = true;
+}
+
+function viewMain()
+{
+    mainView.style.display = "flex";
+    detailView.style.display = "none";
+    isViewDetails = false;
+}
 
 function deactivateAnnouncement(element)
 {
@@ -13,11 +61,12 @@ function deactivateAnnouncement(element)
 function showAnnouncement(element){
     Array.prototype.forEach.call(announcements,(ann)=>deactivateAnnouncement(ann));
     element.classList.add('active-ann');
-    viewMain();
-    focusId = element.id;
-    console.log(focusId);
-    fetchAnnouncement(focusId);
-
+    viewDetail();
+    if(focusId!=element.id)
+    {
+        focusId = element.id;
+        fetchAnnouncement(focusId);
+    }
 }
 
 function fetchAnnouncement(annId)
@@ -62,6 +111,10 @@ function showDetails(ann)
 
     const owner_name = result.querySelector(".mini-user-profile>h2");
     owner_name.innerHTML = ann.name + " " + ann.surname;
+
+    back_button = result.querySelector("#back-to-map");
+    back_button.addEventListener("click",viewMain);
+
 
     const follow_button = result.querySelector("#follow");
     if(ann.follows)
