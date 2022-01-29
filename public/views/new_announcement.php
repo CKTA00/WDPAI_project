@@ -71,7 +71,7 @@
 
                 <div class="property">
                     <h3>location</h3>
-                    <textarea class="location" name="description" cols="100"></textarea>
+                    <textarea class="location" name="location" cols="100"></textarea>
                     <div id="map">
 
                     </div>
