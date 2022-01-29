@@ -10,8 +10,12 @@
     <link rel="stylesheet" type="text/css" href="public/css/common-mobile.css">
     <link rel="stylesheet" type="text/css" href="public/css/property.css">
     <link rel="stylesheet" type="text/css" href="public/css/property-mobile.css">
+    <link rel="stylesheet" type="text/css" href="public/css/map.css">
     <script type="text/javascript" src="./public/js/navigation.js" defer></script>
     <script type="text/javascript" src="./public/js/simple_back.js" defer></script>
+    <script type="text/javascript" src="./public/js/map_edit.js" defer></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css'>
     <title>Little Places - Your Announcements</title>
 </head>
 <body>
@@ -67,8 +71,9 @@
 
                 <div class="property">
                     <h3>location</h3>
-                    <div>
-                        TODO: add map
+                    <textarea class="location" name="description" cols="100"></textarea>
+                    <div id="map">
+
                     </div>
                 </div>
 
