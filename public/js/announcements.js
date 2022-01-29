@@ -6,6 +6,16 @@ const announcementsView = document.querySelector("main>div");
 const announcementTemplate= document.querySelector("#announcement-properties");
 const loaderTemplate = document.querySelector("#loader");
 let focusId = document.getElementById("focusId").innerHTML;
+const sampleDiv = document.querySelector("header");
+const mapDiv = document.querySelector("#map").parentElement;
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiY2t0YTAwIiwiYSI6ImNrdmNkYWViMjA0bngydW4zbnAxdzR1bGcifQ.wybkM1qtvY9WiHa1AxRlgQ';
+const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/light-v10',
+    center: [50.0614300,19.9365800],
+    zoom: 3
+});
 
 function newAnnouncement(){
     location.replace('./new_announcement');

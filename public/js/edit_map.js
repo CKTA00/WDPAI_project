@@ -11,7 +11,9 @@ const map = new mapboxgl.Map({
 });
 
 function resizeMap() {
-    mapDiv.setAttribute("style","width:"+(sampleDiv.offsetWidth-32)+"px");
+    let width = sampleDiv.offsetWidth-32;
+    if(width>500) width = 500;
+    mapDiv.setAttribute("style","width:"+width+"px");
 }
 
 window.onresize = resizeMap;

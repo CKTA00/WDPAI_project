@@ -14,6 +14,8 @@
     <link rel="stylesheet" type="text/css" href="public/css/announcements.css">
     <link rel="stylesheet" type="text/css" href="public/css/announcements-mobile.css">
     <script type="text/javascript" src="./public/js/announcements.js" defer></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css'>
     <script type="text/javascript" src="./public/js/mobile_back.js" defer></script>
     <script type="text/javascript" src="./public/js/navigation.js" defer></script>
     <title>Little Places - Your Announcements</title>
@@ -140,8 +142,8 @@
                 <div class="property">
                     <div>
                         <h3>location</h3>
-                        <div>
-                            TODO: add map
+                        <div id="map">
+
                         </div>
                     </div>
                 </div>
