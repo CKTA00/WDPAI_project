@@ -13,10 +13,12 @@
     <link rel="stylesheet" type="text/css" href="public/css/property-mobile.css">
     <link rel="stylesheet" type="text/css" href="public/css/announcements.css">
     <link rel="stylesheet" type="text/css" href="public/css/announcements-mobile.css">
+
     <link rel="stylesheet" type="text/css" href="public/css/map.css">
     <script type="text/javascript" src="./map-config.js"></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+
     <script type="text/javascript" src="./public/js/announcements.js" defer></script>
     <script type="text/javascript" src="./public/js/mobile_back.js" defer></script>
     <script type="text/javascript" src="./public/js/navigation.js" defer></script>

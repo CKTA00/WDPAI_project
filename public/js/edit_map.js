@@ -44,7 +44,6 @@ function locationSuccess(pos) {
 
 function locationError(err) {
     alert("Unable to get location.");
-    console.warn(`ERROR(${err.code}): ${err.message}`);
 }
 
 ///

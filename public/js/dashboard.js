@@ -3,14 +3,50 @@ const announcementDiv= document.querySelector("aside");
 const announcements = document.getElementsByClassName("announcement");
 const loaderTemplate = document.querySelector("#loader");
 const mainView = document.querySelector("main");
+const mapDiv = document.querySelector("#full-map");
+const mapButton = document.querySelector(".fa-map").parentElement;
+const gridDiv = document.querySelector(".grid-view");
+const gridButton = document.querySelector(".fa-th-large").parentElement;
 const detailView = document.querySelector("aside");
 let backButton;
 
 let focusId;
 let isMobile;
 let isViewDetails;
+let isMap = true;
 checkForMobile();
 viewMain();
+showProperHeaderButton();
+
+/// map related:
+
+mapboxgl.accessToken = mapBoxToken;
+
+const map = new mapboxgl.Map({
+    container: 'full-map',
+    style: 'mapbox://styles/mapbox/light-v10',
+    center: [0,0],
+    zoom: 0
+});
+
+let options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+};
+navigator.geolocation.getCurrentPosition(locationSuccess, locationError, [options])
+
+function locationSuccess(pos) {
+    map.flyTo({
+        center: [pos.coords.longitude,pos.coords.latitude],
+        zoom: 12
+    })
+}
+
+function locationError(err) {
+    alert("Unable to get location.");
+}
+/////
 
 function checkForMobile() {
     let w = window.innerWidth;
@@ -51,6 +87,23 @@ function viewMain()
     mainView.style.display = "flex";
     detailView.style.display = "none";
     isViewDetails = false;
+}
+
+function showProperHeaderButton()
+{
+    if(isMap){
+        mapButton.style.display = "none";
+        gridButton.style.display = "flex";
+        mapDiv.style.display = "inline";
+        gridDiv.style.display = "none";
+    }
+    else
+    {
+        mapButton.style.display = "flex";
+        gridButton.style.display = "none";
+        mapDiv.style.display = "none";
+        gridDiv.style.display = "inline";
+    }
 }
 
 function deactivateAnnouncement(element)
@@ -169,3 +222,12 @@ function bindElement(element)
 }
 
 Array.prototype.forEach.call(announcements,(element)=>bindElement(element));
+
+gridButton.addEventListener("click",function(e){
+    isMap = false;
+    showProperHeaderButton();
+});
+mapButton.addEventListener("click",function(e){
+    isMap = true;
+    showProperHeaderButton();
+});

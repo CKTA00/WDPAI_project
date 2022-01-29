@@ -11,6 +11,12 @@
     <link rel="stylesheet" type="text/css" href="public/css/common-mobile.css">
     <link rel="stylesheet" type="text/css" href="public/css/aside-button.css">
     <link rel="stylesheet" type="text/css" href="public/css/dashboard.css">
+
+    <link rel="stylesheet" type="text/css" href="public/css/map.css">
+    <script type="text/javascript" src="./map-config.js" defer></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+
     <script type="text/javascript" src="./public/js/navigation.js" defer></script>
     <script type="text/javascript" src="./public/js/dashboard.js" defer></script>
     <title>Little Places - Map</title>
@@ -42,7 +48,6 @@
                     }
                 }
                 ?>
-                <h2>TO-DO: add map here.</h2>
                 <h3> Ogłoszenia w twojej okolicy:</h3>
                 <div>
                 <?php
@@ -72,6 +77,9 @@
                 }
                 ?>
                 </div>
+            </div>
+            <div id="full-map">
+
             </div>
         </main>
         <nav>
