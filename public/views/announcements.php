@@ -13,9 +13,11 @@
     <link rel="stylesheet" type="text/css" href="public/css/property-mobile.css">
     <link rel="stylesheet" type="text/css" href="public/css/announcements.css">
     <link rel="stylesheet" type="text/css" href="public/css/announcements-mobile.css">
-    <script type="text/javascript" src="./public/js/announcements.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="public/css/map.css">
+    <script type="text/javascript" src="./map-config.js"></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css'>
+    <script type="text/javascript" src="./public/js/announcements.js" defer></script>
     <script type="text/javascript" src="./public/js/mobile_back.js" defer></script>
     <script type="text/javascript" src="./public/js/navigation.js" defer></script>
     <title>Little Places - Your Announcements</title>
@@ -87,79 +89,15 @@
                     <p>delete</p>
                 </button>
             </header>
-            <div>
+            <?php
+            foreach ($messages as $msg)
+            {
+                print '<div class="message"><p>';
 
-                <?php
-                foreach ($messages as $msg)
-                {
-                    print '<div class="message"><p>';
-
-                    print $msg.'</p></div>';
-                }
-                ?>
-                <div class="property">
-                    <h1>
-                        <?php
-
-                        if(isset($anns))
-                            print $anns[$focusAnnIndex]->getTitle();
-                        else
-                            print "Title";
-                        ?>
-                    </h1>
-                </div>
-    
-                <div class="property">
-                    <h3>image</h3>
-                    <div class="image-container">
-                        <?php
-                        $ann = $anns[$focusAnnIndex];
-                        if($ann!=null)
-                        {
-                            //$imgJSON = $ann->getImages(); //TODO: Show all images from json
-                            $fileName = $ann->getImages();
-                            print "<img src=public/uploads/".$fileName.">";
-                        }
-                        else{
-                            echo '<p>No images</p>';
-                        }
-                        ?>
-                    </div>
-                </div>
-    
-                <div class="property">
-                    <h3>description</h3>
-                    <p>
-                        <?php
-                        if(isset($anns))
-                            print $anns[$focusAnnIndex]->getDescription();
-                        else
-                            print "Description";
-                        ?>
-                    </p>
-                </div>
-    
-                <div class="property">
-                    <div>
-                        <h3>location</h3>
-                        <div id="map">
-
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="property">
-                    <h3>range</h3>
-                    <p>
-                        <?php
-                        if(isset($anns))
-                            print Announcement::getRangeName($anns[$focusAnnIndex]->getRange());
-                        else
-                            print Announcement::getRangeName(4);
-                        ?>
-                    </p>
-                </div>
-            </div>
+                print $msg.'</p></div>';
+            }
+            ?>
+            <div id="properties"></div>
         </main>
 
 
@@ -204,11 +142,9 @@
     </div>
 
     <div class="property">
-        <div>
-            <h3>location</h3>
-            <div>
-                TODO: add map
-            </div>
+        <h3>location</h3>
+        <div id="map">
+
         </div>
     </div>
 

@@ -3,9 +3,38 @@
     width: 100%;
     /*max-width: 30rem;*/
     margin-bottom: 2em;
+    /*overflow: hidden;*/
 }
 
 .property .location
 {
     display: none;
+}
+
+/*.mapboxgl-marker {*/
+/*    width: 25px;*/
+/*    height: 25px;*/
+/*    border-radius: 50%;*/
+/*    border:1px solid gray;*/
+/*    background-color:lightblue;*/
+/*}*/
+
+.marker {
+    /*background-image: url('../../public/img/marker.svg');*/
+    background-color: var(--basic);
+    background-size: cover;
+    border: solid 2px var(--dark-text);
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.mini-marker {
+    background-color: var(--basic);
+    border: solid 1px var(--dark-text);
+    background-size: cover;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
 }

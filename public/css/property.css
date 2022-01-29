@@ -23,6 +23,13 @@ main>div, .main>div
     margin: 0.3em 1em;
 }
 
+.message{
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    width: 60vw;
+}
+
 .property h1 {
     color: var(--button-text);
     text-align: left;

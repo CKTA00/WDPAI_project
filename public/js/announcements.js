@@ -2,24 +2,20 @@ const newButton = document.getElementById("new-button");
 const editButton = document.getElementById("edit-button");
 const deleteButton = document.getElementById("delete-button");
 const announcements = document.getElementsByClassName("announcement");
-const announcementsView = document.querySelector("main>div");
+const announcementsView = document.querySelector("#properties");
 const announcementTemplate= document.querySelector("#announcement-properties");
 const loaderTemplate = document.querySelector("#loader");
 let focusId = document.getElementById("focusId").innerHTML;
-const sampleDiv = document.querySelector("header");
-const mapDiv = document.querySelector("#map").parentElement;
+const sampleDiv = document.querySelector("main");
+let mapDiv;
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiY2t0YTAwIiwiYSI6ImNrdmNkYWViMjA0bngydW4zbnAxdzR1bGcifQ.wybkM1qtvY9WiHa1AxRlgQ';
-const map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/light-v10',
-    center: [50.0614300,19.9365800],
-    zoom: 3
-});
+fetchAnnouncement(focusId);
 
 function newAnnouncement(){
     location.replace('./new_announcement');
 }
+
+// aside announcement functions:
 
 function deactivateAnnouncement(element)
 {
@@ -37,6 +33,8 @@ function showAnnouncement(element){
         fetchAnnouncement(focusId);
     }
 }
+
+// properties functions
 
 function fetchAnnouncement(annId)
 {
@@ -60,18 +58,55 @@ function showProperties(ann)
     title.innerHTML = ann.title;
 
     const img = result.querySelector(".image-container>img");
-    img.src="public/uploads/"+ann.images; //TODO: multiple photos
+    img.src="public/uploads/"+ann.images;
 
     const description = result.querySelector(".property>#description");
     description.innerHTML = ann.description;
 
-    //TODO: update map location
-
     const range = result.querySelector(".property>#range");
     range.innerHTML = getRangeName(ann.range_id);
 
+    mapDiv = result.querySelector("#map");
+
     announcementsView.appendChild(result);
+
+    let pointData = JSON.parse(ann.location);
+    embedMap(pointData.point);
 }
+
+// map related
+
+function embedMap(point){
+    resizeMap();
+    mapboxgl.accessToken = mapBoxToken;
+    let map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/light-v10',
+        center: point,
+        scrollZoom: false,
+        dragPan: false,
+        zoom: 10
+    });
+    const marker = document.createElement('div');
+    marker.className = 'marker';
+    new mapboxgl.Marker({
+        element: marker
+    }).setLngLat(point).addTo(map);
+}
+
+// is called by updateMobileView() in mobile_back.js
+function resizeMap() {
+    if(mapDiv!=null)
+    {
+        let width = sampleDiv.offsetWidth-97;
+        if(width>500) width = 500;
+        mapDiv.setAttribute("style","width:"+width+"px");
+    }
+
+}
+
+
+// other
 
 function getRangeName(range)
 {
