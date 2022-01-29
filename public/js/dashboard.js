@@ -63,7 +63,6 @@ function placeMarker(annElement){
 
 function markerOnClick(marker,id)
 {
-    console.log(marker);
     // this below causes bug in position of marker:
     // currentMarkers.forEach((m)=>{m.className = "marker";})
     // marker.className = "active-marker";
@@ -159,13 +158,20 @@ function fetchAnnouncement(annId)
     const loader = loaderTemplate.content.cloneNode(true);
     announcementDiv.appendChild(loader);
     fetch("/get_announcement_JSON/"+annId).then(function(response){
-        return response.json();
+        ann = response.json();
+        return ann;
     }).then(function(ann){
         announcementDiv.innerHTML="";
         showDetails(ann);
+        let pointData = JSON.parse(ann.location);
+        fetch(
+            "https://api.mapbox.com/geocoding/v5/mapbox.places/"+pointData.point[0]+","+pointData.point[1]+".json?types=poi&access_token="+mapBoxToken
+        ).then(function(response){
+            return response.json();
+        }).then(function(poi){
+            announcementDiv.querySelector("#location").innerHTML = "<i class=\"fas fa-map-marker-alt\"></i>&nbsp;"+poi.features[0].place_name;
+        });
     });
-
-
 
 }
 

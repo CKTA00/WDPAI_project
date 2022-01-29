@@ -106,7 +106,7 @@
         <img>
         <h2>title</h2>
         <p id="time"><i class="fas fa-clock"></i>  time of post</p>
-        <!--<p id="location"><i class="fas fa-map-marker-alt"></i>  location</p> -->
+        <p id="location"><i class="fas fa-map-marker-alt"></i>&nbsp;loading...</p>
         <h6 id="description">description</h6>
     </div>
     <div class="footer">

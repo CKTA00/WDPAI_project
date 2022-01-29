@@ -66,8 +66,6 @@
                                     echo '<img src="public/uploads/'.$mainImg.'">';
                                 echo '<h4>'.$ann->getTitle().'</h4>';
                             echo '</div>';                                              //CLOSE image and title div
-                            //TODO: get location name from mapbox api (add 2 spaces)
-                            echo '<p><i class="fas fa-map-marker-alt"></i>  Kraków</p>';
                             echo '<h4>Followers:</h4>';
                             // TODO: get followers from db
                         echo '</div>';                                                  //CLOSE ann div
