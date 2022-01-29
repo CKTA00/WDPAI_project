@@ -72,7 +72,7 @@
 
                 <div class="property">
                     <h3>location</h3>
-                    <textarea class="location" name="location" cols="100"></textarea>
+                    <textarea class="location" name="location" cols="100"><?php if(isset($ann)) echo $ann->getLocation(); ?></textarea>
                     <div id="map">
 
                     </div>

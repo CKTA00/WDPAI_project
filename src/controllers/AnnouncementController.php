@@ -68,7 +68,7 @@ class AnnouncementController extends AppController
                 );
 
                 //TODO: replace point with location from map
-                $ann = new Announcement($_POST['title'], $_POST['description'], $dbFileName, '{"point":[0.0,0.0]}' , $_POST['range']);
+                $ann = new Announcement($_POST['title'], $_POST['description'], $dbFileName, $_POST['location'] , $_POST['range']);
                 if($id!=null)
                 {
                     $ann->setId($id);
@@ -79,7 +79,7 @@ class AnnouncementController extends AppController
                 else
                 {
                     $userId = $this->userRepository->getUserIdFromLogin($this->userLogin);
-                    $this->announcementRepository->addAnnouncement($ann,$userId);
+                    $id = $this->announcementRepository->addAnnouncement($ann,$userId);
                     return $this->announcements($id);
                 }
             }

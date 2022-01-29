@@ -69,7 +69,7 @@ function showProperties(ann)
     mapDiv = result.querySelector("#map");
 
     announcementsView.appendChild(result);
-
+    console.log(focusId);
     let pointData = JSON.parse(ann.location);
     embedMap(pointData.point);
 }
@@ -85,10 +85,12 @@ function embedMap(point){
         center: point,
         scrollZoom: false,
         dragPan: false,
-        zoom: 10
+        dragRotate: false,
+        doubleClickZoom: false,
+        zoom: 12
     });
     const marker = document.createElement('div');
-    marker.className = 'marker';
+    marker.className = 'mini-marker';
     new mapboxgl.Marker({
         element: marker
     }).setLngLat(point).addTo(map);

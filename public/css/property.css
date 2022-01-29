@@ -23,11 +23,13 @@ main>div, .main>div
     margin: 0.3em 1em;
 }
 
-.message{
+body>.message{
+    background: var(--alt-input-bg) 0% 0% no-repeat padding-box;
     position: fixed;
     bottom: 1em;
     right: 1em;
-    width: 60vw;
+    width: 40vw;
+    height: 3em;
 }
 
 .property h1 {

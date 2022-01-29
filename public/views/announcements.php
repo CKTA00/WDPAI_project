@@ -20,6 +20,7 @@
     <script type="text/javascript" src="./public/js/announcements.js" defer></script>
     <script type="text/javascript" src="./public/js/mobile_back.js" defer></script>
     <script type="text/javascript" src="./public/js/navigation.js" defer></script>
+    <script type="text/javascript" src="./public/js/message_popup.js" defer></script>
     <title>Little Places - Your Announcements</title>
     <?php
         if(!isset($anns)) //TODO: probably better to do it in JS
@@ -89,14 +90,6 @@
                     <p>delete</p>
                 </button>
             </header>
-            <?php
-            foreach ($messages as $msg)
-            {
-                print '<div class="message"><p>';
-
-                print $msg.'</p></div>';
-            }
-            ?>
             <div id="properties"></div>
         </main>
 
@@ -118,6 +111,14 @@
             </button>
         </nav>
     </div>
+    <?php
+    foreach ($messages as $msg)
+    {
+        print '<div class="message"><p>';
+
+        print $msg.'</p></div>';
+    }
+    ?>
 </body>
 
 <template id="announcement-properties">
