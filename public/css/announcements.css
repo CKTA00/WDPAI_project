@@ -116,10 +116,6 @@ aside>h3
 
 /* Announcement EDIT BOX */
 
-.hidden{
-    display: none;
-}
-
 .loader {
     border: 0.2em solid var(--input-bg);
     border-top: 0.2em solid var(--basic);

@@ -9,6 +9,7 @@ const gridDiv = document.querySelector(".grid-view");
 const gridButton = document.querySelector(".fa-th-large").parentElement;
 const detailView = document.querySelector("aside");
 let backButton;
+let currentMarkers = [];
 
 let focusId;
 let isMobile;
@@ -46,6 +47,36 @@ function locationSuccess(pos) {
 function locationError(err) {
     alert("Unable to get location.");
 }
+
+function placeMarker(annElement){
+    let pointData = JSON.parse(annElement.querySelector("label").innerHTML);
+    let id = annElement.id;
+    let marker = document.createElement('div');
+    marker.className = 'marker';
+    marker.addEventListener("click",function(e){markerOnClick(e,id)})
+    new mapboxgl.Marker({
+        element: marker
+    }).setLngLat(pointData.point).addTo(map);
+    currentMarkers.push(marker);
+    //annElement.id;
+}
+
+function markerOnClick(marker,id)
+{
+    console.log(marker);
+    // this below causes bug in position of marker:
+    // currentMarkers.forEach((m)=>{m.className = "marker";})
+    // marker.className = "active-marker";
+    focusId = id;
+    viewDetail();
+    fetchAnnouncement(id);
+}
+
+function showPlaceName(annElement){
+    //annElement.querySelector("p").innerHTML = '<i class="fas fa-map-marker-alt"></i>&nbsp;'
+    // TODO request from mapbox api geocoding
+}
+
 /////
 
 function checkForMobile() {
@@ -134,6 +165,8 @@ function fetchAnnouncement(annId)
         showDetails(ann);
     });
 
+
+
 }
 
 function showDetails(ann)
@@ -149,11 +182,11 @@ function showDetails(ann)
     const description = result.querySelector("#description");
     description.innerHTML = ann.description;
 
-    const location = result.querySelector("#location");
-    location.innerHTML = "<i class=\"fas fa-map-marker-alt\"></i>&nbsp;"+ann.location; //TODO: get location name
+    // const location = result.querySelector("#location");
+    // location.innerHTML = "<i class=\"fas fa-map-marker-alt\"></i>&nbsp;"+ann.location; //TODO: get location name
 
     const time = result.querySelector("#time");
-    console.log(ann.created_at);
+    //console.log(ann.created_at);
     time.innerHTML = "<i class=\"fas fa-clock\"></i>&nbsp;" + formatTimespan(new Date(ann.created_at));
 
     const owner_picture = result.querySelector(".mini-user-profile>img");
@@ -182,18 +215,6 @@ function showDetails(ann)
 
 function formatTimespan(created_at)
 {
-    // let timespan = Date.now() - created_at;
-    // console.log(Date.now());
-    // console.log(created_at);
-    // timespan = Math.floor(timespan/1000);
-    // console.log(timespan);
-    // if(timespan<60) return "just a moment ago";
-    // timespan = Math.floor(timespan/60);
-    // if(timespan<120) return timespan + " minutes ago";
-    // timespan = Math.floor(timespan/60);
-    // if(timespan<48) return timespan + " hours ago";
-    // timespan = Math.floor(timespan/24);
-    // if(timespan<31) return timespan + " days ago";
     return "posted at " + created_at.toLocaleDateString();
 }
 
@@ -219,6 +240,8 @@ function getAnnouncement(){
 function bindElement(element)
 {
     element.addEventListener("click",function(e){showAnnouncement(element)})
+    showPlaceName(element);
+    placeMarker(element);
 }
 
 Array.prototype.forEach.call(announcements,(element)=>bindElement(element));

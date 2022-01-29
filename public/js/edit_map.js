@@ -72,7 +72,6 @@ function placeMarker(){
     }
 }
 
-
 map.on('click', (e) => {
 
     inputLocationJSON(e.lngLat.wrap());

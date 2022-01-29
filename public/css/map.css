@@ -36,6 +36,17 @@
     cursor: pointer;
 }
 
+.active-marker {
+    /*background-image: url('../../public/img/marker.svg');*/
+    background-color: var(--gold);
+    background-size: cover;
+    border: solid 2px var(--gold-border);
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 .mini-marker {
     background-color: var(--basic);
     border: solid 1px var(--dark-text);

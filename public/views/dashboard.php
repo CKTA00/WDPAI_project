@@ -56,13 +56,13 @@
                 {
                     echo '<div class="announcement" id="'.$ann->getId().'">';
                     $mainImg = $ann->getImages();
-                    //$mainImg = $ann->getImages()[0]; //TODO: uncomment when implemented
                     if($mainImg!=null)
                         echo '<img src="public/uploads/'.$mainImg.'">';
                     echo '<h4>'.$ann->getTitle().'</h4>';
 
                     //TODO: get location name from mapbox api (add 2 spaces)
-                    echo '<p><i class="fas fa-map-marker-alt"></i>&nbsp;Kraków</p>';
+                    //echo '<p><i class="fas fa-map-marker-alt"></i>&nbsp;Kraków</p>';
+                    echo '<label class="hidden">'.$ann->getLocation().'</label>';
                     $owner = $ann->getOwner();
                     $profileImage = $owner->getImage();
                         echo '<div class="mini-user-profile">';                              //OPEN owner div
@@ -106,7 +106,7 @@
         <img>
         <h2>title</h2>
         <p id="time"><i class="fas fa-clock"></i>  time of post</p>
-        <p id="location"><i class="fas fa-map-marker-alt"></i>  location</p>
+        <!--<p id="location"><i class="fas fa-map-marker-alt"></i>  location</p> -->
         <h6 id="description">description</h6>
     </div>
     <div class="footer">

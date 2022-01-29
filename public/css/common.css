@@ -13,6 +13,10 @@ button{
     border: 0;
 }
 
+.hidden{
+    display: none;
+}
+
 .base-container
 {
     height: 100vh;
