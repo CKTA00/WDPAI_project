@@ -16,6 +16,7 @@
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
     <script type="text/javascript" src="./public/js/navigation.js" defer></script>
     <script type="text/javascript" src="./public/js/simple_back.js" defer></script>
+    <script type="text/javascript" src="./public/js/message_popup.js" defer></script>
     <script type="text/javascript" src="./public/js/edit_map.js" defer></script>
     <title>Little Places - Your Announcements</title>
 </head>
@@ -34,15 +35,6 @@
             </header>
             <div>
                 <?php
-                if(isset($messages))
-                {
-                    foreach ($messages as $msg)
-                    {
-                        echo "<div class='property warning'>";
-                        echo "<p><i class='fas fa-exclamation-circle'></i> ".$msg."</p>";
-                        echo "</div>";
-                    }
-                }
                 if(isset($id))
                 {
                     echo '<input type="hidden" name="id" value="'.$id.'">';
@@ -100,5 +92,6 @@
         </form>
         <?php include "nav.php"; ?>
     </div>
+    <?php include "messages.php"; ?>
 </body>
 </html>

@@ -15,7 +15,7 @@ main>div, .main>div
 }
 
 
-.property, .message{
+.property{
     background: var(--form-background) 0% 0% no-repeat padding-box;
     border-radius: 1em;
 
@@ -24,6 +24,9 @@ main>div, .main>div
 }
 
 body>.message{
+    border-radius: 1em;
+    padding: 1em;
+    margin: 0.3em 1em;
     background: var(--alt-input-bg) 0% 0% no-repeat padding-box;
     position: fixed;
     bottom: 1em;
@@ -52,7 +55,7 @@ body>.message{
 }
 
 
-.property p, .message p
+.property p
 {
     color: var(--button-text);
     text-align: left;

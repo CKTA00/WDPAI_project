@@ -1,7 +1,7 @@
-let messages = document.querySelectorAll("body>.message");
+let messages = document.querySelector("body>.messages");
 setTimeout(vanishMessages,8000);
 
 function vanishMessages(){
-    messages.forEach(function(msg){msg.style.display ="none"});
+    messages.style.display ="none";
 }
 

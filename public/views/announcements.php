@@ -95,12 +95,7 @@
         <?php include "nav.php"; ?>
     </div>
     <?php
-    foreach ($messages as $msg)
-    {
-        print '<div class="message"><p>';
-
-        print $msg.'</p></div>';
-    }
+    include "messages.php";
     ?>
 </body>
 
