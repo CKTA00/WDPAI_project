@@ -10,7 +10,6 @@ let initPoint = [0,0];
 if(locationInput.innerHTML)
 {
     initPoint = JSON.parse(locationInput.innerHTML).point;
-    console.log(initPoint);
 }
 else{
     let options = {

@@ -35,6 +35,7 @@ class DashboardController extends AppController
         $userId = $this->userRepository->getUserIdFromLogin($this->userLogin);
         $ann += ["follows" => $this->followerRepository->isUserFollowing($userId,$annId)];
         echo json_encode($ann);
+        http_response_code(200);
     }
 
 

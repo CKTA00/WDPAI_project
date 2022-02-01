@@ -256,7 +256,7 @@ header button:hover{
     background: var(--alt-input-bg) 0% 0% no-repeat padding-box;
     position: fixed;
     bottom: 1em;
-    right: 1em;
+    right: 2.5em;
     width: 40vw;
     height: auto;
 

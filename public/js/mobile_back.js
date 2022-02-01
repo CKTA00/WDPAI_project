@@ -32,7 +32,7 @@ function checkForMobile() {
         mainDiv.style.display = "flex";
         asideDiv.style.display = "flex";
     }
-    if(resizeMap!=null)
+    if(resizeMap)
         resizeMap();
 }
 

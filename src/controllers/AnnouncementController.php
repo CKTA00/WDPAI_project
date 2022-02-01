@@ -26,8 +26,7 @@ class AnnouncementController extends AppController
         $anns = $this->announcementRepository->getAnnouncements($this->userLogin);
         if($anns == null)
             $this->message[] = "You have no announcements yet :)";
-
-        if($annId==-1)
+        else if($annId==-1)
         {
             $annId = $anns[0]->getId();
         }
@@ -54,47 +53,77 @@ class AnnouncementController extends AppController
     }
 
     public function new_announcement(){
-        return $this->edit_announcement();
-    }
-
-    public function edit_announcement(){
         if ($this->isPost())
         {
-            $id = intval($_POST['id']);
-
-            if(is_uploaded_file($_FILES["file"]["tmp_name"]) && $this->validateFile($_FILES["file"]))
+            if(is_uploaded_file($_FILES["file"]["tmp_name"]))
             {
+                if(!$this->validateFile($_FILES["file"]))
+                {
+                    return $this->render('new_announcement', ['messages' => $this->message]);
+                }
+
                 $dbFileName = time().$_FILES["file"]["name"];
                 move_uploaded_file(
                     $_FILES["file"]["tmp_name"],
                     dirname(__DIR__).self::UPLOAD_DIRECTORY.$dbFileName
                 );
 
-                //TODO: replace point with location from map
                 $ann = new Announcement($_POST['title'], $_POST['description'], $dbFileName, $_POST['location'] , $_POST['range']);
-                if($id!=null)
+                $userId = $this->userRepository->getUserIdFromLogin($this->userLogin);
+                $id = $this->announcementRepository->addAnnouncement($ann,$userId);
+                return $this->announcements($id);
+            }
+            else
+            {
+                $this->message[] = 'Image is required.';
+                return $this->render('new_announcement', ['messages' => $this->message,'imageRequired'=>true]);
+            }
+        }
+
+        return $this->render('new_announcement', ['messages' => $this->message,'imageRequired'=>true]);
+    }
+
+    public function edit_announcement(){
+        if ($this->isPost())
+        {
+            $id = intval($_POST['id']);
+            if(isset($_POST['title']))
+            {
+                if(is_uploaded_file($_FILES["file"]["tmp_name"]))
                 {
+                    //user replaced image
+                    if(!$this->validateFile($_FILES["file"]))
+                    {
+                        return $this->render('new_announcement', ['messages' => $this->message]);
+                    }
+
+                    $dbFileName = time().$_FILES["file"]["name"];
+                    move_uploaded_file(
+                        $_FILES["file"]["tmp_name"],
+                        dirname(__DIR__).self::UPLOAD_DIRECTORY.$dbFileName
+                    );
+
+                    $ann = new Announcement($_POST['title'], $_POST['description'], $dbFileName, $_POST['location'] , $_POST['range']);
                     $ann->setId($id);
                     $userId = $this->userRepository->getUserIdFromLogin($this->userLogin);
-                    $this->announcementRepository->editAnnouncement($id,$ann,$userId);
+                    $this->announcementRepository->editAnnouncement($id,$ann,$userId,true);
                     return $this->announcements($id);
                 }
                 else
                 {
+                    // user do not replaced image
+                    $ann = new Announcement($_POST['title'], $_POST['description'], "_", $_POST['location'] , $_POST['range']);
+                    $ann->setId($id);
                     $userId = $this->userRepository->getUserIdFromLogin($this->userLogin);
-                    $id = $this->announcementRepository->addAnnouncement($ann,$userId);
+                    $this->announcementRepository->editAnnouncement($id,$ann,$userId,false);
                     return $this->announcements($id);
                 }
             }
-            else
-            {
-                $ann = $this->announcementRepository->getAnnouncementById($id);
-                //TODO: check if it's user's announcement
-                return $this->render('new_announcement', ['messages' => $this->message, 'ann' => $ann, 'id' => $id]);
-            }
+            $ann = $this->announcementRepository->getAnnouncementById($id);
+            return $this->render('new_announcement', ['messages' => $this->message, 'ann'=>$ann, 'imageRequired'=>false,'id'=>$id]);
         }
 
-        return $this->render('new_announcement', ['messages' => $this->message]);
+        return $this->render('new_announcement', ['messages' => $this->message,'imageRequired'=>true]);
     }
 
     public function delete_announcement()
@@ -117,12 +146,15 @@ class AnnouncementController extends AppController
 
     private function getFocusIndex($anns, $annId): int
     {
-        $arr_size = count($anns);
-        for($i = 0; $i<$arr_size;$i++)
+        if(is_array($anns))
         {
-            if($anns[$i]->getId()==$annId)
+            $arr_size = count($anns);
+            for($i = 0; $i<$arr_size;$i++)
             {
-                return $i;
+                if($anns[$i]->getId()==$annId)
+                {
+                    return $i;
+                }
             }
         }
         return 0;

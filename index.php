@@ -38,6 +38,8 @@ Router::get('unfollow','FollowersController');
 //options endpoints:
 Router::get('options','OptionsController');
 Router::post('changeProfileImage','OptionsController');
+Router::post('change_bio','OptionsController');
+Router::get('get_bio','OptionsController');
 Router::get('deleteProfileImage','OptionsController');
 
 Router::run($path);

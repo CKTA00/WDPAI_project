@@ -148,7 +148,8 @@ aside{
 
     gap: 0.5em;
     padding-top: 0.5em;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .ann-detail h2{

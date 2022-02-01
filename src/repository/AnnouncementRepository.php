@@ -75,10 +75,9 @@ class AnnouncementRepository extends Repository
     public function getRawAnnouncementDetailsById(int $annId)
     {
         $stmt = $this->database->connect()->prepare('
-            SELECT *
-            FROM announcements ann
-            JOIN users u
-            ON u.id = ann.user_id
+            SELECT ann.*, u.name, u.surname, u.profile_image, d.bio FROM announcements ann
+            JOIN users u ON u.id = ann.user_id
+            LEFT JOIN users_details d ON d.id = u.id_users_detail
             WHERE :id = ann.id
         ');
         $stmt->bindParam(":id", $annId, PDO::PARAM_INT);
@@ -109,14 +108,22 @@ class AnnouncementRepository extends Repository
         return $id["id"];
     }
 
-    public function editAnnouncement(int $id, Announcement $announcement, int $ownerId)
+    public function editAnnouncement(int $id, Announcement $announcement, int $ownerId, bool $newImage)
     {
-        $stmt = $this->database->connect()->prepare('
-            UPDATE public.announcements 
-            SET title = :title, description = :description,
-                range_id = :range_id, images = :images, location = :location
-            WHERE id = :id AND user_id = :owner_id
-        ');
+        if($newImage)
+            $stmt = $this->database->connect()->prepare('
+                UPDATE public.announcements 
+                SET title = :title, description = :description,
+                    range_id = :range_id, images = :images, location = :location
+                WHERE id = :id AND user_id = :owner_id
+            ');
+        else
+            $stmt = $this->database->connect()->prepare('
+                UPDATE public.announcements 
+                SET title = :title, description = :description,
+                    range_id = :range_id, location = :location
+                WHERE id = :id AND user_id = :owner_id
+            ');
         $title = $announcement->getTitle();
         $description = $announcement->getDescription();
         $range = $announcement->getRange();
@@ -125,7 +132,8 @@ class AnnouncementRepository extends Repository
         $stmt->bindParam(":title",$title,PDO::PARAM_STR);
         $stmt->bindParam(":description",$description,PDO::PARAM_STR);
         $stmt->bindParam(":range_id",$range,PDO::PARAM_INT);
-        $stmt->bindParam(":images",$images,PDO::PARAM_STR);
+        if($newImage)
+            $stmt->bindParam(":images",$images,PDO::PARAM_STR);
         $stmt->bindParam(":location",$location,PDO::PARAM_STR);
         $stmt->bindParam(":id",$id,PDO::PARAM_INT);
         $stmt->bindParam(":owner_id",$ownerId,PDO::PARAM_INT);
@@ -152,14 +160,14 @@ class AnnouncementRepository extends Repository
         ');
         $stmt->execute();
 
-        $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        if($projects == false){
+        if($announcements == false){
             return null;
         }
 
         $anns = [];
-        foreach($projects as $project)
+        foreach($announcements as $project)
         {
             $owner = new User(
                 "_",

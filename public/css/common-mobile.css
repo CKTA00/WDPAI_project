@@ -73,4 +73,10 @@
     header button p{
         overflow: hidden;
     }
+
+    .messages{
+        right: 1em;
+        width: 80vw;
+        bottom: 20vh;
+    }
 }

@@ -6,7 +6,7 @@ require_once __DIR__."/../repository/UserRepository.php";
 
 class OptionsController extends AppController
 {
-    private $userRepository;
+    private UserRepository $userRepository;
 
     public function __construct()
     {
@@ -41,5 +41,20 @@ class OptionsController extends AppController
     public function deleteProfileImage(){
         $this->userRepository->changeUserData($this->userLogin,null);
         return $this->options();
+    }
+
+    public function change_bio(){
+        if ($this->isPost() && isset($_POST['bio']))
+        $this->userRepository->setUserDetails($this->userLogin, $_POST['bio']);
+        return $this->options();
+    }
+
+    public function get_bio($userId){
+        header('Content-type: application/json');
+        if($userId == -1)
+            $id = $this->userRepository->getUserIdFromLogin($this->userLogin);
+        $details = $this->userRepository->getRawUserDetails($id);
+        echo json_encode($details);
+        http_response_code(200);
     }
 }

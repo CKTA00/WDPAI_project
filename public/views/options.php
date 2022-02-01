@@ -30,7 +30,11 @@
             <hr>
             <button>
                 <i class="fas fa-user-circle"></i>
-                <p>edit profile</p>
+                <p>edit profile picture</p>
+            </button>
+            <button>
+                <i class="fas fa-user-edit"></i>
+                <p>edit profile description</p>
             </button>
             <hr>
         </aside>
@@ -40,8 +44,7 @@
     </div>
 </body>
 
-<template id="user-profile-details">
-    <!--    TODO: add editing other user data -->
+<template id="user-profile-image">
     <header>
         <button id="back-button">
             <i class="fas fa-chevron-left"></i>
@@ -66,6 +69,26 @@
                         <p>delete profile picture</p>
                     </button>
                 </div>
+            </div>
+        </form>
+    </div>
+</template>
+
+<template id="user-profile-details">
+    <header>
+        <button id="back-button">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button id="save-button">
+            <i class="fas fa-check"></i>
+            <p>save</p>
+        </button>
+    </header>
+    <div id="option-details">
+        <form action="change_bio" method="POST" enctype="multipart/form-data">
+            <div class="property">
+                <h3>your bio</h3>
+                <textarea class="description" name="bio" cols="199" maxlength="199" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'><?php if(isset($ann)) echo $ann->getDescription(); ?></textarea>
             </div>
         </form>
     </div>

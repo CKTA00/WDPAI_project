@@ -9,12 +9,6 @@ let focusId = document.getElementById("focusId").innerHTML;
 const sampleDiv = document.querySelector("main");
 let mapDiv;
 
-fetchAnnouncement(focusId);
-
-function newAnnouncement(){
-    location.replace('./new_announcement');
-}
-
 // aside announcement functions:
 
 function deactivateAnnouncement(element)
@@ -30,6 +24,7 @@ function showAnnouncement(element){
     if(focusId != element.id)
     {
         focusId = element.id;
+        console.log(focusId);
         fetchAnnouncement(focusId);
     }
 }
@@ -141,6 +136,12 @@ function submitIdForm(form)
     form.submit();
 }
 
+// button click functions:
+
+function newAnnouncement(){
+    location.replace('./new_announcement');
+}
+
 function deleteAnnouncement(){
     if(window.confirm("Are you sure you want ot delete this announcement?")){
         const form = document.createElement('form');
@@ -161,6 +162,11 @@ function bindElement(element)
 {
     element.addEventListener("click",function(e){showAnnouncement(element)})
 }
+
+// initial script:
+
+if(focusId > 0)
+    fetchAnnouncement(focusId);
 
 newButton.addEventListener("click",newAnnouncement);
 editButton.addEventListener("click",editAnnouncement);

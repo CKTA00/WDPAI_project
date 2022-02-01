@@ -22,7 +22,7 @@
 </head>
 <body>
     <div class="base-container">
-        <form class="main" action="new_announcement" method="POST" enctype="multipart/form-data">
+        <form class="main" action=<?php echo $imageRequired?'"new_announcement"':'"edit_announcement"'; ?> method="POST" enctype="multipart/form-data">
             <header>
                 <button type="button">
                     <i class="fas fa-chevron-left"></i>
@@ -50,8 +50,9 @@
                 <div class="property">
                     <h3>image</h3>
                     <div class="image-container">
+                        <?php if(isset($ann)) echo '<img src="public/uploads/'.$ann->getImages().'">'; ?>
                         <div class="new_upload">
-                            <span><p>chose your file:</p></span>
+                            <span><p><?php echo $imageRequired?"upload image (required)":"replace previous image"; ?></p></span>
                             <input type="file" name="file">
                         </div>
                     </div>

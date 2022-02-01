@@ -198,9 +198,6 @@ function showDetails(ann)
     const description = result.querySelector("#description");
     description.innerHTML = ann.description;
 
-    // const location = result.querySelector("#location");
-    // location.innerHTML = "<i class=\"fas fa-map-marker-alt\"></i>&nbsp;"+ann.location; //TODO: get location name
-
     const time = result.querySelector("#time");
     //console.log(ann.created_at);
     time.innerHTML = "<i class=\"fas fa-clock\"></i>&nbsp;" + formatTimespan(new Date(ann.created_at));
@@ -214,6 +211,9 @@ function showDetails(ann)
     const owner_name = result.querySelector(".mini-user-profile>h2");
     owner_name.innerHTML = ann.name + " " + ann.surname;
 
+    const owner_bio = result.querySelector(".bio");
+    owner_bio.innerHTML = ann.bio;
+
     backButton = result.querySelector("#back-to-map");
     backButton.addEventListener("click",viewMain);
 
@@ -221,12 +221,7 @@ function showDetails(ann)
     followButton = result.querySelector("#follow");
     followButton.addEventListener("click",()=>{followClick(focusId)})
     isFollow = ann.follows;
-    if(isFollow)
-        followButton.innerHTML = "unfollow announcement";
-    else
-        followButton.innerHTML = "follow announcement";
-
-    //const chat_button = result.querySelector("#chat");
+    showFollowUnfollowButton();
 
     announcementDiv.appendChild(result);
 }
@@ -236,6 +231,14 @@ function showDetails(ann)
 function formatTimespan(created_at)
 {
     return "posted at " + created_at.toLocaleDateString();
+}
+
+function showFollowUnfollowButton()
+{
+    if(isFollow)
+        followButton.innerHTML = "<i class=\"far fa-eye-slash\"></i>&nbsp;unfollow announcement";
+    else
+        followButton.innerHTML = "<i class=\"far fa-eye\"></i>&nbsp;follow announcement";
 }
 
 // follow button handling
@@ -251,14 +254,14 @@ function followClick(annId)
 function follow(annId) {
     followButton.innerHTML = "following...";
     fetch("/follow/"+annId).then(function(){
-        followButton.innerHTML = "unfollow announcement";
+        showFollowUnfollowButton();
     });
 }
 
 function unfollow(annId) {
     followButton.innerHTML = "unfollowing...";
     fetch("/unfollow/"+annId).then(function(){
-        followButton.innerHTML = "follow announcement";
+        showFollowUnfollowButton();
     });
 }
 

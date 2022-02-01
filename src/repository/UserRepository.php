@@ -201,4 +201,27 @@ class UserRepository extends Repository
             $stmt->execute();
         }
     }
+
+    public function setUserDetails(string $login, string $bio)
+    {
+        $userId = $this->getUserIdFromLogin($login);
+        $stmt = $this->database->connect()->prepare('
+            SELECT changebio(:id,:bio);
+            ');
+        $stmt->bindParam(":id", $userId, PDO::PARAM_INT);
+        $stmt->bindParam(":bio", $bio, PDO::PARAM_STR);
+        $stmt->execute();
+    }
+
+    public function getRawUserDetails(int $userId)
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT d.bio FROM users u
+            LEFT JOIN users_details d ON u.id_users_detail = d.id
+            WHERE u.id = :id
+            ');
+        $stmt->bindParam(":id", $userId, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }

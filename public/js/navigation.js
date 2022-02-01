@@ -1,7 +1,7 @@
 const nav = document.querySelector('nav');
 const dashboardNavButton = nav.querySelector(".fa-map-marked-alt").parentElement;
-const followsNavButton = nav.querySelector(".fa-clipboard-check").parentElement;
-const announcementsNavButton = nav.querySelector(".fa-clipboard-list").parentElement;
+const followsNavButton = nav.querySelector(".fa-eye").parentElement;
+const announcementsNavButton = nav.querySelector(".fa-id-badge").parentElement;
 const optionsNavButton = nav.querySelector(".fa-cog").parentElement;
 
 //TODO

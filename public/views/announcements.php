@@ -66,8 +66,6 @@
                                     echo '<img src="public/uploads/'.$mainImg.'">';
                                 echo '<h4>'.$ann->getTitle().'</h4>';
                             echo '</div>';                                              //CLOSE image and title div
-                            echo '<h4>Followers:</h4>';
-                            // TODO: get followers from db
                         echo '</div>';                                                  //CLOSE ann div
                         //$i++;
                     }
