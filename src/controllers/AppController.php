@@ -8,12 +8,14 @@ class AppController {
     private $request;
     protected $userLogin;
     protected $message;
+    private $navButtonId;
 
-    public function __construct()
+    public function __construct(int $navButtonId)
     {
         $this->request = $_SERVER['REQUEST_METHOD'];
         $this->userLogin = $_COOKIE['userLogin'];
         $this->message = [];
+        $this->navButtonId = $navButtonId;
     }
 
     protected function isPost(): bool
@@ -30,6 +32,7 @@ class AppController {
     {
         $templatePath = 'public/views/'.$template.'.php';
         $output = 'File not found';
+        $variables["activeTab"] = $this->navButtonId;
                 
         if(file_exists($templatePath)){
 

@@ -34,29 +34,9 @@
             </button>
             <hr>
         </aside>
-
-        
-        
         <main>
         </main>
-
-
-        <nav>
-            <div class="main-buttons">
-                <button>
-                    <i class="fas fa-map-marked-alt"></i>
-                </button>
-                <button>
-                    <i class="fas fa-comments"></i>
-                </button>
-                <button>
-                    <i class="fas fa-clipboard-list"></i>
-                </button>
-            </div>
-            <button id="active-tab">
-                <i class="fas fa-cog" id="active-tab"></i>
-            </button>
-        </nav>
+        <?php include "nav.php"; ?>
     </div>
 </body>
 

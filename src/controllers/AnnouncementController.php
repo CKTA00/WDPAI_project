@@ -4,17 +4,20 @@ require_once "AppController.php";
 require_once __DIR__."/../models/Announcement.php";
 require_once __DIR__."/../repository/AnnouncementRepository.php";
 require_once __DIR__."/../repository/UserRepository.php";
+require_once __DIR__."/../repository/FollowerRepository.php";
 
 class AnnouncementController extends AppController
 {
     private $announcementRepository;
     private $userRepository;
+    private $followerRepository;
 
     public function __construct()
     {
-        parent::__construct();
+        parent::__construct(3);
         $this->announcementRepository = new AnnouncementRepository();
         $this->userRepository = new UserRepository();
+        $this->followerRepository = new FollowerRepository();
     }
 
     //TODO: manipulate focus id with js script

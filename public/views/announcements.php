@@ -92,24 +92,7 @@
             </header>
             <div id="properties"></div>
         </main>
-
-
-        <nav>
-            <div class="main-buttons">
-                <button>
-                    <i class="fas fa-map-marked-alt"></i>
-                </button>
-                <button>
-                    <i class="fas fa-comments"></i>
-                </button>
-                <button id="active-tab">
-                    <i class="fas fa-clipboard-list" id="active-tab"></i>
-                </button>
-            </div>
-            <button>
-                <i class="fas fa-cog"></i>
-            </button>
-        </nav>
+        <?php include "nav.php"; ?>
     </div>
     <?php
     foreach ($messages as $msg)

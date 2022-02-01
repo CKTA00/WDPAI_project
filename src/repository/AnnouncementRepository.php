@@ -87,23 +87,6 @@ class AnnouncementRepository extends Repository
         return $result;
     }
 
-    public function isUserFollowing(int $userId, int $annId): bool
-    {
-        $stmt = $this->database->connect()->prepare('
-            SELECT f.user_id
-            FROM followers f
-            JOIN announcements ann
-            ON f.announcement_id = ann.id
-            WHERE :id = ann.id AND :follower = f.user_id
-        ');
-        $stmt->bindParam(":id", $annId, PDO::PARAM_INT);
-        $stmt->bindParam(":follower", $userId, PDO::PARAM_INT);
-        $stmt->execute();
-        $follower = $stmt->fetch(PDO::FETCH_ASSOC);
-        return isset($follower["id"]);
-    }
-
-
     public function addAnnouncement(Announcement $announcement, string $ownerId): int
     {
         $stmt = $this->database->connect()->prepare('

@@ -12,7 +12,7 @@ class SecurityController extends AppController
 
     public function __construct()
     {
-        parent::__construct();
+        parent::__construct(0);
         $this->userRepository = new UserRepository();
     }
 
@@ -50,7 +50,7 @@ class SecurityController extends AppController
             $this->beginSession($user);
         }
         $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location: {$url}/announcements");
+        header("Location: {$url}/dashboard");
     }
 
     public function timeout()

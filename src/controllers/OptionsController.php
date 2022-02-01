@@ -10,7 +10,7 @@ class OptionsController extends AppController
 
     public function __construct()
     {
-        parent::__construct();
+        parent::__construct(4);
         $this->userRepository = new UserRepository();
     }
 

@@ -1,26 +1,3 @@
-﻿<!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <title><?= $title2 ?></title> -->
-    
-    <script src="https://kit.fontawesome.com/51295bd71e.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="public/css/colors.css">
-    <link rel="stylesheet" type="text/css" href="public/css/common.css">
-    <link rel="stylesheet" type="text/css" href="public/css/common-mobile.css">
-    <link rel="stylesheet" type="text/css" href="public/css/aside-button.css">
-    <link rel="stylesheet" type="text/css" href="public/css/dashboard.css">
-
-    <link rel="stylesheet" type="text/css" href="public/css/map.css">
-    <script type="text/javascript" src="./map-config.js" defer></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
-
-    <script type="text/javascript" src="./public/js/navigation.js" defer></script>
-    <script type="text/javascript" src="./public/js/dashboard.js" defer></script>
-    <title>Little Places - Map</title>
-</head>
 <body>
     <div class="base-container">
         <aside>
@@ -48,11 +25,11 @@
                     }
                 }
                 ?>
-                <h3> Ogłoszenia w twojej okolicy:</h3>
+                <h3> <?php echo $header_message; ?> </h3>
                 <div>
                 <?php
                 $i = 0;
-                if(isset($anns)) foreach ($anns as $ann)
+                if(is_array($anns)) foreach ($anns as $ann)
                 {
                     echo '<div class="announcement" id="'.$ann->getId().'">';
                     $mainImg = $ann->getImages();
@@ -82,22 +59,7 @@
 
             </div>
         </main>
-        <nav>
-            <div class="main-buttons">
-                <button id="active-tab">
-                    <i class="fas fa-map-marked-alt" id="active-tab"></i>
-                </button>
-                <button>
-                    <i class="fas fa-comments"></i>
-                </button>
-                <button>
-                    <i class="fas fa-clipboard-list"></i>
-                </button>
-            </div>
-            <button>
-                <i class="fas fa-cog"></i>
-            </button>
-        </nav>
+        <?php include "nav.php"; ?>
     </div>
 </body>
 
@@ -117,7 +79,7 @@
             <img class="owner">
             <h2></h2>
         </span>
-        <button id="chat"> send message </button>
+        <h3 class="bio">bio</h3>
     </div>
 </template>
 

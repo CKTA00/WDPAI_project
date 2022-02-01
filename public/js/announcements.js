@@ -69,7 +69,6 @@ function showProperties(ann)
     mapDiv = result.querySelector("#map");
 
     announcementsView.appendChild(result);
-    console.log(focusId);
     let pointData = JSON.parse(ann.location);
     embedMap(pointData.point);
 }

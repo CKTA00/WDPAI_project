@@ -8,12 +8,19 @@ const mapButton = document.querySelector(".fa-map").parentElement;
 const gridDiv = document.querySelector(".grid-view");
 const gridButton = document.querySelector(".fa-th-large").parentElement;
 const detailView = document.querySelector("aside");
-let backButton;
-let currentMarkers = [];
 
-let focusId;
+// used to determine if resolution fits mobile screen sizes
 let isMobile;
+
+// buttons and state of current detail view
+let backButton;
+let followButton;
+let isFollow;
 let isViewDetails;
+let focusId;
+
+// map
+let currentMarkers = [];
 let isMap = true;
 checkForMobile();
 viewMain();
@@ -169,7 +176,10 @@ function fetchAnnouncement(annId)
         ).then(function(response){
             return response.json();
         }).then(function(poi){
-            announcementDiv.querySelector("#location").innerHTML = "<i class=\"fas fa-map-marker-alt\"></i>&nbsp;"+poi.features[0].place_name;
+            let placeName;
+            if(poi.features[0]) placeName = poi.features[0].place_name;
+            else placeName = "unnamed place";
+            announcementDiv.querySelector("#location").innerHTML = "<i class=\"fas fa-map-marker-alt\"></i>&nbsp;"+placeName;
         });
     });
 
@@ -204,25 +214,55 @@ function showDetails(ann)
     const owner_name = result.querySelector(".mini-user-profile>h2");
     owner_name.innerHTML = ann.name + " " + ann.surname;
 
-    back_button = result.querySelector("#back-to-map");
-    back_button.addEventListener("click",viewMain);
+    backButton = result.querySelector("#back-to-map");
+    backButton.addEventListener("click",viewMain);
 
 
-    const follow_button = result.querySelector("#follow");
-    if(ann.follows)
-        follow_button.innerHTML = "unfollow announcement";
+    followButton = result.querySelector("#follow");
+    followButton.addEventListener("click",()=>{followClick(focusId)})
+    isFollow = ann.follows;
+    if(isFollow)
+        followButton.innerHTML = "unfollow announcement";
     else
-        follow_button.innerHTML = "follow announcement";
+        followButton.innerHTML = "follow announcement";
 
-    const chat_button = result.querySelector("#chat");
+    //const chat_button = result.querySelector("#chat");
 
     announcementDiv.appendChild(result);
 }
+
+// show details sub-function
 
 function formatTimespan(created_at)
 {
     return "posted at " + created_at.toLocaleDateString();
 }
+
+// follow button handling
+
+function followClick(annId)
+{
+    console.log("followClick "+annId+" "+isFollow);
+    if(isFollow) unfollow(annId);
+    else follow(annId)
+    isFollow = !isFollow;
+}
+
+function follow(annId) {
+    followButton.innerHTML = "following...";
+    fetch("/follow/"+annId).then(function(){
+        followButton.innerHTML = "unfollow announcement";
+    });
+}
+
+function unfollow(annId) {
+    followButton.innerHTML = "unfollowing...";
+    fetch("/unfollow/"+annId).then(function(){
+        followButton.innerHTML = "follow announcement";
+    });
+}
+
+
 
 function submitIdForm(form)
 {

@@ -1,32 +1,30 @@
-let nav = document.querySelector('nav');
-let dashboardNavButton = nav.querySelector(".fa-map-marked-alt");
-dashboardNavButton = dashboardNavButton.parentElement;
-let chatsNavButton = nav.querySelector(".fa-comments");
-chatsNavButton = chatsNavButton.parentElement;
-let announcementsNavButton = nav.querySelector(".fa-clipboard-list");
-announcementsNavButton = announcementsNavButton.parentElement;
-let optionsNavButton = nav.querySelector(".fa-cog");
-optionsNavButton = optionsNavButton.parentElement;
+const nav = document.querySelector('nav');
+const dashboardNavButton = nav.querySelector(".fa-map-marked-alt").parentElement;
+const followsNavButton = nav.querySelector(".fa-clipboard-check").parentElement;
+const announcementsNavButton = nav.querySelector(".fa-clipboard-list").parentElement;
+const optionsNavButton = nav.querySelector(".fa-cog").parentElement;
 
+//TODO
+//dashboardNavButton.classList.add("active-tab");
 
 function navigateDashboard() {
     location.replace('./dashboard');
 }
 
-
-function navigateChats() {
-    location.replace('./chats');
+function navigateFollowed() {
+    location.replace('./followed');
 }
 
 function navigateAnnouncements() {
     location.replace('./announcements');
 }
 
+
 function navigateOptions() {
     location.replace('./options');
 }
 
 dashboardNavButton.addEventListener("click",navigateDashboard);
-chatsNavButton.addEventListener("click",navigateChats);
+followsNavButton.addEventListener("click",navigateFollowed);
 announcementsNavButton.addEventListener("click",navigateAnnouncements);
 optionsNavButton.addEventListener("click",navigateOptions);
