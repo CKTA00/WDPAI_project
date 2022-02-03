@@ -1,0 +1,6 @@
+*he*.png
+public/uploads/
+.idea
+.vscode
+config.php
+map-config.js

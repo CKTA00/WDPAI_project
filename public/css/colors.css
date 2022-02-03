@@ -1,0 +1,22 @@
+:root {
+
+    /* Colors: */
+    --basic: #8CE366;
+    --basic-light: #b1ec9b;
+    --default-text: #3B9913;
+    --dark-text: #32830f;
+    --alt-input-bg: #BFFFC2;
+    --button-text: #296B0E;
+    --border: #04B30C;
+    --input-bg: #EBFEE0;
+    --form-background: #FFFFFF;
+    --button-icon: #FFFFFF;
+    --main-bg-color: rgb(0, 90, 0); /* not used yet */
+
+    --big-button-a: #B6F898;
+    --big-button-b: #85D861;
+    --big-button-hover-a: #c3f8aa;
+    --big-button-hover-b: #97d47c;
+
+    --incorrect: #d30000;
+}

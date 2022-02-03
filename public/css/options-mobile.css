@@ -1,0 +1,8 @@
+﻿/* Narrow desktop window */
+@media screen and (max-width: 635px)
+{
+    aside{
+        /* display: none; */ /* set in script */
+        width: 100vw;
+    }
+}

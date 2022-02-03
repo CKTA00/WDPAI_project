@@ -1,0 +1,82 @@
+﻿@media screen and (max-width: 635px)
+{
+    .base-container{
+        flex-direction: column;
+    }
+
+    main, .main
+    {
+        width: 100vw;
+    }
+
+    nav
+    {
+        /* appearance */
+        height: 20vw;
+        width: 100vw;
+
+        /* content positioning */
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .main-buttons
+    {
+        display: flex;
+        flex-direction: row;
+    }
+
+    nav button
+    {
+        /* appearance */
+        width: 25vw;
+        height: 20vw;
+        border: 0;
+        background-color: rgba(0,0,0,0);
+        border-radius: 0 0 6vw 6vw;
+    }
+    
+    nav i
+    {
+        font-size: 14vw;
+    }
+
+    header{
+        /* appearance */
+        min-height: 4em;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    header button{
+        height: 4rem;
+        min-width: 4rem;
+        font: normal normal normal 1.2em/1.2em Gill Sans Nova;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0em;
+        padding: 0 0em;
+    }
+
+    header>p{
+        font: normal normal normal 1.2rem/2rem Gill Sans Nova;
+        color: var(--default-text);
+        text-align: center;
+        margin: auto;
+    }
+
+    header button p{
+        overflow: hidden;
+    }
+
+    .messages{
+        right: 1em;
+        width: 80vw;
+        bottom: 20vh;
+    }
+}

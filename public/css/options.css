@@ -1,0 +1,17 @@
+﻿aside
+{
+    /* appearance */
+    height: 100vh;
+    width: 25vw;
+    background: var(--basic) 0% 0% no-repeat padding-box;
+    box-sizing: border-box;
+
+    /* content positioning */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0.5em;
+    overflow: auto;
+    padding: 0 0.5em;
+}
