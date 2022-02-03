@@ -150,13 +150,20 @@ function fetchAnnouncement(annId)
     detailView.innerHTML="";
     const loader = loaderTemplate.content.cloneNode(true);
     detailView.appendChild(loader);
-    fetch("/get_announcement_JSON/"+annId).then(function(response){
+    fetch("/get_announcement_details/"+annId).then(function(response){
         ann = response.json();
         return ann;
     }).then(function(ann){
-        detailView.innerHTML="";
-        showDetails(ann);
-        fetchCommonPlaceName(ann);
+        if(ann.invalid_id!=null && ann.invalid_id)
+        {
+            detailView.innerHTML="this announcement does not exist";
+        }
+        else
+        {
+            detailView.innerHTML="";
+            showDetails(ann);
+            fetchCommonPlaceName(ann);
+        }
     });
 
 }
@@ -192,7 +199,6 @@ function showDetails(ann)
     description.innerHTML = ann.description;
 
     const time = result.querySelector("#time");
-    //console.log(ann.created_at);
     time.innerHTML = "<i class=\"fas fa-clock\"></i>&nbsp;" + formatTimespan(new Date(ann.created_at));
 
     const owner_picture = result.querySelector(".mini-user-profile>img");
@@ -241,7 +247,6 @@ function showFollowUnfollowButton()
 
 function followClick(annId)
 {
-    console.log("followClick "+annId+" "+isFollow);
     if(isFollow) unfollow(annId);
     else follow(annId)
     isFollow = !isFollow;

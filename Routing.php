@@ -31,8 +31,15 @@ class Router
         $URLparts = explode("/",$url); // extraction of key and function name from url
         $action = $URLparts[0];
         $id = $URLparts[1] ?? -1;
+        $id = filter_var($id,FILTER_VALIDATE_INT);
+        if($id == false)
+        {
+            http_response_code(400);
+            die("404 PAGE NOT FOUND");
+        }
         if(!array_key_exists($action, self::$routes))
         {
+            http_response_code(400);
             die("404 PAGE NOT FOUND");
         }
 
