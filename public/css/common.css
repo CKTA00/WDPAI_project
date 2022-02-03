@@ -258,6 +258,7 @@ header button:hover{
     padding: 1em;
     margin: 0.3em 1em;
     background: var(--alt-input-bg) 0% 0% no-repeat padding-box;
+    border: solid 1px var(--basic);
     position: fixed;
     bottom: 1em;
     right: 2.5em;
