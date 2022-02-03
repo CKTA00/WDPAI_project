@@ -109,7 +109,7 @@ function resizeMap() {
 function getRangeName(range)
 {
     let ret="";
-    switch (range){ // TODO fetch this names from database
+    switch (range){
         case 1:
             ret = "Small (300m)";
             break;

@@ -36,9 +36,6 @@
                     if($mainImg!=null)
                         echo '<img src="public/uploads/'.$mainImg.'">';
                     echo '<h4>'.$ann->getTitle().'</h4>';
-
-                    //TODO: get location name from mapbox api (add 2 spaces)
-                    //echo '<p><i class="fas fa-map-marker-alt"></i>&nbsp;Kraków</p>';
                     echo '<label class="hidden">'.$ann->getLocation().'</label>';
                     $owner = $ann->getOwner();
                     $profileImage = $owner->getImage();

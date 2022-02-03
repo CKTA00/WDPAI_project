@@ -8,6 +8,6 @@ class Repository
 
     public function __construct()
     {
-        $this->database = new Database(); // TODO make Database a singleton
+        $this->database = DATABASE::getInstance();
     }
 }

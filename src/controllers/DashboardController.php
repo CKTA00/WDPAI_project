@@ -23,7 +23,7 @@ class DashboardController extends AppController
 
     public function dashboard(): void
     {
-        $anns = $this->announcementRepository->getAnnouncementsByDistance("TODO: location");
+        $anns = $this->announcementRepository->getAllAnnouncements();
         $this->render('neighbourhood', ["anns"=>$anns]);
     }
 

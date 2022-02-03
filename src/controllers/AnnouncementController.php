@@ -20,10 +20,9 @@ class AnnouncementController extends AppController
         $this->followerRepository = new FollowerRepository();
     }
 
-    //TODO: manipulate focus id with js script
     public function announcements(int $annId=-1): void
     {
-        $anns = $this->announcementRepository->getAnnouncements($this->userLogin);
+        $anns = $this->announcementRepository->getAnnouncementsOfUser($this->userLogin);
         if($anns == null)
             $this->message[] = "You have no announcements yet :)";
         else if($annId==-1)
@@ -47,7 +46,6 @@ class AnnouncementController extends AppController
     public function get_announcement(int $annId)
     {
         header('Content-type: application/json');
-        //TODO: check ownership?
         $ann = $this->announcementRepository->getRawAnnouncementById($annId);
         echo json_encode($ann);
     }
