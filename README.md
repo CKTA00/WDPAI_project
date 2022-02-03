@@ -19,13 +19,13 @@ Aplikacja składa się z kilku widoków podzielonych na grupy:
 - widok śledzonych ogłoszeń `/followed` z dwoma wariantami:
   - widok mapy (ogłoszenia w postaci punktów)
   - widok siatki (ogłoszenia w postaci kafelków)
-- widoki ogłoszeń użytkownika (których jest właścicelem):
+- widoki ogłoszeń użytkownika (których jest właścicielem):
   - widok przeglądu wszystkich ogłoszeń użytkownika `/announcements`
-  - widok edycji i dodwania nowego ogłoszenia `/edit_announcement` `/new_announcement`
+  - widok edycji i dodawania nowego ogłoszenia `/edit_announcement` `/new_announcement`
 - widok opcji `/options`
-  - zmiana zdjeci aprofilowego
+  - zmiana zdjecia profilowego
   - zmiana informacji pojawiającej się pod profilem (bio)
-  - możliwość wylogowania `/logout` (następuje również po ręcznym wpisaniu `/register`, `/login` lub nic przekierowywuje do widoku głównego dopóki użytkownik się nie wylogował/ciasteczko nie wygasło)
+  - możliwość wylogowania `/logout` (następuje również po ręcznym wpisaniu `/register`, a po wpisaniu `/login` lub niczego przekierowywuje do widoku głównego dopóki użytkownik się nie wylogował/ciasteczko nie wygasło)
 
 
 Wszystkie widoki są dostosowane zarówno do ekranów komputera jak i urządzeń mobilnych.
@@ -81,14 +81,14 @@ Dodatkowo poniższe endpointy mogą doprowadzić do jednego z powyższych widok�
   - Użytkownik musi być zalogowany
   - W miejsce `id` wstawiamy id ogłoszenia
   - Nie zwraca nic
-  - Rezultat: zalogowany użytkonik zaczyna śledzić ogłoszenie o danym id
+  - Rezultat: zalogowany użytkownik zaczyna śledzić ogłoszenie o danym id
 
 - `/unfollow/id`
   - Metoda: GET
   - Użytkownik musi być zalogowany
   - W miejsce `id` wstawiamy id ogłoszenia
   - Nie zwraca nic
-  - Rezultat: zalogowany użytkonik przestaje śledzić ogłoszenie o danym id
+  - Rezultat: zalogowany użytkownik przestaje śledzić ogłoszenie o danym id
 
 - `/get_bio`
   - Metoda: GET
