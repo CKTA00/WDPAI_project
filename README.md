@@ -66,3 +66,17 @@ W przypadku urządzeń mobilnych niektóre widoki są dzielone na mniejsze, w kt
     - int `range_id`: (nie używane) zasięg
     - string `images`: nazwa obrazu ogłoszenia względem `/publi/uploads/`
     - string `location`: lokalizacja w postaci `"{\"point\":[longitude,latitude]}"`
+
+- `/follow/id`
+  - Metoda: GET
+  - Użytkownik musi być zalogowany
+  - W miejsce `id` wstawiamy id ogłoszenia
+  - Nie zwraca nic
+  - Rezultat: zalogowany użytkonik zaczyna śledzić ogłoszenie o danym id
+
+- `/unfollow/id`
+  - Metoda: GET
+  - Użytkownik musi być zalogowany
+  - W miejsce `id` wstawiamy id ogłoszenia
+  - Nie zwraca nic
+  - Rezultat: zalogowany użytkonik przestaje śledzić ogłoszenie o danym id
