@@ -9,12 +9,23 @@ class Database
     private $host;
     private $database;
 
-    public function __construct()
+    private static $instance;
+
+    private function __construct()
     {
         $this->username = USERNAME;
         $this->password = PASSWORD;
         $this->host = HOST;
         $this->database = DATABASE;
+        static::$instance = $this;
+    }
+
+    public static function getInstance(): Database
+    {
+        if(!isset(static::$instance))
+            static::$instance = new Database();
+
+        return static::$instance;
     }
 
     public function connect(){

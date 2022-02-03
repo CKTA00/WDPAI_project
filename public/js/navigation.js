@@ -4,9 +4,6 @@ const followsNavButton = nav.querySelector(".fa-eye").parentElement;
 const announcementsNavButton = nav.querySelector(".fa-id-badge").parentElement;
 const optionsNavButton = nav.querySelector(".fa-cog").parentElement;
 
-//TODO
-//dashboardNavButton.classList.add("active-tab");
-
 function navigateDashboard() {
     location.replace('./dashboard');
 }

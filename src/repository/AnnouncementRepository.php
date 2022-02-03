@@ -6,7 +6,7 @@ require_once __DIR__.'/../models/User.php';
 
 class AnnouncementRepository extends Repository
 {
-    public function getAnnouncements(string $userLogin): ?Array
+    public function getAnnouncementsOfUser(string $userLogin): ?Array
     {
         $stmt = $this->database->connect()->prepare('
             SELECT ann.id, ann.title, ann.description, ann.range_id, ann.images, ann.location
@@ -59,6 +59,7 @@ class AnnouncementRepository extends Repository
         return $ann;
     }
 
+    //returns associative array
     public function getRawAnnouncementById(int $id)
     {
         $stmt = $this->database->connect()->prepare('
@@ -72,6 +73,7 @@ class AnnouncementRepository extends Repository
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    //returns associative array
     public function getRawAnnouncementDetailsById(int $annId)
     {
         $stmt = $this->database->connect()->prepare('
@@ -152,7 +154,7 @@ class AnnouncementRepository extends Repository
         return $stmt->execute();
     }
 
-    public function getAnnouncementsByDistance(string $userLocation, $maxDistance=2000.0): ?Array
+    public function getAllAnnouncements(): ?Array
     {
         $stmt = $this->database->connect()->prepare('
             SELECT ann.id, ann.title, ann.description, ann.range_id, ann.images, ann.location, u.login, u.name, u.surname, u.profile_image
@@ -188,9 +190,6 @@ class AnnouncementRepository extends Repository
             $ann->setOwner($owner);
             $anns[] = $ann;
         }
-
-        // TODO: calculate distance to each one from user and show only nearest
-
         return $anns;
     }
 }

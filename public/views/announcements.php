@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="public/css/property.css">
     <link rel="stylesheet" type="text/css" href="public/css/property-mobile.css">
     <link rel="stylesheet" type="text/css" href="public/css/announcements.css">
-    <link rel="stylesheet" type="text/css" href="public/css/announcements-mobile.css">
 
     <link rel="stylesheet" type="text/css" href="public/css/map.css">
     <script type="text/javascript" src="./map-config.js"></script>
@@ -25,7 +24,7 @@
     <script type="text/javascript" src="./public/js/message_popup.js" defer></script>
     <title>Little Places - Your Announcements</title>
     <?php
-        if(!isset($anns)) //TODO: probably better to do it in JS
+        if(!isset($anns))
         {
             echo "<style>";
             echo ".property,header{display: none}\n";
@@ -42,7 +41,7 @@
                 <p>new announcement</p>
             </button>
             <?php
-            if($anns!=null) //TODO: probably better to do it in JS
+            if($anns!=null)
             {
                 echo "<h3>Your announcements:</h3>";
             }
@@ -58,10 +57,8 @@
                             if($ann->getId() == $focusId)
                                 echo ' active-ann';
                             echo '" id="'.$ann->getId().'">';
-//                        echo '<h6 class="hidden">'.$ann->getId().'<h6>';
                             echo '<div>';                                               //OPEN image and title div
                                 $mainImg = $ann->getImages();
-                                //$mainImg = $ann->getImages()[0]; //TODO: uncomment when implemented
                                 if($mainImg!=null)
                                     echo '<img src="public/uploads/'.$mainImg.'">';
                                 echo '<h4>'.$ann->getTitle().'</h4>';

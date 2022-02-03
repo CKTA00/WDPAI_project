@@ -34,7 +34,7 @@
             </button>
             <button>
                 <i class="fas fa-user-edit"></i>
-                <p>edit profile description</p>
+                <p>edit your bio</p>
             </button>
             <hr>
         </aside>
@@ -55,15 +55,13 @@
         </button>
     </header>
     <div id="option-details">
-        <form action="changeProfileImage" method="POST" enctype="multipart/form-data">
+        <form action="change_profile_image" method="POST" enctype="multipart/form-data">
             <div class="property">
                 <h3>profile image</h3>
                 <div class="image-container">
                     <div class="new_upload">
                         <span><p>chose your file:</p></span>
                         <input type="file" name="file">
-                        <!--TODO: if enough time, add button for just deleting image-->
-
                     </div>
                     <button id="delete-profile-picture" type="button">
                         <p>delete profile picture</p>

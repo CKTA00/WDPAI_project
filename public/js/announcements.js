@@ -1,3 +1,4 @@
+//VARIABLES:
 const newButton = document.getElementById("new-button");
 const editButton = document.getElementById("edit-button");
 const deleteButton = document.getElementById("delete-button");
@@ -9,7 +10,9 @@ let focusId = document.getElementById("focusId").innerHTML;
 const sampleDiv = document.querySelector("main");
 let mapDiv;
 
-// aside announcement functions:
+
+/// FUNCTIONS:
+// aside announcement functions
 
 function deactivateAnnouncement(element)
 {
@@ -101,13 +104,12 @@ function resizeMap() {
 
 }
 
-
 // other
 
 function getRangeName(range)
 {
     let ret="";
-    switch (range){ // TODO fetch this names from database
+    switch (range){
         case 1:
             ret = "Small (300m)";
             break;

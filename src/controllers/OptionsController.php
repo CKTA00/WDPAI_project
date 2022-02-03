@@ -24,7 +24,7 @@ class OptionsController extends AppController
         ]);
     }
 
-    public function changeProfileImage(){
+    public function change_profile_image(){
         if ($this->isPost() && is_uploaded_file($_FILES["file"]["tmp_name"]) && $this->validateFile($_FILES["file"]))
         {
             $dbFileName = time().$_FILES["file"]["name"];
@@ -38,7 +38,7 @@ class OptionsController extends AppController
         return $this->options();
     }
 
-    public function deleteProfileImage(){
+    public function delete_profile_image(){
         $this->userRepository->changeUserData($this->userLogin,null);
         return $this->options();
     }

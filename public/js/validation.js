@@ -100,7 +100,6 @@ function validateLogin()
     setTimeout(
         function ()
         {
-            // TODO: fetch logins and check dynamically if taken
             showValidation(loginInput, isLogin(loginInput.value));
         },
         1000

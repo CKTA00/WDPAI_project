@@ -114,7 +114,6 @@ class SecurityController extends AppController
             }
             else{
                 $this->endSession();
-                // TODO: Notify FBI about hacker xd
                 return false;
             }
         }

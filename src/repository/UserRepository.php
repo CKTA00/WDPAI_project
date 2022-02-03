@@ -17,7 +17,6 @@ class UserRepository extends Repository
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if($user == false){
-            // TODO throw exception, SecurityController will catch in login
             return null;
         }
 
@@ -88,7 +87,6 @@ class UserRepository extends Repository
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if($user == false){
-            // TODO throw exception, SecurityController will catch in login
             return null;
         }
 
@@ -113,7 +111,6 @@ class UserRepository extends Repository
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if($user == false){
-            // TODO throw exception, SecurityController will catch in login
             return null;
         }
 
@@ -138,7 +135,6 @@ class UserRepository extends Repository
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if($user == false){
-            // TODO throw exception, SecurityController will catch in login
             return null;
         }
 
@@ -174,7 +170,6 @@ class UserRepository extends Repository
         $pass = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if($pass == false){
-            // TODO throw exception, SecurityController will catch in login
             return null;
         }
 
