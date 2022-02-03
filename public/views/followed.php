@@ -22,7 +22,6 @@ $header_message = "Announcements you are following:";
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
 
     <script type="text/javascript" src="./public/js/navigation.js" defer></script>
-    <script type="text/javascript" src="./public/js/ask_user_location.js" defer></script>
     <script type="text/javascript" src="./public/js/dashboard.js" defer></script>
 </head>
 
