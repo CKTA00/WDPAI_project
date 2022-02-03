@@ -208,7 +208,10 @@ function showDetails(ann)
     owner_bio.innerHTML = ann.bio;
 
     backButton = result.querySelector("#back-to-map");
-    backButton.addEventListener("click",viewMain);
+    backButton.addEventListener("click",()=>{
+        viewMain();
+        map.resize();
+    });
 
 
     followButton = result.querySelector("#follow");
