@@ -62,8 +62,6 @@
                     <div class="new_upload">
                         <span><p>chose your file:</p></span>
                         <input type="file" name="file">
-                        <!--TODO: if enough time, add button for just deleting image-->
-
                     </div>
                     <button id="delete-profile-picture" type="button">
                         <p>delete profile picture</p>

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 require_once "Routing.php";
 
@@ -37,9 +37,9 @@ Router::get('unfollow','FollowersController');
 //Router::get('chats','DashboardController');
 //options endpoints:
 Router::get('options','OptionsController');
-Router::post('changeProfileImage','OptionsController');
+Router::post('change_profile_image','OptionsController');
 Router::post('change_bio','OptionsController');
 Router::get('get_bio','OptionsController');
-Router::get('deleteProfileImage','OptionsController');
+Router::get('delete_profile_image','OptionsController');
 
 Router::run($path);
