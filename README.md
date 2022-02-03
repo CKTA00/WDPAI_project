@@ -33,5 +33,24 @@ W przypadku urządzeń mobilnych niektóre widoki są dzielone na mniejsze, w kt
 <h3>Model bazy danych:</h3>
 <img src="./database_model.svg">
 
-<h3>API </h3>
+<h3>API</h3>
 (dostępne endpointy nie zwracające całej strony html, lecz informacje w postaci JSON)
+- `/get_announcement/id` 
+  - Metoda: GET
+  - Użytkownik musi być zalogowany
+  - W miejsce `id` wstawiamy id ogłoszenia
+  - W przypadku podania nieistniejącego lub błędnego id wysyłana jest wartość `invalid_id: true`
+  - Zwraca: JSON
+    - int `id`: id ogłoszenia
+    - int `user_id`: id twórcy ogłoszenia
+    - string `title`: tytuł ogłoszenia
+    - string `description`: opis ogłoszenia
+    - int `range_id`: (nie używane) zasięg
+    - string `images`: nazwa obrazu ogłoszenia względem `/publi/uploads/`
+    - string `created_at`: data utworzenia ogłoszenia
+    - string `location`: lokalizacja w postaci `"{\"point\":[longitude,latitude]}"`
+    - string `name`: imię twórcy ogłoszenia
+    - string `surname`: nazwisko twórcy ogłoszenia
+    - string `profile_image`:  nazwa obrazu profilowego twórcy ogłoszenia względem `/publi/uploads/`
+    - string `bio`: opis profilu twórcy ogłoszenia
+    - bool `follows`: czy zalogowany użytkownik śledzi to ogłoszenie
