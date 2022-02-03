@@ -154,9 +154,16 @@ function fetchAnnouncement(annId)
         ann = response.json();
         return ann;
     }).then(function(ann){
-        detailView.innerHTML="";
-        showDetails(ann);
-        fetchCommonPlaceName(ann);
+        if(ann.invalid_id!=null && ann.invalid_id)
+        {
+            detailView.innerHTML="this announcement does not exist";
+        }
+        else
+        {
+            detailView.innerHTML="";
+            showDetails(ann);
+            fetchCommonPlaceName(ann);
+        }
     });
 
 }

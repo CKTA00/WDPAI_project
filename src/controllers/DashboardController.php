@@ -33,7 +33,10 @@ class DashboardController extends AppController
 
         $ann = $this->announcementRepository->getRawAnnouncementDetailsById($annId);
         $userId = $this->userRepository->getUserIdFromLogin($this->userLogin);
-        $ann += ["follows" => $this->followerRepository->isUserFollowing($userId,$annId)];
+        if(isset($ann) && is_array($ann))
+            $ann += ["follows" => $this->followerRepository->isUserFollowing($userId,$annId)];
+        else
+            $ann = ["invalid_id" => true];
         echo json_encode($ann);
         http_response_code(200);
     }
