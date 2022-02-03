@@ -33,8 +33,6 @@ Router::get('followed','FollowersController');
 Router::get('get_announcement_JSON','DashboardController');
 Router::get('follow','FollowersController');
 Router::get('unfollow','FollowersController');
-//chats endpoints:
-//Router::get('chats','DashboardController');
 //options endpoints:
 Router::get('options','OptionsController');
 Router::post('change_profile_image','OptionsController');

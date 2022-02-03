@@ -37,11 +37,4 @@ class DashboardController extends AppController
         echo json_encode($ann);
         http_response_code(200);
     }
-
-
-    public function chats(): void
-    {
-        $this->render('chats',['users'=>[]]);
-    }
-
 }
