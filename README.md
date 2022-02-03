@@ -11,7 +11,6 @@ Aplikacja składa się z kilku widoków podzielonych na grupy:
 - widoków przed zalogowaniem:
   - widok logowania ```/login```
   - widok rejestracji ```/register```
-    - pełna walidacja
   - widok odzyskiwania hasła (widok istnieje, ale usługa odzyskiwania hasła jest nie zaimplementowana) ```/regain_password```
 - widok główny ```/dashboard``` z dwoma wariantami:
   - widok mapy (ogłoszenia w postaci punktów)
