@@ -26,11 +26,13 @@ Router::post('new_announcement','AnnouncementController');
 Router::post('edit_announcement','AnnouncementController');
 Router::post('delete_announcement','AnnouncementController');
 Router::get('get_announcement','AnnouncementController');
+Router::requireNoLogin('get_announcement');
 Router::get('announcements','AnnouncementController');
 //dashboard endpoints:
 Router::get('dashboard','DashboardController');
-Router::get('followed','FollowersController');
 Router::get('get_announcement_details','DashboardController');
+//followed endpoints:
+Router::get('followed','FollowersController');
 Router::get('follow','FollowersController');
 Router::get('unfollow','FollowersController');
 //options endpoints:
