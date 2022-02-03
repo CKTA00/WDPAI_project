@@ -34,7 +34,7 @@
             </button>
             <button>
                 <i class="fas fa-user-edit"></i>
-                <p>edit profile description</p>
+                <p>edit your bio</p>
             </button>
             <hr>
         </aside>
@@ -55,7 +55,7 @@
         </button>
     </header>
     <div id="option-details">
-        <form action="changeProfileImage" method="POST" enctype="multipart/form-data">
+        <form action="change_profile_image" method="POST" enctype="multipart/form-data">
             <div class="property">
                 <h3>profile image</h3>
                 <div class="image-container">

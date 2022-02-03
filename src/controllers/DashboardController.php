@@ -41,7 +41,6 @@ class DashboardController extends AppController
 
     public function chats(): void
     {
-        // TODO retrieve users from db
         $this->render('chats',['users'=>[]]);
     }
 

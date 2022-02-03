@@ -39,7 +39,7 @@ function changeProfilePicture() {
 
 function deletePicture() {
     if(window.confirm("Are you sure you want to delete your profile picture? It will be replaced by default picture.")){
-        location.replace('./deleteProfileImage');
+        location.replace('./delete_profile_image');
     }
 }
 

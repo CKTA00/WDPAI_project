@@ -20,6 +20,13 @@ class FollowersController extends AppController
         $this->followerRepository = new FollowerRepository();
     }
 
+    public function followed()
+    {
+        $userId = $this->userRepository->getUserIdFromLogin($this->userLogin);
+        $anns = $this->followerRepository->getFollowsOfUser($userId);
+        $this->render('followed', ["anns"=>$anns]);
+    }
+
     public function follow(int $annId)
     {
         $this->changeFollow($annId,true);
@@ -30,19 +37,12 @@ class FollowersController extends AppController
         $this->changeFollow($annId,false);
     }
 
-    function changeFollow(int $annId, bool $follow){
+    private function changeFollow(int $annId, bool $follow){
         $userId = $this->userRepository->getUserIdFromLogin($this->userLogin);
         if($follow)
             $this->followerRepository->addFollower($annId,$userId);
         else
             $this->followerRepository->removeFollower($annId,$userId);
         http_response_code(200);
-    }
-
-    function followed()
-    {
-        $userId = $this->userRepository->getUserIdFromLogin($this->userLogin);
-        $anns = $this->followerRepository->getFollowsOfUser($userId);
-        $this->render('followed', ["anns"=>$anns]);
     }
 }
