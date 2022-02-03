@@ -8,7 +8,7 @@ isViewingMain = false;
 assignBackButton();
 checkForMobile();
 
-function assignBackButton() //call in other script
+function assignBackButton() //called in other script
 {
     backButton = document.querySelector(".fa-chevron-left");
     if(backButton != null)
@@ -46,7 +46,8 @@ function goBack() {
     }
 }
 
-function viewMain(){
+function viewMain() // called in other scripts
+{
     if(isMobile){
         isViewingMain = true;
         updateMobileView();

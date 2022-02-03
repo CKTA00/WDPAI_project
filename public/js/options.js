@@ -1,14 +1,24 @@
+///VARIABLES
+// aside
 const options = document.querySelector('aside');
 const logOutButton = options.querySelector(".fa-sign-out-alt").parentElement;
 const imageButton = options.querySelector(".fa-user-circle").parentElement;
 const detailsButton = options.querySelector(".fa-user-edit").parentElement;
+
+// main
+let detailsDiv = document.querySelector("main");
+
+// temporary buttons of picture changing
 let deletePictureButton;
 let saveButton;
-let detailsDiv = document.querySelector("main");
+
+//templates
 let userProfileImageTemplate = document.querySelector("#user-profile-image");
 let userProfileDetailsTemplate = document.querySelector("#user-profile-details");
 
-function resizeMap(){}
+///FUNCTIONS:
+
+function resizeMap(){} // is called by updateMobileView() in mobile_back.js (no map in options so empty)
 
 function logout() {
     location.replace('./logout');
@@ -61,11 +71,13 @@ function changeBio() {
         bioInput.disabled = false;
     });
 
+    // calling 3 functions in mobile_back.js to show main
     assignBackButton();
     viewMain();
     checkForMobile();
 }
 
+/// INITIAL SCRIP:
 
 logOutButton.addEventListener("click",logout);
 imageButton.addEventListener("click",changeProfilePicture);

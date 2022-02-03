@@ -140,6 +140,10 @@ aside
     gap: 1em;
 }
 
+.mini-user-profile{
+    margin: 0 1em;
+}
+
 .user-profile>img
 {
     /* appearance */
