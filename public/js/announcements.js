@@ -27,7 +27,6 @@ function showAnnouncement(element){
     if(focusId != element.id)
     {
         focusId = element.id;
-        console.log(focusId);
         fetchAnnouncement(focusId);
     }
 }

@@ -199,7 +199,6 @@ function showDetails(ann)
     description.innerHTML = ann.description;
 
     const time = result.querySelector("#time");
-    //console.log(ann.created_at);
     time.innerHTML = "<i class=\"fas fa-clock\"></i>&nbsp;" + formatTimespan(new Date(ann.created_at));
 
     const owner_picture = result.querySelector(".mini-user-profile>img");
@@ -248,7 +247,6 @@ function showFollowUnfollowButton()
 
 function followClick(annId)
 {
-    console.log("followClick "+annId+" "+isFollow);
     if(isFollow) unfollow(annId);
     else follow(annId)
     isFollow = !isFollow;
