@@ -66,7 +66,7 @@ class AnnouncementController extends AppController
                     dirname(__DIR__).self::UPLOAD_DIRECTORY.$dbFileName
                 );
 
-                $ann = new Announcement($_POST['title'], $_POST['description'], $dbFileName, $_POST['location'] , $_POST['range']);
+                $ann = new Announcement($_POST['title'], $_POST['description'], $dbFileName, $_POST['location'] , 3);
                 $userId = $this->userRepository->getUserIdFromLogin($this->userLogin);
                 $id = $this->announcementRepository->addAnnouncement($ann,$userId);
                 return $this->announcements($id);
@@ -101,7 +101,7 @@ class AnnouncementController extends AppController
                         dirname(__DIR__).self::UPLOAD_DIRECTORY.$dbFileName
                     );
 
-                    $ann = new Announcement($_POST['title'], $_POST['description'], $dbFileName, $_POST['location'] , $_POST['range']);
+                    $ann = new Announcement($_POST['title'], $_POST['description'], $dbFileName, $_POST['location'] , 3);
                     $ann->setId($id);
                     $userId = $this->userRepository->getUserIdFromLogin($this->userLogin);
                     $this->announcementRepository->editAnnouncement($id,$ann,$userId,true);
@@ -110,7 +110,7 @@ class AnnouncementController extends AppController
                 else
                 {
                     // user do not replaced image
-                    $ann = new Announcement($_POST['title'], $_POST['description'], "_", $_POST['location'] , $_POST['range']);
+                    $ann = new Announcement($_POST['title'], $_POST['description'], "_", $_POST['location'] , 3);
                     $ann->setId($id);
                     $userId = $this->userRepository->getUserIdFromLogin($this->userLogin);
                     $this->announcementRepository->editAnnouncement($id,$ann,$userId,false);

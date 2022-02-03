@@ -70,25 +70,6 @@
 
                     </div>
                 </div>
-
-                <div class="property">
-                    <h3>range</h3>
-                    <div>
-                        <select name="range" class="range-dropdown">
-                            <?php
-                            for($i = 1; $i<=4; $i++)
-                            {
-                                echo "<option value=".$i;
-                                if(isset($ann) && $ann->getRange()==$i)
-                                {
-                                    echo ' selected';
-                                }
-                                echo ">".Announcement::getRangeName($i)."</option>";
-                            }
-                            ?>
-                        </select>
-                    </div>
-                </div>
             </div>
         </form>
         <?php include "nav.php"; ?>

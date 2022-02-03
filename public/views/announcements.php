@@ -121,14 +121,6 @@
 
         </div>
     </div>
-
-    <div class="property">
-        <h3>range</h3>
-        <p id="range">
-            rangename
-        </p>
-    </div>
-
 </template>
 
 <template id="loader">

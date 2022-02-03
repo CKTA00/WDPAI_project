@@ -61,9 +61,6 @@ function showProperties(ann)
     const description = result.querySelector(".property>#description");
     description.innerHTML = ann.description;
 
-    const range = result.querySelector(".property>#range");
-    range.innerHTML = getRangeName(ann.range_id);
-
     mapDiv = result.querySelector("#map");
 
     announcementsView.appendChild(result);
@@ -105,26 +102,6 @@ function resizeMap() {
 }
 
 // other
-
-function getRangeName(range)
-{
-    let ret="";
-    switch (range){
-        case 1:
-            ret = "Small (300m)";
-            break;
-        case 2:
-            ret = "Medium (500m)";
-            break;
-        case 3:
-            ret = "Large (1km)";
-            break;
-        case 4:
-            ret = "Very Large (2km)";
-            break;
-    }
-    return ret;
-}
 
 function submitIdForm(form)
 {
