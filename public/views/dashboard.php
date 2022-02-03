@@ -70,7 +70,7 @@
     </div>
     <div class="footer">
         <button id="follow"></button>
-        <button id="back-to-map">back to map</button>
+        <button id="back-to-map"><i class="fas fa-arrow-left"></i>&nbsp;hide</button>
         <hr>
         <span class="mini-user-profile">
             <img class="owner">
