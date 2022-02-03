@@ -80,14 +80,14 @@ Dodatkowo poniższe endpointy mogą doprowadzić do jednego z powyższych widok�
   - Metoda: GET
   - Użytkownik musi być zalogowany
   - W miejsce `id` wstawiamy id ogłoszenia
-  - Nie zwraca nic
+  - Nie zwraca nic, w przypadku niepoprawnego id może zwrócić kod html 400 lub 404 gdy nie ma takiego id
   - Rezultat: zalogowany użytkownik zaczyna śledzić ogłoszenie o danym id
 
 - `/unfollow/id`
   - Metoda: GET
   - Użytkownik musi być zalogowany
   - W miejsce `id` wstawiamy id ogłoszenia
-  - Nie zwraca nic
+  - Nie zwraca nic, w przypadku niepoprawnego id może zwrócić kod html 400 lub 404 gdy nie ma takiego ids
   - Rezultat: zalogowany użytkownik przestaje śledzić ogłoszenie o danym id
 
 - `/get_bio`
