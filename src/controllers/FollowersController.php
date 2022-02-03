@@ -38,11 +38,27 @@ class FollowersController extends AppController
     }
 
     private function changeFollow(int $annId, bool $follow){
+        if($annId==-1)
+        {
+            http_response_code(400);
+            return;
+        }
+
         $userId = $this->userRepository->getUserIdFromLogin($this->userLogin);
-        if($follow)
-            $this->followerRepository->addFollower($annId,$userId);
-        else
-            $this->followerRepository->removeFollower($annId,$userId);
+        try{
+            if($follow)
+                $re = $this->followerRepository->addFollower($annId,$userId);
+            else
+                $re = $this->followerRepository->removeFollower($annId,$userId);
+        }
+        catch(exception $e)
+        {
+            http_response_code(404);
+        }
+
+        if($re==false)
+            http_response_code(404);
+
         http_response_code(200);
     }
 }
