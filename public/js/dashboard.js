@@ -150,7 +150,7 @@ function fetchAnnouncement(annId)
     detailView.innerHTML="";
     const loader = loaderTemplate.content.cloneNode(true);
     detailView.appendChild(loader);
-    fetch("/get_announcement_JSON/"+annId).then(function(response){
+    fetch("/get_announcement_details/"+annId).then(function(response){
         ann = response.json();
         return ann;
     }).then(function(ann){

@@ -30,7 +30,7 @@ Router::get('announcements','AnnouncementController');
 //dashboard endpoints:
 Router::get('dashboard','DashboardController');
 Router::get('followed','FollowersController');
-Router::get('get_announcement_JSON','DashboardController');
+Router::get('get_announcement_details','DashboardController');
 Router::get('follow','FollowersController');
 Router::get('unfollow','FollowersController');
 //options endpoints:

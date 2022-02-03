@@ -27,7 +27,7 @@ class DashboardController extends AppController
         $this->render('neighbourhood', ["anns"=>$anns]);
     }
 
-    public function get_announcement_JSON(int $annId): void
+    public function get_announcement_details(int $annId): void
     {
         header('Content-type: application/json');
 
