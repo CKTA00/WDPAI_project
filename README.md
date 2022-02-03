@@ -8,33 +8,42 @@ Użytkownicy mogą śledzić ogłoszenia co powoduje dodanie dowolnego ogłoszen
 
 <h2>Widoki aplikacji</h2>
 Aplikacja składa się z kilku widoków podzielonych na grupy:
+
 - widoków przed zalogowaniem:
-  - widok logowania ```/login```
-  - widok rejestracji ```/register```
-  - widok odzyskiwania hasła (widok istnieje, ale usługa odzyskiwania hasła jest nie zaimplementowana) ```/regain_password```
-- widok główny ```/dashboard``` z dwoma wariantami:
+  - widok logowania `/login`
+  - widok rejestracji `/register`
+  - widok odzyskiwania hasła (widok istnieje, ale usługa odzyskiwania hasła jest nie zaimplementowana) `/regain_password`
+- widok główny `/dashboard` z dwoma wariantami:
   - widok mapy (ogłoszenia w postaci punktów)
   - widok siatki (ogłoszenia w postaci kafelków)
-- widok śledzonych ogłoszeń ```/followed``` z dwoma wariantami:
+- widok śledzonych ogłoszeń `/followed` z dwoma wariantami:
   - widok mapy (ogłoszenia w postaci punktów)
   - widok siatki (ogłoszenia w postaci kafelków)
 - widoki ogłoszeń użytkownika (których jest właścicelem):
-  - widok przeglądu wszystkich ogłoszeń użytkownika ```/announcements```
-  - widok edycji i dodwania nowego ogłoszenia ```/edit_announcement``` ```/new_announcement```
-- widok opcji ```/options```
+  - widok przeglądu wszystkich ogłoszeń użytkownika `/announcements`
+  - widok edycji i dodwania nowego ogłoszenia `/edit_announcement` `/new_announcement`
+- widok opcji `/options`
   - zmiana zdjeci aprofilowego
   - zmiana informacji pojawiającej się pod profilem (bio)
-  - możliwość wylogowania ```/logout``` (następuje również po ręcznym wpisaniu ```/register```, ```/login``` lub nic przekierowywuje do widoku głównego dopóki użytkownik się nie wylogował/ciasteczko nie wygasło)
+  - możliwość wylogowania `/logout` (następuje również po ręcznym wpisaniu `/register`, `/login` lub nic przekierowywuje do widoku głównego dopóki użytkownik się nie wylogował/ciasteczko nie wygasło)
 
 
 Wszystkie widoki są dostosowane zarówno do ekranów komputera jak i urządzeń mobilnych.
 W przypadku urządzeń mobilnych niektóre widoki są dzielone na mniejsze, w których widać tylko kawałek strony, ale między którymi można się swobodnie przełączać, bez ładowania strony od nowa.
+
+Dodatkowo poniższe endpointy mogą doprowadzić do jednego z powyższych widoków:
+
+- `delete_announcement` usuwa aktywne (zaznaczone) ogłoszenie i wraca do widoku ogłoszeń `/announcements`
+- `change_profile_image` zmienia zdjęcie profilowe użytkownika i wraca do widoku opcji `/options`
+- `delete_profile_image` usuwa zdjęcie profilowe użytkownika (ustawia na domyślne profilowe) i wraca do widoku opcji `/options`
+- `change_bio` zmienia bio użytkownika i wraca do widoku opcji `/options`
 
 <h3>Model bazy danych:</h3>
 <img src="./database_model.svg">
 
 <h3>API</h3>
 (dostępne endpointy nie zwracające całej strony html, lecz informacje w postaci JSON)
+
 - `/get_announcement_details/id`
   - Metoda: GET
   - Użytkownik musi być zalogowany
