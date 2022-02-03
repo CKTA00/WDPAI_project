@@ -1,13 +1,20 @@
+/// VARIABLES:
+// templates
 const announcementTemplate= document.querySelector("#announcement-details");
-const announcementDiv= document.querySelector("aside");
-const announcements = document.getElementsByClassName("announcement");
 const loaderTemplate = document.querySelector("#loader");
+
+// data/elements of grid view
+const announcements = document.getElementsByClassName("announcement");
+
+// main and aside
 const mainView = document.querySelector("main");
+const detailView = document.querySelector("aside");
+
+// replacing map with grid and vice versa
 const mapDiv = document.querySelector("#full-map");
 const mapButton = document.querySelector(".fa-map").parentElement;
 const gridDiv = document.querySelector(".grid-view");
 const gridButton = document.querySelector(".fa-th-large").parentElement;
-const detailView = document.querySelector("aside");
 
 // used to determine if resolution fits mobile screen sizes
 let isMobile;
@@ -16,33 +23,15 @@ let isMobile;
 let backButton;
 let followButton;
 let isFollow;
-let isViewDetails;
+let isViewDetails; //used to determine which div to show on mobile
 let focusId;
 
-// map
+// map related
 let currentMarkers = [];
 let isMap = true;
-checkForMobile();
-viewMain();
-showProperHeaderButton();
 
-/// map related:
-
-mapboxgl.accessToken = mapBoxToken;
-
-const map = new mapboxgl.Map({
-    container: 'full-map',
-    style: 'mapbox://styles/mapbox/light-v10',
-    center: [0,0],
-    zoom: 0
-});
-
-let options = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0
-};
-navigator.geolocation.getCurrentPosition(locationSuccess, locationError, [options])
+/// FUNCTIONS:
+// map related
 
 function locationSuccess(pos) {
     map.flyTo({
@@ -70,20 +59,12 @@ function placeMarker(annElement){
 
 function markerOnClick(marker,id)
 {
-    // this below causes bug in position of marker:
-    // currentMarkers.forEach((m)=>{m.className = "marker";})
-    // marker.className = "active-marker";
     focusId = id;
     viewDetail();
     fetchAnnouncement(id);
 }
 
-function showPlaceName(annElement){
-    //annElement.querySelector("p").innerHTML = '<i class="fas fa-map-marker-alt"></i>&nbsp;'
-    // TODO request from mapbox api geocoding
-}
-
-/////
+// update view when resizing:
 
 function checkForMobile() {
     let w = window.innerWidth;
@@ -107,7 +88,6 @@ function checkForMobile() {
         mainView.style.display = "flex";
     }
 }
-window.onresize = checkForMobile;
 
 function viewDetail()
 {
@@ -126,6 +106,8 @@ function viewMain()
     isViewDetails = false;
 }
 
+//update view (map <--> grid) when clicking button (and other events)
+
 function showProperHeaderButton()
 {
     if(isMap){
@@ -143,6 +125,8 @@ function showProperHeaderButton()
     }
 }
 
+// highlight/un-highlight announcement when clicked (active = highlighted)
+
 function deactivateAnnouncement(element)
 {
     element.classList.remove("active-ann");
@@ -159,31 +143,40 @@ function showAnnouncement(element){
     }
 }
 
+// get announcement details when clicked
+
 function fetchAnnouncement(annId)
 {
-    announcementDiv.innerHTML="";
+    detailView.innerHTML="";
     const loader = loaderTemplate.content.cloneNode(true);
-    announcementDiv.appendChild(loader);
+    detailView.appendChild(loader);
     fetch("/get_announcement_JSON/"+annId).then(function(response){
         ann = response.json();
         return ann;
     }).then(function(ann){
-        announcementDiv.innerHTML="";
+        detailView.innerHTML="";
         showDetails(ann);
-        let pointData = JSON.parse(ann.location);
-        fetch(
-            "https://api.mapbox.com/geocoding/v5/mapbox.places/"+pointData.point[0]+","+pointData.point[1]+".json?types=poi&access_token="+mapBoxToken
-        ).then(function(response){
-            return response.json();
-        }).then(function(poi){
-            let placeName;
-            if(poi.features[0]) placeName = poi.features[0].place_name;
-            else placeName = "unnamed place";
-            announcementDiv.querySelector("#location").innerHTML = "<i class=\"fas fa-map-marker-alt\"></i>&nbsp;"+placeName;
-        });
+        fetchCommonPlaceName(ann);
     });
 
 }
+
+function fetchCommonPlaceName(ann)
+{
+    let pointData = JSON.parse(ann.location);
+    fetch(
+        "https://api.mapbox.com/geocoding/v5/mapbox.places/"+pointData.point[0]+","+pointData.point[1]+".json?types=poi&access_token="+mapBoxToken
+    ).then(function(response){
+        return response.json();
+    }).then(function(poi){
+        let placeName;
+        if(poi.features[0]) placeName = poi.features[0].place_name;
+        else placeName = "unnamed place";
+        detailView.querySelector("#location").innerHTML = "<i class=\"fas fa-map-marker-alt\"></i>&nbsp;"+placeName;
+    });
+}
+
+// render results of written above fetch
 
 function showDetails(ann)
 {
@@ -223,10 +216,10 @@ function showDetails(ann)
     isFollow = ann.follows;
     showFollowUnfollowButton();
 
-    announcementDiv.appendChild(result);
+    detailView.appendChild(result);
 }
 
-// show details sub-function
+// show details helper functions
 
 function formatTimespan(created_at)
 {
@@ -265,33 +258,37 @@ function unfollow(annId) {
     });
 }
 
-
-
-function submitIdForm(form)
-{
-    const hiddenField = document.createElement('input');
-    hiddenField.type = 'hidden';
-    hiddenField.name = 'id';
-    hiddenField.value = focusId;
-    form.appendChild(hiddenField);
-
-    document.body.appendChild(form);
-    form.submit();
-}
-
-function getAnnouncement(){
-    const form = document.createElement('form');
-    form.method = 'post';
-    form.action = './edit_announcement';
-    submitIdForm(form);
-}
+// binding of individual grid elements to announcements (id is provided in element)
 
 function bindElement(element)
 {
     element.addEventListener("click",function(e){showAnnouncement(element)})
-    showPlaceName(element);
     placeMarker(element);
 }
+
+/// INITIAL SCRIPT:
+
+checkForMobile();
+viewMain();
+showProperHeaderButton();
+
+mapboxgl.accessToken = mapBoxToken;
+
+const map = new mapboxgl.Map({
+    container: 'full-map',
+    style: 'mapbox://styles/mapbox/light-v10',
+    center: [0,0],
+    zoom: 0
+});
+
+let options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+};
+navigator.geolocation.getCurrentPosition(locationSuccess, locationError, [options])
+
+window.onresize = checkForMobile;
 
 Array.prototype.forEach.call(announcements,(element)=>bindElement(element));
 
@@ -299,6 +296,7 @@ gridButton.addEventListener("click",function(e){
     isMap = false;
     showProperHeaderButton();
 });
+
 mapButton.addEventListener("click",function(e){
     isMap = true;
     showProperHeaderButton();
