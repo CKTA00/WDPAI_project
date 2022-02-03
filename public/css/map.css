@@ -17,14 +17,6 @@
     display: none;
 }
 
-/*.mapboxgl-marker {*/
-/*    width: 25px;*/
-/*    height: 25px;*/
-/*    border-radius: 50%;*/
-/*    border:1px solid gray;*/
-/*    background-color:lightblue;*/
-/*}*/
-
 .marker {
     /*background-image: url('../../public/img/marker.svg');*/
     background-color: var(--basic);
@@ -32,17 +24,6 @@
     border: solid 2px var(--dark-text);
     width: 1em;
     height: 1em;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.active-marker {
-    /*background-image: url('../../public/img/marker.svg');*/
-    background-color: var(--gold);
-    background-size: cover;
-    border: solid 2px var(--gold-border);
-    width: 1.2em;
-    height: 1.2em;
     border-radius: 50%;
     cursor: pointer;
 }

@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="public/css/property.css">
     <link rel="stylesheet" type="text/css" href="public/css/property-mobile.css">
     <link rel="stylesheet" type="text/css" href="public/css/announcements.css">
-    <link rel="stylesheet" type="text/css" href="public/css/announcements-mobile.css">
 
     <link rel="stylesheet" type="text/css" href="public/css/map.css">
     <script type="text/javascript" src="./map-config.js"></script>
