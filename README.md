@@ -80,3 +80,9 @@ W przypadku urządzeń mobilnych niektóre widoki są dzielone na mniejsze, w kt
   - W miejsce `id` wstawiamy id ogłoszenia
   - Nie zwraca nic
   - Rezultat: zalogowany użytkonik przestaje śledzić ogłoszenie o danym id
+
+- `/get_bio`
+  - Metoda: GET
+  - Użytkownik musi być zalogowany
+  - Zwraca: JSON
+    - string bio: opis profilu zalogowanego użytkownika
