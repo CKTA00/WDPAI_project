@@ -35,7 +35,7 @@ W przypadku urządzeń mobilnych niektóre widoki są dzielone na mniejsze, w kt
 
 <h3>API</h3>
 (dostępne endpointy nie zwracające całej strony html, lecz informacje w postaci JSON)
-- `/get_announcement/id` 
+- `/get_announcement_details/id`
   - Metoda: GET
   - Użytkownik musi być zalogowany
   - W miejsce `id` wstawiamy id ogłoszenia
@@ -54,3 +54,15 @@ W przypadku urządzeń mobilnych niektóre widoki są dzielone na mniejsze, w kt
     - string `profile_image`:  nazwa obrazu profilowego twórcy ogłoszenia względem `/publi/uploads/`
     - string `bio`: opis profilu twórcy ogłoszenia
     - bool `follows`: czy zalogowany użytkownik śledzi to ogłoszenie
+
+- `/get_announcement/id`
+  - Metoda: GET
+  - W miejsce `id` wstawiamy id ogłoszenia
+  - W przypadku podania nieistniejącego lub błędnego id wysyłana jest wartość `false`
+  - Zwraca: JSON
+    - int `id`: id ogłoszenia
+    - string `title`: tytuł ogłoszenia
+    - string `description`: opis ogłoszenia
+    - int `range_id`: (nie używane) zasięg
+    - string `images`: nazwa obrazu ogłoszenia względem `/publi/uploads/`
+    - string `location`: lokalizacja w postaci `"{\"point\":[longitude,latitude]}"`
